@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROOF — Web3 Event Agency | Chris & Partners</title>
+<meta name="description" content="PROOF is the Web3 event agency by Chris & Partners—flagship conferences, TOKEN2049 and KBW side events, investor dinners, and institutional PCO from Seoul to 40+ countries.">
+<meta name="keywords" content="PROOF, Web3 events, Seoul Meta Week, TOKEN2049, Korea Blockchain Week, PCO, event agency, Chris and Partners, Seoul">
+<meta name="author" content="Chris & Partners Inc.">
+<meta name="robots" content="index,follow">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://chrisandpartners.co/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PROOF — Web3 Event Agency">
+<meta property="og:description" content="Institutional-grade Web3 event production. Global stages, proven execution. Seoul HQ, worldwide delivery.">
+<!-- After GitHub Pages deploy, use absolute URL for best social previews: https://USER.github.io/REPO/images/hero.jpg -->
+<meta property="og:image" content="images/hero.jpeg">
+<meta property="og:url" content="https://chrisandpartners.co/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PROOF — Web3 Event Agency">
+<meta name="twitter:description" content="Institutional-grade Web3 event production from Seoul.">
+<meta name="twitter:image" content="images/hero.jpeg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%23181818'/%3E%3Cpath fill='%23C9A962' d='M8 22V10h3.2l4.8 7.6V10H19v12h-3.1l-4.9-7.8V22H8z'/%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"PROOF","alternateName":"PROOF Web3 Event Agency","description":"Web3 event production and PCO—conferences, side events, and VIP programs by Chris & Partners.","url":"https://chrisandpartners.co/","email":"proof@chrisandpartners.co","areaServed":{"@type":"Place","name":"Worldwide"},"parentOrganization":{"@type":"Organization","name":"Chris & Partners Inc.","url":"https://chrisandpartners.co/"}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#181818">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#181818;
+  --bg2:#202020;
+  --bg3:#2C2C2C;
+  --w:#F7F3EC;
+  --w-dim:rgba(247,243,236,.8);
+  --g:#A3A3A3;
+  --g2:#6E6E6E;
+  --marquee-fg:rgba(247,243,236,.62);
+  --marquee-fg-hover:rgba(247,243,236,.98);
+  --marquee-sep:rgba(247,243,236,.44);
+  --clients-fg:rgba(247,243,236,.58);
+  --clients-fg-hover:rgba(247,243,236,.98);
+  --line:rgba(247,243,236,.12);
+  --line-strong:rgba(247,243,236,.2);
+  --accent:#C9A962;
+  --accent-soft:rgba(201,169,98,.12);
+  --glow:rgba(201,169,98,.14);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --ease-soft:cubic-bezier(.4,0,.2,1);
+  --fn:'Bebas Neue',sans-serif;
+  --fb:'Manrope',sans-serif;
+  --nav-h:60px;
+}
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:calc(var(--nav-h) + 12px);
+}
+body{
+  font-size:16px;
+  background:var(--bg);
+  background-image:
+    radial-gradient(ellipse 100% 70% at 50% -25%, rgba(201,169,98,.12) 0%, transparent 52%),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(255,255,255,.07) 0%, transparent 50%);
+  color:var(--w);
+  font-family:var(--fb);font-weight:300;
+  overflow-x:hidden;cursor:none;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
+::selection{background:rgba(201,169,98,.28);color:var(--w)}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero-bg{animation:none!important}
+  .ticker-inner,.clients-track{animation:none!important}
+  .scroll-line{animation:none!important}
+  .hl,.hero-tag,.hero-bottom{animation:none!important;opacity:1!important;transform:none!important}
+  .rv{opacity:1!important;transform:none!important;transition:none!important}
+}
+
+/* ── CUSTOM CURSOR ── */
+#cur{
+  position:fixed;width:8px;height:8px;
+  background:var(--w);border-radius:50%;
+  pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:width .35s var(--ease-out),height .35s var(--ease-out),opacity .25s,box-shadow .35s var(--ease-out);
+  mix-blend-mode:difference;
+  box-shadow:0 0 0 0 rgba(243,238,230,.25);
+}
+#cur.big{width:48px;height:48px;box-shadow:0 0 0 1px rgba(243,238,230,.15)}
+#cur.hidden{opacity:0}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 52px;height:var(--nav-h);
+  background:rgba(24,24,24,.82);
+  backdrop-filter:blur(20px) saturate(1.2);
+  -webkit-backdrop-filter:blur(20px) saturate(1.2);
+  border-bottom:1px solid var(--line);
+  transition:background .4s var(--ease-soft),border-color .4s var(--ease-soft),box-shadow .4s var(--ease-soft);
+}
+nav.is-scrolled{
+  background:rgba(24,24,24,.94);
+  border-bottom-color:rgba(247,243,236,.08);
+  box-shadow:0 1px 0 rgba(247,243,236,.06),0 28px 56px -28px rgba(0,0,0,.45);
+}
+.logo{
+  font-family:var(--fn);
+  font-size:clamp(26px,2.8vw,32px);
+  letter-spacing:.16em;
+  color:var(--w);
+  text-decoration:none;
+  padding-left:14px;margin-left:-2px;
+  border-left:3px solid var(--accent);
+  text-shadow:0 0 28px rgba(201,169,98,.22),0 1px 0 rgba(255,255,255,.12);
+  transition:color .3s var(--ease-soft),letter-spacing .4s var(--ease-out),text-shadow .35s var(--ease-soft),border-color .3s,opacity .25s;
+}
+.logo:hover{
+  opacity:1;
+  letter-spacing:.18em;
+  color:#FFF;
+  border-left-color:#D4B76E;
+  text-shadow:0 0 36px rgba(201,169,98,.38),0 1px 0 rgba(255,255,255,.2);
+}
+.logo:focus-visible{outline:1px solid var(--accent);outline-offset:6px;opacity:1}
+.nav-r{display:flex;align-items:center;gap:32px}
+.nav-r a{
+  font-family:var(--fb);font-size:13px;font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--g);text-decoration:none;
+  transition:color .28s var(--ease-soft),letter-spacing .28s var(--ease-soft);
+  position:relative;
+}
+.nav-r a:not(.nav-cta)::after{
+  content:'';position:absolute;left:0;bottom:-4px;width:0;height:1px;
+  background:linear-gradient(90deg,var(--accent),transparent);
+  transition:width .35s var(--ease-out);
+}
+.nav-r a:not(.nav-cta):hover{color:var(--w);letter-spacing:.14em}
+.nav-r a:not(.nav-cta):hover::after{width:100%}
+.nav-r a:focus-visible{outline:1px solid var(--accent);outline-offset:6px;color:var(--w)}
+.nav-cta{
+  border:1px solid var(--line-strong)!important;
+  padding:9px 22px;color:var(--w)!important;
+  transition:background .28s var(--ease-soft),color .28s var(--ease-soft),border-color .28s var(--ease-soft),box-shadow .28s!important;
+  border-radius:1px;
+}
+.nav-cta:hover{
+  background:var(--w)!important;color:var(--bg)!important;
+  border-color:var(--w)!important;
+  box-shadow:0 0 24px -4px var(--glow);
+}
+.nav-cta:focus-visible{outline:1px solid var(--accent);outline-offset:4px}
+
+.skip-link{
+  position:absolute;left:16px;top:0;padding:12px 18px;
+  background:var(--w);color:var(--bg);font-family:var(--fb);font-size:14px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;text-decoration:none;z-index:10000;
+  transform:translateY(-120%);transition:transform .25s var(--ease-out);
+  border-radius:0 0 2px 2px;
+}
+.skip-link:focus{transform:translateY(0);outline:2px solid var(--accent);outline-offset:2px}
+
+.nav-toggle{
+  display:none;width:44px;height:44px;align-items:center;justify-content:center;
+  flex-shrink:0;margin-left:auto;margin-right:12px;
+  background:transparent;border:1px solid var(--line-strong);color:var(--w);
+  border-radius:2px;cursor:pointer;
+  transition:background .25s var(--ease-soft),border-color .25s;
+}
+.nav-toggle:hover{background:rgba(243,238,230,.06)}
+.nav-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.burger{width:18px;height:14px;position:relative;display:block}
+.burger span{
+  position:absolute;left:0;right:0;height:2px;background:var(--w);
+  border-radius:1px;transition:transform .3s var(--ease-out),opacity .2s,top .3s;
+}
+.burger span:nth-child(1){top:0}
+.burger span:nth-child(2){top:6px}
+.burger span:nth-child(3){top:12px}
+.nav-open .burger span:nth-child(1){top:6px;transform:rotate(45deg)}
+.nav-open .burger span:nth-child(2){opacity:0}
+.nav-open .burger span:nth-child(3){top:6px;transform:rotate(-45deg)}
+
+.nav-backdrop{
+  display:none;position:fixed;inset:0;top:var(--nav-h);z-index:198;
+  background:rgba(0,0,0,.42);opacity:0;pointer-events:none;
+  transition:opacity .35s var(--ease-soft);
+}
+.nav-open .nav-backdrop{display:block;opacity:1;pointer-events:auto}
+.logo,.nav-toggle{position:relative;z-index:200}
+.nav-r{position:relative;z-index:201}
+
+/* ══════════════════════════════
+   HERO — CINEMATIC
+══════════════════════════════ */
+.hero{
+  position:relative;height:100vh;
+  display:flex;flex-direction:column;
+  justify-content:flex-end;
+  padding:0 52px 60px;
+  overflow:hidden;
+}
+
+/* BG photo — Ken Burns zoom */
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  animation:kenburns 12s ease-out forwards;
+}
+.hero-bg img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:brightness(.64) contrast(1.02) saturate(.95);
+  transform-origin:center 60%;
+}
+@keyframes kenburns{
+  from{transform:scale(1.08)}
+  to{transform:scale(1)}
+}
+
+/* dark vignette */
+.hero-vignette{
+  position:absolute;inset:0;z-index:1;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 115%, rgba(201,169,98,.11) 0%, transparent 58%),
+    linear-gradient(
+      to top,
+      rgba(24,24,24,.88) 0%,
+      rgba(24,24,24,.3) 42%,
+      rgba(24,24,24,.08) 100%
+    );
+}
+.hero-vignette::after{
+  content:'';position:absolute;inset:0;pointer-events:none;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode:overlay;
+}
+
+.hero-content{position:relative;z-index:2}
+
+/* staggered text lines */
+.hero-tag{
+  font-family:var(--fb);font-size:13px;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--g);
+  margin-bottom:32px;
+  opacity:0;animation:lineUp .8s ease .3s forwards;
+  display:flex;align-items:center;gap:14px;
+}
+.hero-tag::before{
+  content:'';width:36px;height:1px;
+  background:linear-gradient(90deg,var(--accent),transparent);
+  flex-shrink:0;
+}
+.hero-h{
+  font-family:var(--fn);
+  font-size:clamp(76px,10.5vw,156px);
+  line-height:.88;letter-spacing:.025em;
+  text-transform:uppercase;
+  margin-bottom:52px;
+  overflow:hidden;
+  text-wrap:balance;
+}
+.hl{
+  display:block;overflow:hidden;
+  opacity:0;transform:translateY(100%);
+}
+.hl:nth-child(1){animation:slideUp .7s cubic-bezier(.16,1,.3,1) .5s forwards}
+.hl:nth-child(2){animation:slideUp .7s cubic-bezier(.16,1,.3,1) .65s forwards}
+.hl:nth-child(3){animation:slideUp .7s cubic-bezier(.16,1,.3,1) .8s forwards}
+.hl:nth-child(4){animation:slideUp .7s cubic-bezier(.16,1,.3,1) .95s forwards}
+.hl.dim{opacity:0;animation:slideUpDim .7s cubic-bezier(.16,1,.3,1) .8s forwards}
+
+@keyframes slideUp{
+  from{opacity:0;transform:translateY(100%)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes slideUpDim{
+  from{opacity:0;transform:translateY(100%)}
+  to{opacity:.28;transform:translateY(0)}
+}
+@keyframes lineUp{
+  from{opacity:0;transform:translateY(16px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.hero-bottom{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  opacity:0;animation:lineUp .8s ease 1.2s forwards;
+}
+.hero-stats{display:flex;gap:52px;flex-wrap:wrap}
+.hs-n{
+  font-family:var(--fn);font-size:clamp(28px,3.2vw,36px);
+  letter-spacing:.04em;display:block;line-height:1;
+  font-variant-numeric:tabular-nums;
+  background:linear-gradient(180deg,var(--w) 0%,rgba(243,238,230,.72) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hs-l{font-family:var(--fb);font-size:13px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--g);display:block;margin-top:8px;max-width:min(220px,42vw);line-height:1.45}
+.hero-scroll{
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  font-family:var(--fb);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--g);
+}
+.scroll-line{
+  width:1px;height:52px;
+  background:linear-gradient(180deg,var(--accent),transparent);
+  opacity:.55;
+  animation:scrollPulse 2.2s var(--ease-soft) infinite;
+}
+@keyframes scrollPulse{
+  0%,100%{transform:scaleY(1);opacity:.4}
+  50%{transform:scaleY(.5);opacity:1}
+}
+
+/* ══════════════════════════════
+   TICKER
+══════════════════════════════ */
+.ticker{
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  overflow:hidden;padding:14px 0;
+  background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%);
+}
+.ticker-inner{display:flex;width:max-content;animation:tick 36s linear infinite}
+.ticker-inner:hover{animation-play-state:paused}
+.tk{
+  font-family:var(--fn);font-size:14px;letter-spacing:.18em;
+  color:var(--marquee-fg);padding:0 40px;white-space:nowrap;
+  transition:color .3s var(--ease-soft);
+}
+.tk:hover{color:var(--marquee-fg-hover)}
+.tk b{color:var(--marquee-sep);font-weight:300;margin:0 6px}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ══════════════════════════════
+   CLIENTS — auto-scroll marquee
+══════════════════════════════ */
+.clients-sec{
+  padding:64px 52px;
+  border-bottom:1px solid var(--line);
+  overflow:hidden;
+}
+.clients-label{
+  font-family:var(--fb);font-size:13px;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--g);
+  margin-bottom:36px;
+}
+.clients-track-wrap{overflow:hidden;position:relative}
+.clients-track-wrap::before,
+.clients-track-wrap::after{
+  content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;
+}
+.clients-track-wrap::before{left:0;background:linear-gradient(90deg,var(--bg) 0%,transparent 100%)}
+.clients-track-wrap::after{right:0;background:linear-gradient(270deg,var(--bg) 0%,transparent 100%)}
+.clients-track{
+  display:flex;width:max-content;
+  animation:marq 28s linear infinite;
+  gap:0;
+}
+.clients-track:hover{animation-play-state:paused}
+.cl{
+  font-family:var(--fn);font-size:16px;letter-spacing:.11em;
+  color:var(--clients-fg);
+  padding:14px 44px;
+  border-right:1px solid var(--line);
+  white-space:nowrap;
+  transition:color .35s var(--ease-soft),text-shadow .35s var(--ease-soft);
+}
+.cl:hover{color:var(--clients-fg-hover);text-shadow:0 0 36px var(--glow)}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ══════════════════════════════
+   SECTION WRAPPER
+══════════════════════════════ */
+.sec{padding:120px 52px}
+.sec-num{
+  font-family:var(--fn);font-size:13px;letter-spacing:.16em;
+  color:var(--g);margin-bottom:20px;display:block;
+}
+.sec-title{
+  font-family:var(--fn);
+  font-size:clamp(60px,7.5vw,108px);
+  letter-spacing:.025em;line-height:.9;
+  text-transform:uppercase;
+  margin-bottom:80px;
+  text-wrap:balance;
+}
+
+/* ══════════════════════════════
+   EXPERTISE — asymmetric + parallax
+══════════════════════════════ */
+.exp-wrap{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3px;
+}
+.exp-card{
+  position:relative;overflow:hidden;
+  height:580px;
+  background:var(--bg3);
+  border:1px solid rgba(243,238,230,.04);
+  transition:border-color .45s var(--ease-soft),box-shadow .45s var(--ease-soft);
+}
+.exp-card.tall{height:740px}
+.exp-card::before{
+  content:'';position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 100%,var(--accent-soft),transparent 70%);
+  transition:opacity .5s var(--ease-soft);
+}
+.exp-card:hover::before{opacity:1}
+.exp-card:hover{
+  border-color:rgba(243,238,230,.08);
+  box-shadow:0 24px 48px -20px rgba(0,0,0,.38);
+}
+.exp-card img{
+  width:100%;height:135%;object-fit:cover;object-position:center;
+  display:block;top:-12%;left:0;position:absolute;z-index:0;
+  filter:brightness(.58) contrast(1.02);
+  transition:filter .55s var(--ease-soft),transform .55s var(--ease-soft);
+  will-change:transform;
+}
+.exp-card:hover img{filter:brightness(.82) contrast(1.02)}
+.exp-card-body{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:36px 40px;
+  background:linear-gradient(transparent,rgba(24,24,24,.78));
+  z-index:2;
+}
+.exp-num{
+  font-family:var(--fn);font-size:80px;
+  color:rgba(243,238,230,.06);
+  position:absolute;top:24px;right:28px;z-index:2;
+  line-height:1;
+  pointer-events:none;
+  transition:color .4s var(--ease-soft);
+}
+.exp-card:hover .exp-num{color:rgba(201,169,98,.12)}
+.exp-cat{
+  font-family:var(--fb);font-size:13px;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(247,243,236,.48);display:block;margin-bottom:12px;
+}
+.exp-title{
+  font-family:var(--fn);font-size:clamp(26px,3vw,38px);
+  text-transform:uppercase;letter-spacing:.03em;line-height:1;
+  margin-bottom:12px;
+}
+.exp-desc{
+  font-size:15px;font-weight:300;
+  color:rgba(247,243,236,.62);line-height:1.75;
+  max-width:340px;
+}
+
+/* side col with stacked 3 */
+.exp-col{display:flex;flex-direction:column;gap:3px}
+.exp-card.sm{height:auto;flex:1}
+
+/* ══════════════════════════════
+   WORK — asymmetric grid
+══════════════════════════════ */
+.work-sec{background:var(--bg2);border-top:1px solid var(--line)}
+.work-header{
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:end;padding:100px 52px 60px;
+  gap:40px;
+}
+.work-intro{
+  font-size:16px;font-weight:300;color:var(--g);
+  line-height:1.85;max-width:340px;
+}
+/* Work: 3-column auto rows — duplicate a <article class="wi rv"> + images/work-0N.jpg */
+.work-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-auto-rows:minmax(clamp(260px,30vw,400px),auto);
+  gap:3px;
+  align-items:stretch;
+}
+.wi{
+  position:relative;overflow:hidden;
+  background:var(--bg3);
+  border:1px solid rgba(243,238,230,.04);
+  transition:border-color .45s var(--ease-soft),box-shadow .45s var(--ease-soft);
+}
+.wi:hover{
+  border-color:rgba(243,238,230,.09);
+  box-shadow:0 20px 40px -18px rgba(0,0,0,.34);
+}
+.wi img{
+  position:absolute;left:0;right:0;top:-10%;z-index:0;
+  width:100%;height:120%;object-fit:cover;object-position:center;
+  display:block;
+  filter:brightness(.62) saturate(.88) contrast(1.02);
+  transition:filter .55s var(--ease-soft),transform .75s var(--ease-out);
+  will-change:transform;
+}
+.wi:hover img{filter:brightness(.88) saturate(1.02) contrast(1.02);transform:scale(1.04)}
+.wi-body{
+  position:absolute;bottom:0;left:0;right:0;z-index:2;
+  padding:20px 24px;
+  background:linear-gradient(transparent,rgba(24,24,24,.75));
+}
+.wi-name{
+  font-family:var(--fn);font-size:18px;
+  letter-spacing:.04em;text-transform:uppercase;
+  display:block;line-height:1;
+}
+.wi-sub{
+  font-family:var(--fb);font-size:13px;font-weight:300;
+  color:rgba(247,243,236,.52);display:block;
+  margin-top:5px;letter-spacing:.06em;
+}
+/* giant number that overlaps the image border */
+.wi-big-num{
+  position:absolute;top:-20px;right:12px;
+  font-family:var(--fn);font-size:120px;
+  color:rgba(243,238,230,.055);line-height:1;
+  pointer-events:none;z-index:3;
+  transition:color .45s var(--ease-soft);
+}
+.wi:hover .wi-big-num{color:rgba(201,169,98,.1)}
+
+/* ══════════════════════════════
+   TESTIMONIALS
+══════════════════════════════ */
+.testi-sec{border-top:1px solid var(--line)}
+.testi-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:0;border-top:1px solid var(--line);margin-top:80px;
+}
+.tc{
+  padding:52px 44px;
+  border-right:1px solid var(--line);
+  transition:background .4s var(--ease-soft),border-color .4s;
+}
+.tc:last-child{border-right:none}
+.tc:hover{background:linear-gradient(165deg,rgba(201,169,98,.04) 0%,var(--bg2) 45%)}
+.tc-mark{
+  font-family:var(--fn);font-size:56px;
+  color:rgba(240,235,227,.1);
+  display:block;line-height:.8;margin-bottom:24px;
+}
+.tc-quote{
+  font-size:16px;font-weight:300;color:rgba(247,243,236,.84);
+  line-height:1.85;margin:0 0 36px;padding:0;border:none;font:inherit;
+}
+.tc figcaption{display:block}
+.tc figcaption .tc-role{display:block}
+.tc-divider{width:32px;height:1px;background:var(--line);margin-bottom:20px}
+.tc-name{font-family:var(--fn);font-size:18px;letter-spacing:.06em;display:block}
+.tc-role{font-family:var(--fb);font-size:13px;font-weight:300;color:var(--g);letter-spacing:.09em;text-transform:uppercase;display:block;margin-top:6px}
+
+/* ══════════════════════════════
+   ABOUT — photo overlap
+══════════════════════════════ */
+.about-sec{
+  --about-stat-num:clamp(46px,4.2vw,52px);
+  --about-stat-label:13px;
+  --about-stat-label-lh:1.45;
+  --about-stat-label-track:.09em;
+  --about-stat-gap:10px;
+  display:grid;grid-template-columns:1.08fr 1fr;
+  align-items:stretch;
+  min-height:640px;
+  border-top:1px solid var(--line);
+}
+.about-photo{position:relative;overflow:hidden;min-height:420px}
+@media(min-width:961px){
+  .about-photo{min-height:100%;height:100%}
+}
+.about-photo img{
+  position:absolute;left:0;right:0;top:-10%;
+  width:100%;height:120%;min-height:120%;
+  object-fit:cover;object-position:center;display:block;
+  filter:brightness(.74) contrast(1.02);
+  will-change:transform;
+}
+/* overlapping stat block */
+.about-stat-block{
+  position:absolute;bottom:0;right:0;
+  display:flex;flex-direction:column;align-items:flex-start;gap:var(--about-stat-gap);
+  background:var(--bg);
+  border-top:1px solid var(--line);
+  border-left:1px solid var(--line);
+  padding:28px 32px 32px;
+  width:min(100%,268px);
+  text-align:left;
+}
+.asb-n,.as-n{
+  font-family:var(--fn);font-size:var(--about-stat-num);letter-spacing:.02em;line-height:1;
+  font-variant-numeric:tabular-nums;display:block;
+}
+.asb-l,.as-l{
+  font-family:var(--fb);font-size:var(--about-stat-label);font-weight:400;color:var(--g);
+  text-transform:uppercase;letter-spacing:var(--about-stat-label-track);line-height:var(--about-stat-label-lh);
+  display:block;max-width:15rem;
+}
+.about-stat-block .asb-l{
+  max-width:none;white-space:nowrap;letter-spacing:.08em;
+}
+
+.about-right{
+  padding:clamp(72px,9vw,104px) clamp(40px,5vw,64px) clamp(72px,9vw,104px) clamp(48px,6vw,80px);
+  display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;
+  box-sizing:border-box;
+}
+@media(min-width:961px){
+  .about-right{
+    height:100%;
+    min-height:0;
+    padding-top:clamp(72px,9vw,104px);
+    padding-right:clamp(40px,5vw,64px);
+    padding-bottom:32px;
+    padding-left:clamp(48px,6vw,80px);
+  }
+}
+.about-copy{
+  width:100%;max-width:34rem;
+  display:flex;flex-direction:column;align-items:flex-start;
+  gap:1.25rem;
+}
+@media(min-width:961px){
+  .about-copy{
+    flex:1;
+    min-height:0;
+  }
+}
+.about-copy .sec-num{margin:0 0 .15rem}
+.about-title{
+  font-family:var(--fn);
+  font-size:clamp(48px,5.8vw,84px);
+  line-height:.93;letter-spacing:.02em;text-transform:uppercase;
+  margin:0;text-wrap:balance;
+}
+.about-lead,.about-body{
+  font-size:17px;font-weight:300;color:rgba(247,243,236,.76);
+  line-height:1.75;margin:0;max-width:100%;text-align:left;
+}
+.about-stats-grid{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  column-gap:clamp(24px,4vw,44px);row-gap:clamp(28px,4vw,36px);
+  width:100%;margin-top:.35rem;padding-top:2.25rem;
+  border-top:1px solid var(--line);
+}
+@media(min-width:961px){
+  .about-stats-grid{
+    margin-top:auto;
+    align-self:stretch;
+  }
+}
+.about-stat{
+  display:flex;flex-direction:column;align-items:flex-start;gap:var(--about-stat-gap);min-width:0;text-align:left;
+}
+
+/* ══════════════════════════════
+   CTA — full bleed photo
+══════════════════════════════ */
+.cta-sec{
+  position:relative;min-height:80vh;
+  display:flex;align-items:flex-end;
+  padding:0 52px 80px;
+  overflow:hidden;
+}
+.cta-bg{
+  position:absolute;inset:0;z-index:0;
+}
+.cta-bg img{
+  position:absolute;left:0;right:0;top:-12%;
+  width:100%;height:125%;object-fit:cover;object-position:center;
+  display:block;
+  filter:brightness(.6) saturate(.82);
+  will-change:transform;
+}
+.cta-bg::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(24,24,24,.88) 0%,rgba(24,24,24,.18) 100%);
+}
+.cta-content{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1fr auto;
+  align-items:flex-end;width:100%;gap:48px;
+}
+.cta-h{
+  font-family:var(--fn);
+  font-size:clamp(64px,9vw,128px);
+  line-height:.88;letter-spacing:.02em;
+  text-transform:uppercase;
+}
+.cta-h .soft{opacity:.22}
+.cta-right{
+  display:flex;flex-direction:column;
+  align-items:flex-end;gap:16px;
+  padding-bottom:8px;
+}
+.cta-sub{
+  font-family:var(--fb);font-size:16px;font-weight:300;
+  color:var(--g);line-height:1.7;
+  text-align:right;max-width:300px;
+}
+.btn-w{
+  font-family:var(--fn);font-size:15px;letter-spacing:.16em;
+  text-transform:uppercase;
+  background:var(--w);color:var(--bg);
+  padding:18px 44px;text-decoration:none;
+  display:inline-block;
+  transition:background .3s var(--ease-soft),letter-spacing .35s var(--ease-out),box-shadow .35s var(--ease-soft),transform .25s var(--ease-soft);
+  white-space:nowrap;border-radius:1px;
+}
+.btn-w:hover{background:#E8E3DA;letter-spacing:.22em;box-shadow:0 0 32px -6px var(--glow);transform:translateY(-1px)}
+.btn-w:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.btn-o{
+  font-family:var(--fn);font-size:15px;letter-spacing:.16em;
+  text-transform:uppercase;background:transparent;color:var(--w);
+  padding:18px 44px;text-decoration:none;display:inline-block;
+  border:1px solid var(--line-strong);
+  transition:background .3s var(--ease-soft),border-color .3s,letter-spacing .35s var(--ease-out);white-space:nowrap;border-radius:1px;
+}
+.btn-o:hover{background:rgba(243,238,230,.06);border-color:rgba(243,238,230,.35);letter-spacing:.2em}
+.btn-o:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* ══════════════════════════════
+   CONTACT
+══════════════════════════════ */
+.contact-sec{
+  border-top:1px solid var(--line);
+  display:grid;grid-template-columns:1fr 1fr;
+}
+.contact-l{padding:80px 52px;border-right:1px solid var(--line)}
+.contact-r{padding:80px 52px}
+.ci-b{margin-bottom:32px}
+.ci-lbl{font-family:var(--fb);font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--g);display:block;margin-bottom:10px}
+.ci-v{font-family:var(--fn);font-size:22px;letter-spacing:.04em}
+.ci-v a{color:var(--w);text-decoration:none;transition:opacity .2s,color .2s}
+.ci-v a:hover{opacity:.85;color:var(--accent)}
+.ci-v a:focus-visible{outline:1px solid var(--accent);outline-offset:3px}
+.ci-s{font-family:var(--fb);font-size:14px;font-weight:300;color:var(--g);margin-top:6px;display:block;line-height:1.5}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.form-full{margin-bottom:10px}
+.fl{display:block;font-family:var(--fb);font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--g);margin-bottom:9px}
+.fi{width:100%;background:rgba(255,255,255,.065);border:1px solid rgba(247,243,236,.12);color:var(--w);font-family:var(--fb);font-size:16px;font-weight:300;padding:15px 16px;outline:none;transition:border-color .2s}
+.fi:focus{border-color:rgba(243,238,230,.35)}
+.fi:focus-visible{outline:1px solid var(--accent);outline-offset:2px;border-color:rgba(201,169,98,.4)}
+.fi::placeholder{color:var(--g2)}
+.fi-sel{width:100%;background:rgba(255,255,255,.065);border:1px solid rgba(247,243,236,.12);color:var(--w);font-family:var(--fb);font-size:16px;font-weight:300;padding:15px 16px;outline:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M0 0l6 6 6-6' stroke='%23888888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;cursor:pointer;transition:border-color .2s}
+.fi-sel:focus{border-color:rgba(243,238,230,.35)}
+.fi-sel:focus-visible{outline:1px solid var(--accent);outline-offset:2px}
+.fi-ta{width:100%;background:rgba(255,255,255,.065);border:1px solid rgba(247,243,236,.12);color:var(--w);font-family:var(--fb);font-size:16px;font-weight:300;padding:15px 16px;outline:none;resize:vertical;min-height:112px;transition:border-color .2s;line-height:1.55}
+.fi-ta:focus{border-color:rgba(243,238,230,.35)}
+.fi-ta:focus-visible{outline:1px solid var(--accent);outline-offset:2px}
+.fi-ta::placeholder,.fi-sel option{color:var(--g2)}
+.form-btn{width:100%;background:var(--w);color:var(--bg);font-family:var(--fn);font-size:15px;letter-spacing:.18em;text-transform:uppercase;padding:18px;border:none;cursor:pointer;border-radius:1px;transition:background .3s var(--ease-soft),letter-spacing .35s var(--ease-out),box-shadow .3s;margin-top:6px}
+.form-btn:hover{background:#E8E3DA;letter-spacing:.26em;box-shadow:0 0 28px -8px var(--glow)}
+.form-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.form-btn:disabled{opacity:.55;cursor:not-allowed;box-shadow:none;transform:none}
+.form-btn.is-loading{letter-spacing:.18em}
+.form-note{
+  font-family:var(--fb);font-size:13px;font-weight:300;color:var(--g2);
+  line-height:1.5;margin-top:14px;letter-spacing:.02em;
+}
+.form-note a{color:rgba(247,243,236,.72);text-decoration:underline;text-underline-offset:3px}
+.form-note a:hover{color:var(--w)}
+.form-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
+.fi.error,.fi-sel.error,.fi-ta.error{border-color:rgba(220,90,90,.65)!important}
+.form-status{
+  font-family:var(--fb);font-size:14px;font-weight:400;line-height:1.55;
+  margin-top:12px;padding:12px 14px;border-radius:2px;display:none;
+}
+.form-status.err{display:block;background:rgba(220,90,90,.12);border:1px solid rgba(220,90,90,.35);color:#e8a8a8}
+.form-status.ok{display:block;background:rgba(90,160,110,.14);border:1px solid rgba(120,200,140,.35);color:#a8d4b4}
+
+/* ══════════════════════════════
+   FOOTER
+══════════════════════════════ */
+footer{
+  border-top:1px solid var(--line);
+  padding:36px 52px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.ft-l{display:flex;flex-direction:column;gap:5px}
+.ft-logo{font-family:var(--fn);font-size:17px;letter-spacing:.12em;color:var(--w)}
+.ft-sub{font-family:var(--fb);font-size:13px;color:var(--g);text-transform:uppercase;letter-spacing:.09em;line-height:1.45}
+.ft-c{font-family:var(--fb);font-size:13px;color:var(--g2);text-transform:uppercase;letter-spacing:.07em;text-align:center;line-height:1.75}
+.ft-r{display:flex;gap:24px}
+.ft-r a{font-family:var(--fb);font-size:13px;color:var(--g);text-decoration:none;text-transform:uppercase;letter-spacing:.09em;transition:color .2s}
+.ft-r a:hover{color:var(--w)}
+.ft-r a:focus-visible{color:var(--w);outline:1px solid var(--accent);outline-offset:4px}
+
+/* ══════════════════════════════
+   REVEAL
+══════════════════════════════ */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .85s var(--ease-soft),transform .85s var(--ease-out)}
+.rv.on{opacity:1;transform:none}
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media(max-width:960px){
+  body{cursor:auto}
+  #cur{display:none}
+  nav{padding:0 20px;flex-wrap:wrap;row-gap:0}
+  .nav-toggle{display:flex;margin-left:auto}
+  .nav-r{
+    flex:1 0 100%;width:100%;
+    flex-direction:column;align-items:stretch;gap:0;
+    max-height:0;opacity:0;visibility:hidden;overflow:hidden;
+    pointer-events:none;
+    padding:0 4px;
+    margin:0 -4px;
+    border-top:1px solid transparent;
+    transition:max-height .45s var(--ease-out),opacity .3s,visibility .3s,padding .3s,border-color .3s;
+  }
+  .nav-open .nav-r{
+    max-height:min(72vh,520px);opacity:1;visibility:visible;pointer-events:auto;
+    padding:10px 4px 22px;border-top-color:rgba(243,238,230,.08);
+    overflow-y:auto;
+  }
+  .nav-r a:not(.nav-cta){
+    display:block!important;padding:14px 4px;
+    border-bottom:1px solid rgba(243,238,230,.06);
+  }
+  .nav-r a:not(.nav-cta)::after{display:none}
+  .nav-r .nav-cta{margin-top:12px;text-align:center;padding:14px 22px}
+  .hero{padding:0 24px 52px}
+  .sec,.work-header,.contact-l,.contact-r,.about-right,.cta-sec{padding:64px 24px}
+  .clients-sec{padding:52px 24px}
+  .exp-wrap,.work-grid,.testi-grid,.about-sec,.cta-content,.contact-sec{grid-template-columns:1fr}
+  .work-grid{grid-template-rows:auto}
+  .work-grid{grid-template-columns:1fr}
+  .wi{min-height:280px}
+  .exp-card,.exp-card.tall,.exp-card.sm{height:360px}
+  .about-stat-block{position:static;width:100%;border:none;border-top:1px solid var(--line);padding:28px 24px 32px;text-align:left}
+  .about-copy{max-width:none}
+  .about-right{justify-content:flex-start;padding-top:56px;padding-bottom:56px;height:auto}
+  .about-stats-grid{margin-top:.35rem}
+  .contact-l{border-right:none;border-bottom:1px solid var(--line)}
+  .cta-h{font-size:clamp(52px,12vw,80px)}
+  .cta-right{align-items:flex-start}
+  .hero-tag::before{width:24px}
+  footer{flex-direction:column;gap:20px;text-align:center;padding:36px 24px}
+  .ft-r{justify-content:center;flex-wrap:wrap}
+}
+</style>
+</head>
+<body id="top">
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- CUSTOM CURSOR -->
+<div id="cur" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav id="nav" role="banner" aria-label="PROOF">
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+  <a href="#top" class="logo" aria-label="PROOF — top of page">PROOF</a>
+  <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+    <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+  </button>
+  <div class="nav-r" id="navLinks" role="navigation" aria-label="Page sections">
+    <a href="#expertise">Expertise</a>
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact" class="nav-cta">Contact</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ══ HERO ══ -->
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="hero-bg">
+    <img src="images/hero.jpeg" alt="Sahara AI Connect Party — evening event lighting and crowd" width="1920" height="1080" fetchpriority="high" decoding="async">
+  </div>
+  <div class="hero-vignette"></div>
+  <div class="hero-content">
+    <p class="hero-tag">Web3 Event Agency · by Chris & Partners · Seoul</p>
+    <h1 class="hero-h" id="hero-heading">
+      <span class="hl">Global</span>
+      <span class="hl">Stages.</span>
+      <span class="hl dim">Proven</span>
+      <span class="hl">Execution.</span>
+    </h1>
+    <div class="hero-bottom">
+      <div class="hero-stats">
+        <div><span class="hs-n">150+</span><span class="hs-l">Event Organized</span></div>
+        <div><span class="hs-n">40+</span><span class="hs-l">Countries Operated</span></div>
+        <div><span class="hs-n">15yr</span><span class="hs-l">PCO(Professional Convention Organizer) Track Record</span></div>
+      </div>
+      <div class="hero-scroll">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" role="region" aria-label="Featured events and venues">
+  <div class="ticker-inner" aria-hidden="true">
+    <span class="tk">Korea Blockchain Week<b>·</b></span><span class="tk">Token 2049<b>·</b></span><span class="tk">DevCon<b>·</b></span><span class="tk">EthDenver<b>·</b></span><span class="tk">Consensus Asia<b>·</b></span><span class="tk">Seoul Meta Week<b>·</b></span><span class="tk">Aggregation Summit<b>·</b></span><span class="tk">AI All Summit<b>·</b></span>
+    <span class="tk">Korea Blockchain Week<b>·</b></span><span class="tk">Token 2049<b>·</b></span><span class="tk">DevCon<b>·</b></span><span class="tk">EthDenver<b>·</b></span><span class="tk">Consensus Asia<b>·</b></span><span class="tk">Seoul Meta Week<b>·</b></span><span class="tk">Aggregation Summit<b>·</b></span><span class="tk">AI All Summit<b>·</b></span>
+  </div>
+</div>
+
+<!-- CLIENTS -->
+<div class="clients-sec rv">
+  <p class="clients-label">Clients & Partners</p>
+  <div class="clients-track-wrap">
+    <div class="clients-track">
+      <span class="cl">Hashkey</span><span class="cl">AlchemyPay</span><span class="cl">WEMIX</span><span class="cl">Polygon</span><span class="cl">AEON Protocol</span><span class="cl">Sahara AI</span><span class="cl">Danal</span><span class="cl">PayCoin</span><span class="cl">Solana</span><span class="cl">Open Ledger</span><span class="cl">Bitgo</span><span class="cl">Factblock</span>
+      <span class="cl">Hashkey</span><span class="cl">AlchemyPay</span><span class="cl">WEMIX</span><span class="cl">Polygon</span><span class="cl">AEON Protocol</span><span class="cl">Sahara AI</span><span class="cl">Danal</span><span class="cl">PayCoin</span><span class="cl">Solana</span><span class="cl">Open Ledger</span><span class="cl">Bitgo</span><span class="cl">Factblock</span>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERTISE -->
+<section class="sec" id="expertise">
+  <span class="sec-num rv">01 — Expertise</span>
+  <h2 class="sec-title rv">What<br>We Do.</h2>
+  <div class="exp-wrap rv">
+    <!-- LEFT — tall single card -->
+    <div class="exp-card tall" data-parallax=".4">
+      <span class="exp-num">01</span>
+      <img src="images/expertise-01.jpg" alt="Conference keynote stage at MetaCon" loading="lazy" decoding="async">
+      <div class="exp-card-body">
+        <span class="exp-cat">Flagship</span>
+        <h3 class="exp-title">Conferences &<br>Summits</h3>
+        <p class="exp-desc">Full conference production from concept to closing keynote. Program design, speaker curation, sponsor fulfillment.</p>
+      </div>
+    </div>
+    <!-- RIGHT — 3 stacked cards -->
+    <div class="exp-col">
+      <div class="exp-card sm" data-parallax=".2">
+        <span class="exp-num">02</span>
+        <img src="images/expertise-02.jpg" alt="Side event atmosphere with branded lighting" loading="lazy" decoding="async">
+        <div class="exp-card-body">
+          <span class="exp-cat">Global</span>
+          <h3 class="exp-title">Side Events &<br>Activations</h3>
+          <p class="exp-desc">TOKEN2049, Consensus, Devcon. Venue, branding, AV, on-site staffing.</p>
+        </div>
+      </div>
+      <div class="exp-card sm" data-parallax=".3">
+        <span class="exp-num">03</span>
+        <img src="images/expertise-03.jpg" alt="VIP networking and dinner event" loading="lazy" decoding="async">
+        <div class="exp-card-body">
+          <span class="exp-cat">Exclusive</span>
+          <h3 class="exp-title">Private Dinners &<br>VIP Networking</h3>
+          <p class="exp-desc">Curated events for investor relations and strategic partnerships.</p>
+        </div>
+      </div>
+      <div class="exp-card sm" data-parallax=".25">
+        <span class="exp-num">04</span>
+        <img src="images/expertise-04.jpg" alt="Korea market launch event audience" loading="lazy" decoding="async">
+        <div class="exp-card-body">
+          <span class="exp-cat">Inbound</span>
+          <h3 class="exp-title">Korea Market<br>Entry Events</h3>
+          <p class="exp-desc">Full PCO for global Web3 projects entering Korea. Venue, translation, community activation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK — add portfolio: copy one <article class="wi rv" …> block, bump wi-big-num, set src="images/work-0N.jpg", update name/sub -->
+<div class="work-sec" id="work">
+  <div class="work-header rv">
+    <div>
+      <span class="sec-num">02 — Portfolio</span>
+      <h2 class="sec-title" style="margin-bottom:0">Our<br>Work.</h2>
+    </div>
+    <p class="work-intro">From 50-person investor dinners to 5,000-attendee flagship conferences. All produced under the PROOF standard.</p>
+  </div>
+  <div class="work-grid" role="list">
+    <article class="wi rv" data-parallax=".28" role="listitem">
+      <span class="wi-big-num">01</span>
+      <img src="images/work-01.jpg" alt="Sahara AI Connect Party 2025 — wide shot of venue" loading="lazy" decoding="async">
+      <div class="wi-body">
+        <span class="wi-name">Sahara AI Connect Party 2025</span>
+        <span class="wi-sub">1,000명 · 세빛섬 · Korea Blockchain Week</span>
+      </div>
+    </article>
+    <article class="wi rv" data-parallax=".15" role="listitem">
+      <span class="wi-big-num">02</span>
+      <img src="images/work-02.jpg" alt="Seoul Meta Week conference floor at COEX" loading="lazy" decoding="async">
+      <div class="wi-body">
+        <span class="wi-name">Seoul Meta Week</span>
+        <span class="wi-sub">Annual · COEX, Seoul · 2022–Present</span>
+      </div>
+    </article>
+    <article class="wi rv" data-parallax=".2" role="listitem">
+      <span class="wi-big-num">03</span>
+      <img src="images/work-03.jpeg" alt="Aggregation Summit production" loading="lazy" decoding="async">
+      <div class="wi-body">
+        <span class="wi-name">Aggregation Summit</span>
+        <span class="wi-sub">Global Web3 Summit · Full Production</span>
+      </div>
+    </article>
+    <article class="wi rv" data-parallax=".12" role="listitem">
+      <span class="wi-big-num">04</span>
+      <img src="images/work-04.jpg" alt="MetaCon VIP after party" loading="lazy" decoding="async">
+      <div class="wi-body">
+        <span class="wi-name">MetaCon VIP After Party</span>
+        <span class="wi-sub">Private Event · 서울 신라호텔</span>
+      </div>
+    </article>
+    <article class="wi rv" data-parallax=".22" role="listitem">
+      <span class="wi-big-num">05</span>
+      <img src="images/work-05.jpg" alt="TOKEN2049 Singapore side event" loading="lazy" decoding="async">
+      <div class="wi-body">
+        <span class="wi-name">TOKEN2049 Side Event</span>
+        <span class="wi-sub">Marina Bay Sands · Singapore</span>
+      </div>
+    </article>
+    <article class="wi rv" data-parallax=".18" role="listitem">
+      <span class="wi-big-num">06</span>
+      <img src="images/work-06.jpg" alt="Polygon Connect — global Web3 event" loading="lazy" decoding="async">
+      <div class="wi-body">
+        <span class="wi-name">Polygon Connect</span>
+        <span class="wi-sub">Global Web3 Event</span>
+      </div>
+    </article>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="sec testi-sec" id="testimonials">
+  <span class="sec-num rv">03 — Testimonials</span>
+  <h2 class="sec-title rv">What They<br>Say.</h2>
+  <div class="testi-grid rv">
+    <figure class="tc">
+      <span class="tc-mark" aria-hidden="true">"</span>
+      <blockquote class="tc-quote">We came to KBW wanting to make a real impression — not just another side event. PROOF got that immediately. The Sebit Island venue, the pacing of the evening, the way 2,500 people actually stayed and talked — it felt intentional, not accidental. Three global partners told us it was the best event of the week. That doesn't happen by luck.</blockquote>
+      <div class="tc-divider"></div>
+      <figcaption><span class="tc-name">Sahara AI</span><span class="tc-role">KBW Side Event · Sebit Island, Seoul · 2025</span></figcaption>
+    </figure>
+    <figure class="tc">
+      <span class="tc-mark" aria-hidden="true">"</span>
+      <blockquote class="tc-quote">We've run Seoul Meta Week four years now. Early on we tried managing production ourselves — once. Never again. What Proof brings isn't just logistics; it's the kind of institutional muscle that turns a blockchain conference into something people actually fly in for. Our speaker lineup gets better every year because the event experience backs it up.</blockquote>
+      <div class="tc-divider"></div>
+      <figcaption><span class="tc-name">Seoul Meta Week</span><span class="tc-role">Annual Flagship · COEX · 2021–Present</span></figcaption>
+    </figure>
+    <figure class="tc">
+      <span class="tc-mark" aria-hidden="true">"</span>
+      <blockquote class="tc-quote">We shortlisted three agencies for our TOKEN2049 side event. Two of them had never actually operated in Singapore before — they were figuring it out on the fly. PROOF already had the venue contacts, the AV vendors, the staffing. We briefed them on Monday and had a confirmed venue by Wednesday. For us, that certainty was everything.</blockquote>
+      <div class="tc-divider"></div>
+      <figcaption><span class="tc-name">Korean Web3 Project</span><span class="tc-role">TOKEN2049 Side Event · Marina Bay Sands, Singapore</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div class="about-sec" id="about">
+  <div class="about-photo rv" data-parallax=".25">
+    <img src="images/about.jpg" alt="PROOF event production — crowd and stage lighting" loading="lazy" decoding="async">
+    <div class="about-stat-block">
+      <span class="asb-n">500+</span>
+      <span class="asb-l">Events produced globally</span>
+    </div>
+  </div>
+  <div class="about-right rv">
+    <div class="about-copy">
+      <span class="sec-num">04 — About</span>
+      <h2 class="about-title">The Gap<br>We Fill.</h2>
+      <p class="about-lead">Your project is ready for the global stage. The problem isn't ambition — it's execution. Booking a venue in Singapore, staffing an event in Dubai, navigating a Korean venue contract: these are not things you figure out two weeks before TOKEN2049.</p>
+      <p class="about-body">PROOF exists for exactly this. We are the Web3 division of Chris & Partners — a Seoul-based PCO with 15 years of international operations across 40+ countries. We've run Seoul Meta Week from its first edition. We produced the Sahara AI Connect Party, Aggregation Summit, and side events at TOKEN2049 Singapore. We know the venues, the vendors, and the variables — before you even brief us.</p>
+      <div class="about-stats-grid" aria-label="PROOF at a glance">
+        <div class="about-stat"><span class="as-n">40+</span><span class="as-l">Countries active</span></div>
+        <div class="about-stat"><span class="as-n">1,000+</span><span class="as-l">Flagship attendees</span></div>
+        <div class="about-stat"><span class="as-n">15yr</span><span class="as-l">PCO experience</span></div>
+        <div class="about-stat"><span class="as-n">Seoul</span><span class="as-l">HQ · Globally deployed</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-sec">
+  <div class="cta-bg" data-parallax=".2">
+    <img src="images/cta.jpg" alt="Evening gala venue for Web3 event" loading="lazy" decoding="async">
+  </div>
+  <div class="cta-content">
+    <h2 class="cta-h">
+      <span class="soft">Take your</span><br>
+      <span>Project to the</span><br>
+      <span>World Stage.</span>
+    </h2>
+    <div class="cta-right">
+      <p class="cta-sub">Tell us about your next event. We'll handle everything from venue sourcing to on-site execution.</p>
+      <a href="#contact" class="btn-w">Start a Project</a>
+      <a href="mailto:proof@chrisandpartners.co" class="btn-o">Email Directly</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-sec" id="contact">
+  <div class="contact-l rv">
+    <h2 class="sec-title" style="font-size:clamp(48px,6vw,80px);margin-bottom:0">Let's<br>Talk.</h2>
+    <div style="margin-top:52px">
+      <div class="ci-b"><span class="ci-lbl">Email</span><span class="ci-v"><a href="mailto:proof@chrisandpartners.co">proof@chrisandpartners.co</a></span></div>
+      <div class="ci-b"><span class="ci-lbl">Headquarters</span><span class="ci-v">Seoul, Korea</span><span class="ci-s">Globally deployed · 40+ countries</span></div>
+      <div class="ci-b"><span class="ci-lbl">Languages</span><span class="ci-v">Korean · English</span></div>
+      <div class="ci-b"><span class="ci-lbl">Parent Company</span><span class="ci-v"><a href="https://chrisandpartners.co" target="_blank" rel="noopener noreferrer">chrisandpartners.co ↗</a></span></div>
+    </div>
+  </div>
+  <div class="contact-r rv">
+    <form id="inquiryForm" action="#" method="post" novalidate data-web3forms-key="4d3bf453-a3c2-484d-afec-f88708e91941">
+    <label class="form-hp" aria-hidden="true">Company<input type="text" name="company" tabindex="-1" autocomplete="off"></label>
+    <div class="form-row">
+      <div><label class="fl" for="f-project">Project Name</label><input id="f-project" name="project" type="text" class="fi" placeholder="Your project or org" autocomplete="organization" required maxlength="200"></div>
+      <div><label class="fl" for="f-name">Contact Name</label><input id="f-name" name="contact" type="text" class="fi" placeholder="Full name" autocomplete="name" required maxlength="120"></div>
+    </div>
+    <div class="form-full"><label class="fl" for="f-email">Email</label><input id="f-email" name="email" type="email" class="fi" placeholder="email@project.io" autocomplete="email" inputmode="email" required maxlength="254"></div>
+    <div class="form-full"><label class="fl" for="f-type">Event Type</label><select id="f-type" name="event_type" class="fi-sel" required><option value="" disabled selected>Select format</option><option value="Side event at global conference">Side event at global conference</option><option value="Owned conference / summit">Owned conference / summit</option><option value="Booth & exhibition">Booth & exhibition</option><option value="Investor dinner / private event">Investor dinner / private event</option><option value="Korea market entry event">Korea market entry event</option><option value="Event strategy consulting">Event strategy consulting</option><option value="Other">Other</option></select></div>
+    <div class="form-full"><label class="fl" for="f-timeline">Target Conference & Timeline</label><input id="f-timeline" name="timeline" type="text" class="fi" placeholder="e.g. TOKEN2049 Singapore, Sept 2026" autocomplete="off" maxlength="300"></div>
+    <div class="form-full"><label class="fl" for="f-brief">Brief</label><textarea id="f-brief" name="brief" class="fi-ta" placeholder="Event goals, expected scale, budget range." required minlength="20" maxlength="4000"></textarea></div>
+    <p class="form-status" id="formErr" role="alert"></p>
+    <p class="form-status" id="formOk" role="status" aria-live="polite"></p>
+    <button type="submit" class="form-btn" id="formBtn">Submit Inquiry →</button>
+    <p class="form-note">Sent over HTTPS. We typically reply within 1–2 business days. Prefer your own mail app? <a href="mailto:proof@chrisandpartners.co">Email us directly</a>.</p>
+    </form>
+  </div>
+</div>
+
+</main>
+
+<!-- FOOTER -->
+<footer role="contentinfo" aria-label="Footer">
+  <div class="ft-l">
+    <span class="ft-logo">PROOF</span>
+    <span class="ft-sub">Web3 Event Agency · by Chris & Partners</span>
+  </div>
+  <div class="ft-c">proof@chrisandpartners.co<br><span>© <span id="foot-year">2026</span> PROOF · Chris & Partners Inc.</span></div>
+  <div class="ft-r">
+    <a href="#expertise">Expertise</a>
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="https://chrisandpartners.co" target="_blank" rel="noopener noreferrer">C&P ↗</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+
+/* ── YEAR ── */
+const yEl=document.getElementById('foot-year');
+if(yEl) yEl.textContent=String(new Date().getFullYear());
+
+/* ── CURSOR ── */
+const cur=document.getElementById('cur');
+const reduceMotion=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+const finePointer=window.matchMedia('(pointer:fine)').matches;
+if(cur&&finePointer&&!reduceMotion){
+  let mx=0,my=0,cx=0,cy=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+  document.querySelectorAll('a,button,.exp-card,.wi,.tc,.nav-toggle').forEach(el=>{
+    el.addEventListener('mouseenter',()=>cur.classList.add('big'));
+    el.addEventListener('mouseleave',()=>cur.classList.remove('big'));
+  });
+  (function loop(){cx+=(mx-cx)*.15;cy+=(my-cy)*.15;cur.style.left=cx+'px';cur.style.top=cy+'px';requestAnimationFrame(loop)})();
+}else if(cur){
+  cur.classList.add('hidden');
+  document.body.style.cursor='auto';
+}
+
+/* ── MOBILE NAV ── */
+const navEl=document.getElementById('nav');
+const navToggle=document.getElementById('navToggle');
+const navBackdrop=document.getElementById('navBackdrop');
+const navLinks=document.getElementById('navLinks');
+const mqMobile=()=>window.matchMedia('(max-width:960px)').matches;
+function closeMenu(){
+  if(!navEl)return;
+  navEl.classList.remove('nav-open');
+  navToggle?.setAttribute('aria-expanded','false');
+  navToggle?.setAttribute('aria-label','Open menu');
+  document.body.style.overflow='';
+  navBackdrop?.setAttribute('aria-hidden','true');
+}
+function openMenu(){
+  if(!navEl||!mqMobile())return;
+  navEl.classList.add('nav-open');
+  navToggle?.setAttribute('aria-expanded','true');
+  navToggle?.setAttribute('aria-label','Close menu');
+  document.body.style.overflow='hidden';
+  navBackdrop?.setAttribute('aria-hidden','false');
+}
+navToggle?.addEventListener('click',()=>{
+  if(!mqMobile())return;
+  navEl.classList.contains('nav-open')?closeMenu():openMenu();
+});
+navBackdrop?.addEventListener('click',closeMenu);
+navLinks?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{if(mqMobile())closeMenu();}));
+window.addEventListener('resize',()=>{if(!mqMobile())closeMenu();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
+
+/* ── SCROLL REVEAL ── */
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const sibs=[...e.target.parentElement.children].filter(c=>c.classList.contains('rv'));
+      const idx=sibs.indexOf(e.target);
+      const delay=reduceMotion?0:idx*90;
+      setTimeout(()=>e.target.classList.add('on'),delay);
+    }
+  });
+},{threshold:.08,rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* ── PARALLAX ── */
+const pxEls=document.querySelectorAll('[data-parallax]');
+function onScrollParallax(){
+  if(reduceMotion)return;
+  pxEls.forEach(el=>{
+    const factor=parseFloat(el.dataset.parallax||0);
+    const rect=el.getBoundingClientRect();
+    const center=rect.top+rect.height/2;
+    let offset=(window.innerHeight/2-center)*factor*.85;
+    const cap=72;
+    if(offset>cap)offset=cap;
+    if(offset<-cap)offset=-cap;
+    const img=el.tagName==='IMG'?el:el.querySelector('img');
+    if(img) img.style.transform=`translateY(${offset}px)`;
+  });
+}
+window.addEventListener('scroll',onScrollParallax,{passive:true});
+onScrollParallax();
+
+/* ── NAV on scroll ── */
+window.addEventListener('scroll',()=>{
+  const nav=document.getElementById('nav');
+  if(!nav)return;
+  const y=window.scrollY>48;
+  nav.style.background=y?'rgba(24,24,24,.96)':'rgba(24,24,24,.82)';
+  nav.classList.toggle('is-scrolled',y);
+},{passive:true});
+
+/* ── INQUIRY FORM → Web3Forms (HTTPS); set data-web3forms-key on #inquiryForm ── */
+const form=document.getElementById('inquiryForm');
+const formErr=document.getElementById('formErr');
+const formOk=document.getElementById('formOk');
+const formBtn=document.getElementById('formBtn');
+const INQUIRY_EMAIL='proof@chrisandpartners.co';
+function hideMsgs(){
+  if(formErr){formErr.textContent='';formErr.classList.remove('err');formErr.style.display='none';}
+  if(formOk){formOk.textContent='';formOk.classList.remove('ok');formOk.style.display='none';}
+}
+function clearErrors(){
+  form?.querySelectorAll('.fi,.fi-sel,.fi-ta').forEach(el=>el.classList.remove('error'));
+  hideMsgs();
+}
+form?.querySelectorAll('.fi,.fi-sel,.fi-ta').forEach(el=>{
+  el.addEventListener('input',()=>{
+    el.classList.remove('error');
+    if(formErr&&formErr.style.display==='block'){formErr.textContent='';formErr.classList.remove('err');formErr.style.display='none';}
+    if(formOk&&formOk.style.display==='block'){formOk.textContent='';formOk.classList.remove('ok');formOk.style.display='none';}
+  });
+  el.addEventListener('change',()=>{el.classList.remove('error');});
+});
+form?.addEventListener('submit',async ev=>{
+  ev.preventDefault();
+  clearErrors();
+  const hp=(form?.querySelector('input[name="company"]')?.value||'').trim();
+  if(hp)return;
+  const project=(document.getElementById('f-project')?.value||'').trim();
+  const contact=(document.getElementById('f-name')?.value||'').trim();
+  const email=(document.getElementById('f-email')?.value||'').trim();
+  const type=document.getElementById('f-type')?.value||'';
+  const timeline=(document.getElementById('f-timeline')?.value||'').trim();
+  const brief=(document.getElementById('f-brief')?.value||'').trim();
+  const emailOk=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  let bad=false;
+  if(!project){bad=true;document.getElementById('f-project')?.classList.add('error');}
+  if(!contact){bad=true;document.getElementById('f-name')?.classList.add('error');}
+  if(!emailOk){bad=true;document.getElementById('f-email')?.classList.add('error');}
+  if(!type){bad=true;document.getElementById('f-type')?.classList.add('error');}
+  if(brief.length<20){bad=true;document.getElementById('f-brief')?.classList.add('error');}
+  if(bad){
+    if(formErr){
+      formErr.textContent='Please complete the highlighted fields. The brief should be at least 20 characters so we can respond with context.';
+      formErr.classList.add('err');formErr.classList.remove('ok');formErr.style.display='block';
+    }
+    return;
+  }
+  const accessKey=(form?.dataset.web3formsKey||'').trim();
+  if(!accessKey){
+    if(formErr){
+      formErr.textContent='';
+      formErr.append(
+        document.createTextNode('Online inquiry is not connected yet. Please email '),
+        Object.assign(document.createElement('a'),{href:'mailto:'+INQUIRY_EMAIL,textContent:INQUIRY_EMAIL}),
+        document.createTextNode(' and we will help you from there.')
+      );
+      formErr.classList.add('err');formErr.classList.remove('ok');formErr.style.display='block';
+    }
+    return;
+  }
+  const message=[
+    'Project / org: '+project,
+    'Contact name: '+contact,
+    'Email: '+email,
+    'Event type: '+type,
+    'Conference & timeline: '+(timeline||'—'),
+    '',
+    'Brief:',
+    brief
+  ].join('\n');
+  const originalBtnText=formBtn?.textContent||'Submit';
+  formBtn&&(formBtn.disabled=true,formBtn.classList.add('is-loading'),formBtn.textContent='Sending…',formBtn.setAttribute('aria-busy','true'));
+  try{
+    const res=await fetch('https://api.web3forms.com/submit',{
+      method:'POST',
+      headers:{'Content-Type':'application/json',Accept:'application/json'},
+      body:JSON.stringify({
+        access_key:accessKey,
+        subject:'[PROOF] Project inquiry — '+project,
+        from_name:contact+' · '+project,
+        email,
+        replyto:email,
+        message
+      })
+    });
+    const data=await res.json().catch(()=>({}));
+    if(res.ok&&data.success){
+      if(formOk){
+        formOk.textContent='Thank you — we received your inquiry. We will get back to you soon, usually within 1–2 business days.';
+        formOk.classList.add('ok');formOk.classList.remove('err');formOk.style.display='block';
+      }
+      form?.reset();
+      formOk?.scrollIntoView({behavior:'smooth',block:'nearest'});
+    }else{
+      const msg=(data&&data.message)?String(data.message):'Submit failed.';
+      throw new Error(msg);
+    }
+  }catch{
+    if(formErr){
+      formErr.textContent='Something went wrong. Please try again in a moment, or email '+INQUIRY_EMAIL+' directly.';
+      formErr.classList.add('err');formErr.classList.remove('ok');formErr.style.display='block';
+    }
+  }finally{
+    if(formBtn){
+      formBtn.disabled=false;
+      formBtn.classList.remove('is-loading');
+      formBtn.textContent=originalBtnText;
+      formBtn.removeAttribute('aria-busy');
+    }
+  }
+});
+})();
+</script>
+</body>
+</html>
