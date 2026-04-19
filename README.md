@@ -25,14 +25,12 @@ Single-page marketing site for PROOF (Chris & Partners Web3 events). Served as s
 2. In this folder:
 
 ```bash
-cd /Users/chrismini-home/Documents/Cursor/CRISP
-git init
-git add .
-git commit -m "Initial commit: PROOF static site"
-git branch -M main
+cd /Users/chrismini-home/Documents/Cursor/proof
 git remote add origin https://github.com/YOUR_USER/YOUR_REPO.git
 git push -u origin main
 ```
+
+(If this folder is not a git repo yet: `git init`, then `git add .` and `git commit -m "Initial commit"`, then `git branch -M main` before adding `origin`.)
 
 ## GitHub Pages
 
