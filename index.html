@@ -1058,7 +1058,7 @@ footer{
   <div class="about-photo rv" data-parallax=".25">
     <img src="images/about.jpg" alt="Chris &amp; Partners — Web3 event production team Seoul" loading="lazy" decoding="async">
     <div class="about-stat-block">
-      <span class="asb-n">500+</span>
+      <span class="asb-n">150+</span>
       <span class="asb-l">Events produced globally</span>
     </div>
   </div>
@@ -1152,6 +1152,55 @@ footer{
 /* ── YEAR ── */
 const yEl=document.getElementById('foot-year');
 if(yEl) yEl.textContent=String(new Date().getFullYear());
+
+/* ── VISIT ATTRIBUTION (first-party; session + first-touch for inquiry context) ── */
+const ATTR_SK='proof_attr_session';
+const ATTR_FK='proof_attr_first';
+function captureVisitAttribution(){
+  try{
+    if(sessionStorage.getItem(ATTR_SK))return;
+    const u=new URL(window.location.href);
+    const p=u.searchParams;
+    const snap={
+      landing:u.origin+u.pathname+u.search,
+      referrer:document.referrer||'',
+      utm_source:p.get('utm_source')||'',
+      utm_medium:p.get('utm_medium')||'',
+      utm_campaign:p.get('utm_campaign')||'',
+      utm_term:p.get('utm_term')||'',
+      utm_content:p.get('utm_content')||'',
+      ts:new Date().toISOString()
+    };
+    sessionStorage.setItem(ATTR_SK,JSON.stringify(snap));
+    if(!localStorage.getItem(ATTR_FK))localStorage.setItem(ATTR_FK,JSON.stringify(snap));
+  }catch(_){/* private mode or storage blocked */}
+}
+captureVisitAttribution();
+function formatAttributionBlock(label,raw){
+  if(!raw)return'';
+  let o;
+  try{o=JSON.parse(raw);}catch(_){return'';}
+  const ref=o.referrer?o.referrer:'(none — direct, bookmark, or app)';
+  const utm=[o.utm_source&&'utm_source='+o.utm_source,o.utm_medium&&'utm_medium='+o.utm_medium,o.utm_campaign&&'utm_campaign='+o.utm_campaign,o.utm_term&&'utm_term='+o.utm_term,o.utm_content&&'utm_content='+o.utm_content].filter(Boolean).join(' · ');
+  const lines=[
+    label,
+    'Landing: '+o.landing,
+    'Referrer: '+ref,
+    utm?'UTM: '+utm:'UTM: (none)',
+    'Captured: '+o.ts
+  ];
+  return lines.join('\n');
+}
+function getAttributionAppendix(){
+  let s='',f='';
+  try{s=sessionStorage.getItem(ATTR_SK)||'';}catch(_){}
+  try{f=localStorage.getItem(ATTR_FK)||'';}catch(_){}
+  if(!s&&!f)return'';
+  if(s&&s===f)return'\n\n'+formatAttributionBlock('--- Visit & referral (this session = first recorded touch on this device) ---',s);
+  const a=s?formatAttributionBlock('--- This session (first page in this browser tab) ---',s):'';
+  const b=f?formatAttributionBlock('--- First touch on this browser (earlier visit) ---',f):'';
+  return'\n\n'+[a,b].filter(Boolean).join('\n');
+}
 
 /* ── CURSOR ── */
 const cur=document.getElementById('cur');
@@ -1310,7 +1359,8 @@ form?.addEventListener('submit',async ev=>{
     'Conference & timeline: '+(timeline||'—'),
     '',
     'Brief:',
-    brief
+    brief,
+    getAttributionAppendix()
   ].join('\n');
   const originalBtnText=formBtn?.textContent||'Submit';
   formBtn&&(formBtn.disabled=true,formBtn.classList.add('is-loading'),formBtn.textContent='Sending…',formBtn.setAttribute('aria-busy','true'));
