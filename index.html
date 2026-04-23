@@ -203,11 +203,15 @@ nav.is-scrolled{
    HERO — CINEMATIC
 ══════════════════════════════ */
 .hero{
-  position:relative;height:100vh;
+  position:relative;
+  min-height:100vh;
+  min-height:100svh;
+  height:auto;
   display:flex;flex-direction:column;
   justify-content:flex-end;
-  padding:0 52px 60px;
-  overflow:hidden;
+  padding:calc(var(--nav-h) + env(safe-area-inset-top,0px)) 52px 60px;
+  overflow-x:hidden;
+  overflow-y:visible;
 }
 
 /* BG photo — Ken Burns zoom */
@@ -827,7 +831,7 @@ footer{
   }
   .nav-r a:not(.nav-cta)::after{display:none}
   .nav-r .nav-cta{margin-top:12px;text-align:center;padding:14px 22px}
-  .hero{padding:0 24px 52px}
+  .hero{padding:calc(var(--nav-h) + env(safe-area-inset-top,0px)) 24px 52px}
   .sec,.work-header,.contact-l,.contact-r,.about-right,.cta-sec{padding:64px 24px}
   .clients-sec{padding:52px 24px}
   .exp-wrap,.work-grid,.testi-grid,.about-sec,.cta-content,.contact-sec{grid-template-columns:1fr}
