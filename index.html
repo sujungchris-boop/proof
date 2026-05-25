@@ -1403,6 +1403,14 @@ form?.addEventListener('submit',async ev=>{
     if(res.ok&&data.success){
       if(formOk){
         formOk.textContent='Thank you — we received your inquiry. We will get back to you soon, usually within 1–2 business days.';
+        window.dataLayer=window.dataLayer||[];
+        window.dataLayer.push({
+          event:'proof_inquiry_submitted',
+          form_name:'proof_inquiry_form',
+          event_type:type,
+          project_name:project,
+          contact_email:email
+        });
         formOk.classList.add('ok');formOk.classList.remove('err');formOk.style.display='block';
       }
       form?.reset();
