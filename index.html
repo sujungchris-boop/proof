@@ -47,11 +47,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   --w-dim:rgba(247,243,236,.8);
   --g:#A3A3A3;
   --g2:#6E6E6E;
-  --marquee-fg:rgba(247,243,236,.62);
-  --marquee-fg-hover:rgba(247,243,236,.98);
-  --marquee-sep:rgba(247,243,236,.44);
-  --clients-fg:rgba(247,243,236,.58);
-  --clients-fg-hover:rgba(247,243,236,.98);
   --line:rgba(247,243,236,.12);
   --line-strong:rgba(247,243,236,.2);
   --accent:#D6FF3F;
@@ -92,20 +87,6 @@ body{
   .hl,.hero-tag,.hero-cta,.hero-bottom{animation:none!important;opacity:1!important;transform:none!important}
   .rv{opacity:1!important;transform:none!important;transition:none!important}
 }
-
-/* ── CUSTOM CURSOR ── */
-#cur{
-  display:none!important;
-  position:fixed;width:8px;height:8px;
-  background:var(--w);border-radius:50%;
-  pointer-events:none;z-index:9999;
-  transform:translate(-50%,-50%);
-  transition:width .35s var(--ease-out),height .35s var(--ease-out),opacity .25s,box-shadow .35s var(--ease-out);
-  mix-blend-mode:difference;
-  box-shadow:0 0 0 0 rgba(243,238,230,.25);
-}
-#cur.big{width:48px;height:48px;box-shadow:0 0 0 1px rgba(243,238,230,.15)}
-#cur.hidden{opacity:0}
 
 /* ── NAV ── */
 nav{
@@ -552,12 +533,16 @@ nav.is-scrolled{
 /* giant number that overlaps the image border */
 .wi-big-num{
   position:absolute;top:-20px;right:12px;
-  font-family:var(--fn);font-size:120px;
-  color:rgba(243,238,230,.055);line-height:1;
+  font-family:var(--fn);font-style:italic;font-size:120px;
+  color:rgba(214,255,63,.09);line-height:1;
   pointer-events:none;z-index:3;
   transition:color .45s var(--ease-soft);
 }
-.wi:hover .wi-big-num{color:rgba(214,255,63,.1)}
+.wi:nth-child(3n+2) .wi-big-num{color:rgba(255,61,154,.09)}
+.wi:nth-child(3n+3) .wi-big-num{color:rgba(91,140,255,.09)}
+.wi:nth-child(3n+1):hover .wi-big-num{color:rgba(214,255,63,.34)}
+.wi:nth-child(3n+2):hover .wi-big-num{color:rgba(255,61,154,.34)}
+.wi:nth-child(3n+3):hover .wi-big-num{color:rgba(91,140,255,.34)}
 
 /* ══════════════════════════════
    TESTIMONIALS
@@ -842,8 +827,6 @@ footer{
    RESPONSIVE
 ══════════════════════════════ */
 @media(max-width:960px){
-  body{cursor:auto}
-  #cur{display:none}
   nav{padding:0 20px;flex-wrap:wrap;row-gap:0}
   .nav-toggle{display:flex;margin-left:auto}
   .nav-r{
@@ -900,8 +883,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <a class="skip-link" href="#main">Skip to main content</a>
 
-<!-- CUSTOM CURSOR -->
-<div id="cur" aria-hidden="true"></div>
 
 <!-- NAV -->
 <nav id="nav" role="banner" aria-label="PROOF">
@@ -1258,22 +1239,7 @@ function getAttributionAppendix(){
   return'\n\n'+[a,b].filter(Boolean).join('\n');
 }
 
-/* ── CURSOR ── */
-const cur=document.getElementById('cur');
 const reduceMotion=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-const finePointer=window.matchMedia('(pointer:fine)').matches;
-if(cur&&finePointer&&!reduceMotion){
-  let mx=0,my=0,cx=0,cy=0;
-  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
-  document.querySelectorAll('a,button,.exp-card,.wi,.tc,.nav-toggle').forEach(el=>{
-    el.addEventListener('mouseenter',()=>cur.classList.add('big'));
-    el.addEventListener('mouseleave',()=>cur.classList.remove('big'));
-  });
-  (function loop(){cx+=(mx-cx)*.15;cy+=(my-cy)*.15;cur.style.left=cx+'px';cur.style.top=cy+'px';requestAnimationFrame(loop)})();
-}else if(cur){
-  cur.classList.add('hidden');
-  document.body.style.cursor='auto';
-}
 
 /* ── MOBILE NAV ── */
 const navEl=document.getElementById('nav');
