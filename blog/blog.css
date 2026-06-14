@@ -36,7 +36,7 @@ body{
   text-rendering:optimizeLegibility;
   line-height:1.65;
 }
-::selection{background:rgba(191,164,106,.26);color:var(--w)}
+::selection{background:rgba(214,255,63,.26);color:var(--w)}
 a{color:inherit}
 
 /* ── NAV ── */
@@ -118,7 +118,7 @@ h1.post-title{
 .prose figcaption{font-family:var(--fm);font-size:12px;color:var(--g2);margin-top:10px;text-align:center;text-transform:uppercase;letter-spacing:.04em}
 
 /* callout */
-.callout{background:var(--accent-soft);border:1px solid rgba(191,164,106,.22);border-radius:3px;padding:22px 24px;margin:32px 0;font-size:16px;line-height:1.6;color:var(--w-dim)}
+.callout{background:var(--accent-soft);border:1px solid rgba(214,255,63,.22);border-radius:3px;padding:22px 24px;margin:32px 0;font-size:16px;line-height:1.6;color:var(--w-dim)}
 .callout strong{color:var(--accent)}
 
 /* ── FAQ ── */
