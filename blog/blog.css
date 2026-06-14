@@ -16,8 +16,9 @@
   --g2:#6E6E6E;
   --line:rgba(247,243,236,.12);
   --line-strong:rgba(247,243,236,.2);
-  --accent:#BFA46A;
-  --accent-soft:rgba(191,164,106,.10);
+  --accent:#D6FF3F;
+  --accent-soft:rgba(214,255,63,.10);
+  --ink:#111107;
   --ease-out:cubic-bezier(.16,1,.3,1);
   --fn:'Fraunces',Georgia,serif;
   --fm:'IBM Plex Mono',ui-monospace,monospace;
@@ -136,11 +137,11 @@ h1.post-title{
 .post-cta h2{font-family:var(--fn);font-weight:360;font-size:clamp(28px,4.4vw,42px);line-height:1.02;letter-spacing:-.022em;margin-bottom:16px;font-variation-settings:"opsz" 144}
 .post-cta p{color:var(--w-dim);font-size:16.5px;line-height:1.6;max-width:46ch;margin:0 auto 28px}
 .btn-w{
-  font-family:var(--fm);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
-  background:var(--w);color:var(--bg);padding:16px 38px;text-decoration:none;
-  display:inline-block;border-radius:1px;transition:letter-spacing .35s var(--ease-out),transform .25s;
+  font-family:var(--fm);font-weight:500;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  background:var(--accent);color:var(--ink);padding:16px 38px;text-decoration:none;
+  display:inline-block;border-radius:1px;transition:letter-spacing .35s var(--ease-out),transform .25s,box-shadow .3s;
 }
-.btn-w:hover{letter-spacing:.12em;transform:translateY(-1px)}
+.btn-w:hover{letter-spacing:.12em;transform:translateY(-2px);box-shadow:0 14px 34px -14px rgba(214,255,63,.5)}
 
 /* ── BLOG INDEX ── */
 .idx-head{margin-bottom:clamp(40px,7vw,72px)}
