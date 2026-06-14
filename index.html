@@ -393,6 +393,10 @@ nav.is-scrolled{
   font-family:var(--fm);font-size:12px;letter-spacing:.06em;
   color:var(--g);margin-bottom:22px;display:block;text-transform:uppercase;
 }
+#expertise .sec-num{color:var(--c1)}
+#work .sec-num{color:var(--c2)}
+#testimonials .sec-num{color:var(--c3)}
+#about .sec-num{color:var(--c1)}
 .sec-title{
   font-family:var(--fn);
   font-weight:360;
@@ -453,9 +457,9 @@ nav.is-scrolled{
 }
 .exp-card:hover .exp-num{color:rgba(214,255,63,.12)}
 .exp-cat{
-  font-family:var(--fm);font-size:11px;font-weight:400;
+  font-family:var(--fm);font-size:11px;font-weight:500;
   letter-spacing:.12em;text-transform:uppercase;
-  color:rgba(247,243,236,.5);display:block;margin-bottom:14px;
+  color:var(--accent);display:block;margin-bottom:14px;
 }
 .exp-title{
   font-family:var(--fn);font-weight:400;font-size:clamp(25px,2.7vw,35px);
@@ -555,10 +559,12 @@ nav.is-scrolled{
 .tc:last-child{border-right:none}
 .tc:hover{background:linear-gradient(165deg,rgba(214,255,63,.04) 0%,var(--bg2) 45%)}
 .tc-mark{
-  font-family:var(--fn);font-size:56px;
-  color:rgba(240,235,227,.1);
-  display:block;line-height:.8;margin-bottom:24px;
+  font-family:var(--fn);font-size:64px;font-weight:500;
+  color:var(--accent);
+  display:block;line-height:.7;margin-bottom:20px;
 }
+#testimonials .tc:nth-child(2) .tc-mark{color:var(--c3)}
+#testimonials .tc:nth-child(3) .tc-mark{color:var(--c2)}
 .tc-quote{
   font-family:var(--fn);font-weight:360;font-size:18px;
   color:rgba(247,243,236,.9);letter-spacing:-.003em;
@@ -608,9 +614,10 @@ nav.is-scrolled{
   text-align:left;
 }
 .asb-n,.as-n{
-  font-family:var(--fn);font-size:var(--about-stat-num);letter-spacing:.02em;line-height:1;
+  font-family:var(--fn);font-weight:380;font-size:var(--about-stat-num);letter-spacing:-.01em;line-height:1;
   font-variant-numeric:tabular-nums;display:block;
 }
+.asb-n{color:var(--accent)}
 .asb-l,.as-l{
   font-family:var(--fb);font-size:var(--about-stat-label);font-weight:400;color:var(--g);
   text-transform:uppercase;letter-spacing:var(--about-stat-label-track);line-height:var(--about-stat-label-lh);
@@ -709,6 +716,7 @@ nav.is-scrolled{
   font-variation-settings:"opsz" 144;
 }
 .cta-h .soft{opacity:.32}
+.cta-h .hot{color:var(--accent)}
 .cta-right{
   display:flex;flex-direction:column;
   align-items:flex-end;gap:16px;
@@ -1114,7 +1122,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h2 class="cta-h">
       <span class="soft">Take your</span><br>
       <span>Project to the</span><br>
-      <span>World Stage.</span>
+      <span class="hot">World Stage.</span>
     </h2>
     <div class="cta-right">
       <p class="cta-sub">Tell us about your next event. We'll handle everything from venue sourcing to on-site execution.</p>
