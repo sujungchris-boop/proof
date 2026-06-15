@@ -21,9 +21,9 @@ Each post: English-first, design-consistent (`blog/blog.css`), unique title/meta
 
 ## Roadmap (priority order)
 
-- [x] **#1 Korea market-entry playbook** → `blog/korea-web3-market-entry.html` (cornerstone, FAQ schema). Live in this branch.
-- [ ] **#2 How to run a KBW / Korea Blockchain Week side event** — venue, timing, guest engine, budget ranges. Targets KBW cluster.
-- [ ] **#3 TOKEN2049 side events: the operator's checklist** — Singapore venue/vendor reality, what sponsor brands underestimate.
+- [x] **#1 Korea market-entry playbook** → `blog/korea-web3-market-entry.html` (cornerstone, FAQ schema).
+- [x] **#2 How to run a KBW / Korea Blockchain Week side event** → `blog/kbw-side-event-guide.html` (FAQ schema; internal-links #1).
+- [x] **#3 TOKEN2049 side events: the operator's checklist** → `blog/token2049-side-event-checklist.html` (FAQ schema; internal-links #1/#2).
 - [ ] **#4 Booth vs side event vs dinner: choosing the right Web3 activation** — decision framework; internal-links #2/#3.
 - [ ] **#5 Why Seoul is a Web3 hub** — broader awareness piece, links the cluster together; earns links.
 
