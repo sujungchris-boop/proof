@@ -9,8 +9,8 @@
   <url>
     <loc>https://proof.chrisandpartners.co/work/</loc>
     <lastmod>2026-06-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://proof.chrisandpartners.co/blog/</loc>
@@ -37,25 +37,73 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://proof.chrisandpartners.co/work/sahara-ai-connect-party.html</loc>
+    <loc>https://proof.chrisandpartners.co/work/sahara-ai-connect-party-2025.html</loc>
     <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://proof.chrisandpartners.co/work/seoul-meta-week.html</loc>
+    <loc>https://proof.chrisandpartners.co/work/seoul-meta-week-2025.html</loc>
     <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://proof.chrisandpartners.co/work/token2049-side-event.html</loc>
+    <loc>https://proof.chrisandpartners.co/work/token2049-singapore.html</loc>
     <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://proof.chrisandpartners.co/work/aggregation-summit.html</loc>
+    <loc>https://proof.chrisandpartners.co/work/aggregation-summit-2024.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://proof.chrisandpartners.co/work/seoul-meta-week-2024.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://proof.chrisandpartners.co/work/polygon-connect-korea.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://proof.chrisandpartners.co/work/polygon-ignite.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://proof.chrisandpartners.co/work/seoul-meta-week-2023.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://proof.chrisandpartners.co/work/metacon-2021.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://proof.chrisandpartners.co/work/seoul-meta-week-2022.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://proof.chrisandpartners.co/work/hyconhacks.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://proof.chrisandpartners.co/work/blockchain-partners-summit.html</loc>
     <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

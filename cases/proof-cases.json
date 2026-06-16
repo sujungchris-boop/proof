@@ -1,0 +1,218 @@
+[
+  {
+    "sanitySlug": "sahara-ai-connect-party-2025",
+    "slug": "sahara-ai-connect-party-2025",
+    "title": "Sahara AI Connect Party 2025",
+    "scope": "side-event",
+    "accent": "c1",
+    "order": 1,
+    "host": "Sahara AI",
+    "location": "Sebit Island Convention Hall, Seoul",
+    "summary": "The opening-night party of Korea Blockchain Week 2025 for Sahara AI — a 1,000-guest global networking event on Seoul's Sebit Island, produced end to end by PROOF.",
+    "kpis": [{ "value": "1,000", "label": "Guests" }, { "value": "KBW 2025", "label": "Opening night" }, { "value": "Sep 2025", "label": "Sebit Island" }],
+    "scopeItems": ["Venue & production", "Run-of-show & pacing", "AV, staging & lighting", "On-site staffing"],
+    "sections": [
+      { "h": "The brief", "p": "Sahara AI — a platform merging blockchain and AI — wanted to open Korea Blockchain Week with the side event everyone talks about: a must-attend night for VIPs, industry leaders and global partners, blending technology, culture and music." },
+      { "h": "What we did", "p": "PROOF produced the evening end to end on Seoul's Sebit Island — venue, production, AV, staging and the pacing that kept 1,000 guests in the room and talking. The goal was the single most-talked-about side event of the week, and the night delivered it." }
+    ],
+    "quote": { "text": "Three global partners told us it was the best event of the week. That doesn't happen by luck.", "attrib": "Sahara AI" }
+  },
+  {
+    "sanitySlug": "서울메타위크2025-reimagine-what-is-possible-copy",
+    "slug": "seoul-meta-week-2025",
+    "title": "Seoul Meta Week 2025",
+    "scope": "owned-summit",
+    "accent": "c2",
+    "order": 2,
+    "host": "TV Chosun / Chris & Partners",
+    "location": "COEX Auditorium, Seoul",
+    "summary": "Asia's largest AI & Web3 B2B tech event — PROOF's own flagship summit at COEX, themed 'Work. System. Intelligence.' 21 sessions, 26 global speakers, 1,500+ attendees.",
+    "kpis": [{ "value": "1,500+", "label": "Attendees" }, { "value": "26", "label": "Global speakers" }, { "value": "21", "label": "Sessions" }],
+    "scopeItems": ["Full conference production", "Program & speaker curation", "Sponsor & exhibition", "Stage, AV & on-site ops"],
+    "sections": [
+      { "h": "The brief", "p": "Seoul Meta Week is our own flagship — and 2025 moved past technology-for-its-own-sake to the AI strategy and real cases that change how organizations work, under the theme 'Work. System. Intelligence.'" },
+      { "h": "What we did", "p": "Across two days at COEX Auditorium, PROOF produced the full event — 21 sessions, 26 global speakers, the MetaCon 2025 main conference, exhibitions and networking — so 1,500+ attendees could experience AI, Web3, AI agents and blockchain first-hand." }
+    ],
+    "quote": { "text": "Institutional muscle that turns a blockchain conference into something people actually fly in for.", "attrib": "Seoul Meta Week" }
+  },
+  {
+    "sanitySlug": "token-2049",
+    "slug": "token2049-singapore",
+    "title": "TOKEN2049 Singapore — Sahara AI",
+    "scope": "side-event",
+    "accent": "c3",
+    "order": 3,
+    "host": "Sahara AI",
+    "location": "Marina Bay Sands, Singapore",
+    "summary": "Booth and side event for platinum sponsor Sahara AI at TOKEN2049 Singapore — venue, vendors and on-site execution in a city the client didn't operate in. (A sponsor activation — not the conference itself.)",
+    "kpis": [{ "value": "Platinum", "label": "Sponsor: Sahara AI" }, { "value": "2,000+", "label": "Reached" }, { "value": "Sep 2024", "label": "Marina Bay Sands" }],
+    "scopeItems": ["Sponsor booth build & operation", "Side-event planning", "Local vendor sourcing", "On-site execution"],
+    "sections": [
+      { "h": "The brief", "p": "TOKEN2049 is the world's largest crypto event — 20,000+ attendees, 500+ side events at Marina Bay Sands. Platinum sponsor Sahara AI needed its booth and side event run flawlessly, in a city where they had no operating footprint." },
+      { "h": "What we did", "p": "PROOF built and ran Sahara AI's sponsor booth and side event — the part we handle, not the conference itself. The make-or-break was overseas execution: sourcing and managing reliable local vendors and communication, which is exactly the experience we bring to international events." }
+    ],
+    "quote": { "text": "We briefed them on Monday and had a confirmed venue by Wednesday. For us, that certainty was everything.", "attrib": "Korean Web3 Project" }
+  },
+  {
+    "sanitySlug": "aggregation-summit-2024",
+    "slug": "aggregation-summit-2024",
+    "title": "Polygon Aggregation Summit 2024",
+    "scope": "conference-production",
+    "accent": "c1",
+    "order": 4,
+    "host": "Polygon Labs",
+    "location": "True Digital Park West, Bangkok",
+    "summary": "Polygon Labs' first Aggregation Summit, Bangkok — PROOF ran Polygon's biggest 2024 event as their APAC event agency, from planning to on-site, across 50+ programs.",
+    "kpis": [{ "value": "1,000+", "label": "Attendees" }, { "value": "50+", "label": "Programs" }, { "value": "2 days", "label": "Bangkok" }],
+    "scopeItems": ["Full event production", "Multi-track program ops", "Sponsor & partner booths", "Experience programming"],
+    "sections": [
+      { "h": "The brief", "p": "Polygon Labs chose PROOF as its APAC offline event agency to deliver its single biggest event of 2024 — the first Polygon Aggregation Summit, in Bangkok — from the planning stage through on-site operations." },
+      { "h": "What we did", "p": "Across two days, PROOF ran 50+ concurrent programs: seminars, panels, pitch sessions and partner booths, alongside a DJ party, chess tournament, running club, yoga and massage. Tight planning and execution kept many simultaneous tracks and a complex floor running smoothly, faithfully reflecting the client's vision." }
+    ],
+    "quote": null
+  },
+  {
+    "sanitySlug": "seoulmetaweek2024",
+    "slug": "seoul-meta-week-2024",
+    "title": "Seoul Meta Week 2024",
+    "scope": "owned-summit",
+    "accent": "c2",
+    "order": 5,
+    "host": "TV Chosun / Chris & Partners",
+    "location": "COEX Auditorium, Seoul",
+    "summary": "Asia's representative Digital Tech Talks — our flagship summit at COEX, themed 'Ride the Waves of Technology.' 22 sessions, 50 global speakers, 1,500+ attendees.",
+    "kpis": [{ "value": "1,500+", "label": "Attendees" }, { "value": "50", "label": "Global speakers" }, { "value": "22", "label": "Sessions" }],
+    "scopeItems": ["Full conference production", "Program & speaker curation", "Exhibition booths", "On-site events & ops"],
+    "sections": [
+      { "h": "The brief", "p": "Seoul Meta Week 2024 focused on the latest in AI, Web3, metaverse and AR/VR under the theme 'Ride the Waves of Technology' — Asia's representative Digital Tech Talks." },
+      { "h": "What we did", "p": "Over two days at COEX Auditorium, PROOF delivered 22 sessions and 50 global speakers with industry talks, leader networking, panels, exhibition booths and on-site events — a high-satisfaction program for 1,500+ attendees." }
+    ],
+    "quote": null
+  },
+  {
+    "sanitySlug": "polygon-connect-korea",
+    "slug": "polygon-connect-korea",
+    "title": "Polygon Connect Korea",
+    "scope": "korea-entry",
+    "accent": "c3",
+    "order": 6,
+    "host": "Polygon / Hashed",
+    "location": "Textile Center Event Hall, Seoul",
+    "summary": "Polygon's Korea market-entry event, co-hosted with Hashed — sessions, business networking and a hip after-party for ~500 on-site guests.",
+    "kpis": [{ "value": "~500", "label": "On-site guests" }, { "value": "Polygon × Hashed", "label": "Co-hosted" }, { "value": "Aug 2022", "label": "Seoul" }],
+    "scopeItems": ["Corporate event planning", "Hybrid event operation", "Venue build & atmosphere", "Networking after-party"],
+    "sections": [
+      { "h": "The brief", "p": "Polygon — among the most promising Ethereum scaling solutions — and Korea's blockchain investment firm Hashed co-hosted Polygon Connect Korea to introduce Polygon and open business networking across blockchain, NFTs and Web3." },
+      { "h": "What we did", "p": "PROOF planned and ran the event with bold lighting, a casual spatial design and a hip after-party — a relaxed atmosphere where ~500 guests could network freely with influential figures and partners." }
+    ],
+    "quote": null
+  },
+  {
+    "sanitySlug": "제21회-재외한국어교육자-국제학술대회-copy",
+    "slug": "polygon-ignite",
+    "title": "Polygon IGNITE",
+    "scope": "activation",
+    "accent": "c1",
+    "order": 7,
+    "host": "Polygon Labs",
+    "location": "Raum Art Center, Seoul",
+    "summary": "Polygon's KBW-week activation — sessions, exhibition booths, business networking and an after-party for 800+ guests at Raum Art Center.",
+    "kpis": [{ "value": "800+", "label": "Guests" }, { "value": "KBW week", "label": "2023" }, { "value": "Polygon Labs", "label": "Host" }],
+    "scopeItems": ["Event planning & operation", "Exhibition booths", "Venue build & lighting", "After-party & F&B"],
+    "sections": [
+      { "h": "The brief", "p": "Following Polygon Connect Korea, Polygon returned during Korea Blockchain Week with Polygon IGNITE — introducing Polygon projects through sessions and booths, and opening business networking with influential figures across industries." },
+      { "h": "What we did", "p": "PROOF built a casual, vibrantly-lit space for networking, then reset the room for an after-party with F&B stations to keep 800+ guests engaged through to the end." }
+    ],
+    "quote": null
+  },
+  {
+    "sanitySlug": "2023-서울메타위크",
+    "slug": "seoul-meta-week-2023",
+    "title": "Seoul Meta Week 2023",
+    "scope": "owned-summit",
+    "accent": "c2",
+    "order": 8,
+    "host": "TV Chosun / Chris & Partners / UNOPND",
+    "location": "COEX Auditorium, Seoul",
+    "summary": "The third edition of our flagship summit — MetaCon 2023 themed 'Web3 × Metaverse: the future of hyperconnection,' a week-long festival of conference, exhibition and side events. 1,500+ attendees.",
+    "kpis": [{ "value": "1,500+", "label": "Attendees" }, { "value": "20+", "label": "Sessions" }, { "value": "3rd", "label": "Edition" }],
+    "scopeItems": ["International event production", "Program & speaker curation", "Exhibition & side events", "On-site operations"],
+    "sections": [
+      { "h": "The brief", "p": "Seoul Meta Week is Korea's go-to platform for the latest in Web3, metaverse, NFTs and blockchain. Its third edition centered on MetaCon 2023 — 'Web3 × Metaverse: the future of hyperconnection.'" },
+      { "h": "What we did", "p": "PROOF ran the main conference (20+ sessions of leader and expert insight), plus exhibitions from top domestic and global companies and a range of side events — assembled into a week-long festival for 1,500+ attendees." }
+    ],
+    "quote": null
+  },
+  {
+    "sanitySlug": "메타콘-2021-metacon-2021",
+    "slug": "metacon-2021",
+    "title": "MetaCon 2021",
+    "scope": "owned-summit",
+    "accent": "c3",
+    "order": 9,
+    "host": "TV Chosun / Chris & Partners",
+    "location": "The Shilla Seoul",
+    "summary": "A hybrid metaverse conference on the post-pandemic 'new normal' — speaker sourcing, program design and venue operations by PROOF. ~12,000 views.",
+    "kpis": [{ "value": "12,000", "label": "Views" }, { "value": "Hybrid", "label": "On-site + online" }, { "value": "Oct 2021", "label": "The Shilla Seoul" }],
+    "scopeItems": ["Hybrid event planning", "Global speaker sourcing", "Program design", "Venue operations"],
+    "sections": [
+      { "h": "The brief", "p": "As the pandemic reshaped every part of life, MetaCon 2021 took the metaverse — free of the limits of time and space — as its theme, offering industry trends and the insight of pioneers for the emerging on-tact era." },
+      { "h": "What we did", "p": "PROOF delivered it end to end — from sourcing speakers at the global companies leading the metaverse, through program design, to venue operations — as a hybrid event reaching ~12,000 views." }
+    ],
+    "quote": null
+  },
+  {
+    "sanitySlug": "seoulmetaweek2022",
+    "slug": "seoul-meta-week-2022",
+    "title": "Seoul Meta Week 2022",
+    "scope": "owned-summit",
+    "accent": "c1",
+    "order": 10,
+    "host": "TV Chosun / Chris & Partners",
+    "location": "The Shilla Seoul",
+    "summary": "The inaugural Seoul Meta Week — Blockchain Open Forum and MetaCon 2022 with ~100 experts across 40 sessions, for ~1,000 on-site attendees.",
+    "kpis": [{ "value": "~1,000", "label": "Attendees" }, { "value": "40", "label": "Sessions" }, { "value": "~100", "label": "Experts" }],
+    "scopeItems": ["Hybrid event planning", "Speaker curation (~100)", "Program content design", "On-site operations"],
+    "sections": [
+      { "h": "The brief", "p": "The first Seoul Meta Week brought metaverse and blockchain experts, NFT artists and collectors together to share new trends and debate the change, insight and value the metaverse could unlock." },
+      { "h": "What we did", "p": "PROOF curated ~100 experts and designed the content for the main conferences — Blockchain Open Forum and MetaCon 2022 — running 40 sessions that mapped where future technology was heading, for ~1,000 on-site attendees." }
+    ],
+    "quote": null
+  },
+  {
+    "sanitySlug": "hyconhacks",
+    "slug": "hyconhacks",
+    "title": "HYCONHACKS",
+    "scope": "activation",
+    "accent": "c2",
+    "order": 11,
+    "host": "Glosfer",
+    "location": "Seoul",
+    "summary": "A 32-hour blockchain hackathon — 40 teams building on HYCON — run by PROOF as a festival, complete with a game zone, chimaek party and performances. 200+ participants.",
+    "kpis": [{ "value": "200+", "label": "Hackers" }, { "value": "40", "label": "Teams" }, { "value": "32 hrs", "label": "Hackathon" }],
+    "scopeItems": ["Event planning & operation", "Venue & comfort zones", "Game zone & programming", "After-hours party"],
+    "sections": [
+      { "h": "The brief", "p": "An offbeat hackathon where developers, designers, publishers and student clubs competed on unique blockchain ideas — 40 teams over 32 hours building services on HYCON and general blockchain." },
+      { "h": "What we did", "p": "Across the two-day event, PROOF created spaces to rest and recharge — a game zone for refreshment — and kept energy high with a chimaek (chicken-and-beer) party and performances, running it like a festival rather than a contest." }
+    ],
+    "quote": null
+  },
+  {
+    "sanitySlug": "2018-블록체인-파트너스-서밋",
+    "slug": "blockchain-partners-summit",
+    "title": "Blockchain Partners Summit 2018",
+    "scope": "conference-production",
+    "accent": "c3",
+    "order": 12,
+    "host": "Bobby Finance / Chainier",
+    "location": "Seoul",
+    "summary": "An early-era blockchain summit (2018) organized by PROOF for Bobby Finance and Chainier — full production from planning to on-site.",
+    "kpis": [{ "value": "2018", "label": "Early-era summit" }, { "value": "Full", "label": "Production" }],
+    "scopeItems": ["Conference production", "Program & speakers", "Venue & operations", "On-site management"],
+    "sections": [
+      { "h": "The brief", "p": "A blockchain partners summit hosted by Bobby Finance and Chainier in 2018 — one of the early-era industry gatherings, organized by Chris & Partners." },
+      { "h": "What we did", "p": "PROOF produced the summit end to end — program, speakers, venue and on-site operations — at a time when the industry's events playbook was still being written." }
+    ],
+    "quote": null
+  }
+]
