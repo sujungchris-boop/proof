@@ -481,6 +481,15 @@ nav.is-scrolled{
 .work-header{
   padding:100px 52px 56px;
 }
+.work-cta{
+  display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;
+  padding:clamp(40px,5vw,56px) clamp(24px,5vw,52px);
+  border-top:1px solid var(--line);
+}
+.work-cta-line{
+  font-family:var(--fb);font-size:clamp(16px,2vw,19px);font-weight:300;
+  color:rgba(247,243,236,.74);line-height:1.5;max-width:48ch;
+}
 /* Work: 3-column auto rows — duplicate a <article class="wi rv"> + images/work-0N.jpg */
 .work-grid{
   display:grid;
@@ -1047,6 +1056,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="wi-sub">Global Web3 Event</span>
       </div>
     </article>
+  </div>
+  <div class="work-cta rv">
+    <p class="work-cta-line">Full case studies — venues, scope, and what we delivered — available on request.</p>
+    <a href="#contact" class="btn-w">Request the full portfolio</a>
   </div>
 </div>
 
