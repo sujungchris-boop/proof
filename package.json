@@ -1,0 +1,14 @@
+{
+  "name": "proof-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PROOF — static Web3 event agency site. Case studies + portfolio deck are generated from a single source (cases/cases.json).",
+  "scripts": {
+    "build:cases": "node scripts/build-cases.js",
+    "build:deck": "node scripts/build-deck.js",
+    "build": "node scripts/build-cases.js && node scripts/build-deck.js"
+  },
+  "devDependencies": {
+    "pptxgenjs": "^3.12.0"
+  }
+}

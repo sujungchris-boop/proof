@@ -1,0 +1,124 @@
+[
+  {
+    "slug": "sahara-ai-connect-party",
+    "title": "Sahara AI Connect Party",
+    "client": "Sahara AI",
+    "tag": "Side Event",
+    "date": "September 2025",
+    "city": "Seoul",
+    "venue": "Sebit Island",
+    "context": "Korea Blockchain Week 2025",
+    "hero": "/images/work-01.jpg",
+    "accent": "c1",
+    "order": 1,
+    "summary": "A flagship Korea Blockchain Week evening for Sahara AI on Seoul's Sebit Island — produced end to end by PROOF.",
+    "metrics": [
+      { "value": "1,000", "label": "Guests" },
+      { "value": "1", "label": "Evening, on-site" },
+      { "value": "KBW 2025", "label": "Anchored to" }
+    ],
+    "scope": [
+      "Venue sourcing & production",
+      "Run-of-show & pacing",
+      "AV, staging & lighting",
+      "On-site staffing & guest management"
+    ],
+    "sections": [
+      { "h": "The brief", "p": "Sahara AI wanted to make a real impression at Korea Blockchain Week — not just another side event lost in a crowded week. The goal was an evening that the right people would remember and talk about." },
+      { "h": "What we did", "p": "PROOF produced the event end to end on Seoul's Sebit Island: venue, production, AV, staging and the pacing of the night. We managed a thousand guests through an evening designed so people actually stayed, mixed and talked — rather than drifting in and out." },
+      { "h": "The outcome", "p": "The room held. Guests stayed and connected, and multiple global partners called it the best event of the week — the kind of result that doesn't happen by luck, but by intentional production." }
+    ],
+    "quote": { "text": "Three global partners told us it was the best event of the week. That doesn't happen by luck.", "attrib": "Sahara AI" }
+  },
+  {
+    "slug": "seoul-meta-week",
+    "title": "Seoul Meta Week",
+    "client": "Owned IP — Chris & Partners",
+    "tag": "Owned Flagship",
+    "date": "Annual · 2022–Present",
+    "city": "Seoul",
+    "venue": "COEX",
+    "context": "Our own flagship Web3 summit",
+    "hero": "/images/work-02.jpg",
+    "accent": "c2",
+    "order": 2,
+    "summary": "PROOF's own flagship Web3 summit at COEX, Seoul — full conference production, every edition since the first.",
+    "metrics": [
+      { "value": "2022–", "label": "Every edition" },
+      { "value": "COEX", "label": "Seoul" },
+      { "value": "Owned IP", "label": "by Chris & Partners" }
+    ],
+    "scope": [
+      "Full conference production",
+      "Program & speaker curation",
+      "Sponsor fulfilment",
+      "Stage, AV & on-site operations"
+    ],
+    "sections": [
+      { "h": "The brief", "p": "Seoul Meta Week is our own intellectual property — a flagship summit we conceived and have run from its first edition. The mandate every year: a blockchain conference people actually fly in for." },
+      { "h": "What we did", "p": "Full conference production at COEX — program design, speaker curation, sponsor fulfilment, stage, AV and the entire on-site operation. As the owner-operator, we control the experience end to end, edition after edition." },
+      { "h": "The outcome", "p": "A returning, growing flagship. The speaker lineup gets stronger each year because the event experience backs it up — the institutional muscle that turns a conference into a destination." }
+    ],
+    "quote": { "text": "Institutional muscle that turns a blockchain conference into something people actually fly in for.", "attrib": "Seoul Meta Week" }
+  },
+  {
+    "slug": "token2049-side-event",
+    "title": "TOKEN2049 Side Event",
+    "client": "Korean Web3 Project (confidential)",
+    "tag": "Side Event",
+    "date": "TOKEN2049 week",
+    "city": "Singapore",
+    "venue": "Marina Bay Sands",
+    "context": "Sponsor side event during TOKEN2049",
+    "hero": "/images/work-05.jpg",
+    "accent": "c3",
+    "order": 3,
+    "summary": "A sponsor side event during TOKEN2049 Singapore — venue, vendors and on-site execution in a city the client didn't operate in.",
+    "metrics": [
+      { "value": "Singapore", "label": "Marina Bay Sands" },
+      { "value": "48 hrs", "label": "Brief to confirmed venue" },
+      { "value": "Side event", "label": "During TOKEN2049" }
+    ],
+    "scope": [
+      "Venue sourcing in Singapore",
+      "Vendor & AV coordination",
+      "Staffing",
+      "On-site execution"
+    ],
+    "sections": [
+      { "h": "The brief", "p": "A Korean Web3 project needed a sponsor side event during TOKEN2049 in Singapore — a city they had no operating footprint in. They had shortlisted agencies; two of them had never actually run an event in Singapore before." },
+      { "h": "What we did", "p": "Because we already held the venue contacts, AV vendors and staffing relationships, we moved fast. Briefed on a Monday, we had a confirmed venue by Wednesday, then handled vendors, AV and on-site execution through the event. This was a side event during TOKEN2049 — not the conference itself." },
+      { "h": "The outcome", "p": "The client got certainty in an unfamiliar city, on a deadline, during one of the busiest weeks of the Web3 calendar. No improvising on the fly." }
+    ],
+    "quote": { "text": "We briefed them on Monday and had a confirmed venue by Wednesday. For us, that certainty was everything.", "attrib": "Korean Web3 Project" }
+  },
+  {
+    "slug": "aggregation-summit",
+    "title": "Aggregation Summit",
+    "client": "Aggregation Summit",
+    "tag": "Full Production",
+    "date": "—",
+    "city": "—",
+    "venue": "—",
+    "context": "Global Web3 summit",
+    "hero": "/images/work-03.jpeg",
+    "accent": "c1",
+    "order": 4,
+    "summary": "Full production for the Aggregation Summit — a global Web3 summit delivered under the PROOF standard.",
+    "metrics": [
+      { "value": "Global", "label": "Web3 summit" },
+      { "value": "Full", "label": "Production" }
+    ],
+    "scope": [
+      "Conference production",
+      "Stage & AV",
+      "Sponsor & program support",
+      "On-site operations"
+    ],
+    "sections": [
+      { "h": "The brief", "p": "A global Web3 summit that needed a production partner who could run the room at conference scale." },
+      { "h": "What we did", "p": "Full production — stage, AV, program support and on-site operations — delivered to the same standard as our owned summits." }
+    ],
+    "quote": null
+  }
+]
