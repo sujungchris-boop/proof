@@ -121,7 +121,7 @@ const W = 13.333, H = 7.5;
   s.addText([{ text: "hello@chrisandpartners.co", options: { breakLine: true, color: C.w, bold: true } }, { text: "+82-2-375-4620", options: { breakLine: true, color: C.w } }, { text: "proof.chrisandpartners.co", options: { color: C.lime } }], { x: 0.7, y: 4.5, w: 7, h: 1.6, margin: 0, fontFace: F.mono, fontSize: 15, lineSpacingMultiple: 1.5 });
   s.addText("PROOF — by Chris & Partners  ·  5F DSM Square, 45 Dokmak-ro 3-gil, Mapo-gu, Seoul, Republic of Korea", { x: 0.72, y: 6.7, w: 12, h: 0.4, margin: 0, fontFace: F.mono, fontSize: 10, color: "CFCBC4", charSpacing: 0.5 });
 
-  fs.mkdirSync(path.join(ROOT, "dist"), { recursive: true });
-  await p.writeFile({ fileName: path.join(ROOT, "dist", "PROOF-Portfolio-2026.pptx") });
+  fs.mkdirSync(path.join(ROOT, "deck"), { recursive: true });
+  await p.writeFile({ fileName: path.join(ROOT, "deck", "PROOF-Portfolio-2026.pptx") });
   console.log(`Deck written — ${cases.length} case slides from proof-cases.json + Sanity images.`);
 })();
