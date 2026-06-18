@@ -2,6 +2,7 @@
   "name": "proof-site",
   "version": "1.0.0",
   "private": true,
+  "engines": { "node": "20.x" },
   "description": "PROOF — static Web3 event agency site. Case studies + portfolio deck are generated from a single source (cases/cases.json).",
   "scripts": {
     "build:cases": "node scripts/build-cases.js",

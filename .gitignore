@@ -6,3 +6,4 @@ Thumbs.db
 .claude/
 node_modules/
 dist/
+build-info.json

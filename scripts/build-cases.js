@@ -167,9 +167,12 @@ function sitemap(cases) {
 
 (async () => {
   const res = await fetch(`https://${PID}.apicdn.sanity.io/v2021-10-21/data/query/${DS}?query=${encodeURIComponent(QUERY)}`);
+  if (!res.ok) throw new Error(`Sanity fetch failed: HTTP ${res.status} — aborting build (last good deploy is kept).`);
   const sanity = {};
   for (const it of (await res.json()).result) sanity[it.slug] = it;
+  if (Object.keys(sanity).length === 0) throw new Error("Sanity returned 0 plates — aborting build to avoid publishing an empty portfolio.");
   const cases = JSON.parse(fs.readFileSync(path.join(ROOT, "cases/proof-cases.json"), "utf8")).sort((a, b) => (a.order || 99) - (b.order || 99));
+  if (!cases.length) throw new Error("proof-cases.json is empty — aborting.");
   const missing = [];
   for (const c of cases) {
     const s = sanity[c.sanitySlug];
@@ -181,7 +184,7 @@ function sitemap(cases) {
   for (const c of cases) fs.writeFileSync(path.join(ROOT, "work", `${c.slug}.html`), casePage(c));
   fs.writeFileSync(path.join(ROOT, "work", "index.html"), indexPage(cases));
   fs.writeFileSync(path.join(ROOT, "sitemap.xml"), sitemap(cases));
-  console.log(`Generated ${cases.length} case pages + index + sitemap.`);
-  console.log("Galleries:", cases.map((c) => `${c.slug}(${c._gallery.length})`).join(", "));
+  fs.writeFileSync(path.join(ROOT, "build-info.json"), JSON.stringify({ builtAt: new Date().toISOString(), cases: cases.length, sanityPlates: Object.keys(sanity).length, source: `sanity:${PID}/${DS}` }, null, 2) + "\n");
+  console.log(`Generated ${cases.length} case pages + index + sitemap + build-info (from ${Object.keys(sanity).length} Sanity plates).`);
   if (missing.length) console.log("WARN no Sanity match for:", missing.join(", "));
 })();
