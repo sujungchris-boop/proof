@@ -184,7 +184,13 @@ function sitemap(cases) {
   for (const c of cases) fs.writeFileSync(path.join(ROOT, "work", `${c.slug}.html`), casePage(c));
   fs.writeFileSync(path.join(ROOT, "work", "index.html"), indexPage(cases));
   fs.writeFileSync(path.join(ROOT, "sitemap.xml"), sitemap(cases));
-  fs.writeFileSync(path.join(ROOT, "build-info.json"), JSON.stringify({ builtAt: new Date().toISOString(), cases: cases.length, sanityPlates: Object.keys(sanity).length, source: `sanity:${PID}/${DS}` }, null, 2) + "\n");
+  // hero-images.js — marquee hero photos, auto-synced from Sanity (one hero per case + a few galleries), sized small for performance
+  const heroImgs = [];
+  for (const c of cases) { const s = sanity[c.sanitySlug]; const u = s && imgUrl(s.image && s.image.asset && s.image.asset._ref, 640); if (u) heroImgs.push(u); }
+  const richest = cases.map((c) => sanity[c.sanitySlug]).find((s) => s && (s.gallery || []).length >= 2);
+  if (richest) richest.gallery.slice(0, 2).forEach((g) => { const u = imgUrl(g.asset && g.asset._ref, 640); if (u) heroImgs.push(u); });
+  fs.writeFileSync(path.join(ROOT, "hero-images.js"), "window.PROOF_HERO_IMAGES=" + JSON.stringify(heroImgs) + ";\n");
+  fs.writeFileSync(path.join(ROOT, "build-info.json"), JSON.stringify({ builtAt: new Date().toISOString(), cases: cases.length, heroImages: heroImgs.length, sanityPlates: Object.keys(sanity).length, source: `sanity:${PID}/${DS}` }, null, 2) + "\n");
   console.log(`Generated ${cases.length} case pages + index + sitemap + build-info (from ${Object.keys(sanity).length} Sanity plates).`);
   if (missing.length) console.log("WARN no Sanity match for:", missing.join(", "));
 })();
