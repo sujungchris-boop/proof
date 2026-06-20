@@ -1,5 +1,57 @@
 [
   {
+    "sanitySlug": "gensyn-ai-rl-seoul",
+    "slug": "gensyn-ai-rl-seoul",
+    "title": "Gensyn — ai(RL) Seoul",
+    "scope": "side-event",
+    "accent": "c2",
+    "host": "Gensyn",
+    "location": "Frame Seoul, Gangnam",
+    "summary": "‘ai(RL) Seoul’ — a Korea Blockchain Week 2025 networking mixer for decentralized-ML project Gensyn, with co-founder & CEO Ben Fielding and team. Produced end to end by PROOF.",
+    "kpis": [{ "value": "KBW 2025", "label": "During" }, { "value": "Ben Fielding", "label": "Co-founder & CEO present" }, { "value": "BlockAssist", "label": "Live demo" }],
+    "scopeItems": ["Venue build & production", "Run-of-show & on-site ops", "Demo staging (BlockAssist)", "F&B & networking"],
+    "sections": [
+      { "h": "The brief", "p": "Gensyn — a decentralized machine-learning project — wanted a Korea Blockchain Week mixer that put its founders in the room with Korea's developer and founder community, around decentralized ML, verifiable compute and next-gen AI training." },
+      { "h": "What we did", "p": "At Frame Seoul in Gangnam, PROOF produced the evening end to end — venue, staging and operations — including a live demo of BlockAssist, an AI assistant that learns user behaviour inside Minecraft. Co-founder & CEO Ben Fielding and the team connected with local developers, project founders and industry leaders over open networking." }
+    ],
+    "quote": null
+  },
+  {
+    "sanitySlug": "ixo",
+    "slug": "ixo",
+    "title": "IXO — Web3 Roadshow Series",
+    "scope": "full-production",
+    "accent": "c3",
+    "host": "TokenPost",
+    "location": "Seoul",
+    "summary": "TokenPost's Web3 trend roadshow series — PROOF produced all three seasons (2023–2025), scaling it from a 1,000-guest launch to a B2C experiential showcase with 100+ sponsors.",
+    "kpis": [{ "value": "5,000+", "label": "Cumulative attendees" }, { "value": "100+", "label": "Sponsors" }, { "value": "3", "label": "Seasons produced" }],
+    "scopeItems": ["Main-stage production", "Booth & exhibition zones", "Panels & session operations", "Sponsor booth management"],
+    "sections": [
+      { "h": "The brief", "p": "IXO is TokenPost's Web3 trend roadshow and conference series. PROOF was the production partner for all three seasons — from the Season 1 launch in 2023 through Season 3 in 2025 — tasked with growing both scale and polish each year." },
+      { "h": "What we did", "p": "Season 1 (2023, GS Tower Amoris) launched the series to 1,000+ guests. Season 2 (2024, Monaco Space) — 'Ultimate Web3 Roadshow: Embrace the Future' — added booth exhibitions and project showcases. Season 3 (2025, Korea Textile Center) — 'Proof of Business' — went B2C and experiential, with 11+ companies including TRON, Chiliz, Avalanche, OKX Wallet, CertiK, IoTeX and OneKey, plus policy, economics and investment speakers." },
+      { "h": "The outcome", "p": "Across the three seasons PROOF ran main-stage production, exhibition zones, panels and sponsor booths — a cumulative 5,000+ attendees, 100+ sponsors and 50+ sessions, with each edition larger and tighter than the last." }
+    ],
+    "quote": null
+  },
+  {
+    "sanitySlug": "bitgo-vip-networking-reception",
+    "slug": "bitgo-vip-networking-reception",
+    "title": "BitGo VIP Networking Reception",
+    "scope": "investor-dinner",
+    "accent": "c1",
+    "host": "BitGo / FACTBLOCK",
+    "location": "Raum, Seoul",
+    "summary": "A private VIP reception hosted by digital-asset custody leader BitGo during Korea Blockchain Week 2023 — premium networking in Raum's chandelier ballroom, produced by PROOF.",
+    "kpis": [{ "value": "KBW 2023", "label": "During" }, { "value": "VIP", "label": "Invite-only" }, { "value": "BitGo × FACTBLOCK", "label": "Co-hosted" }],
+    "scopeItems": ["Venue build & styling", "Production & direction", "Catering & hospitality", "On-site operations"],
+    "sections": [
+      { "h": "The brief", "p": "BitGo — a global leader in digital-asset custody — and FACTBLOCK co-hosted a private networking reception during Korea Blockchain Week 2023, for VIPs and industry leaders, that had to match the standing of a global brand." },
+      { "h": "What we did", "p": "In the chandelier ballroom at Raum, Seoul, PROOF handled the full event — venue build, direction, catering and hospitality, and on-site operations — delivering a premium, invite-only networking experience worthy of the host." }
+    ],
+    "quote": null
+  },
+  {
     "sanitySlug": "sahara-ai-connect-party-2025",
     "slug": "sahara-ai-connect-party-2025",
     "title": "Sahara AI Connect Party 2025",

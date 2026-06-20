@@ -13,7 +13,7 @@ const path = require("path");
 const ROOT = path.join(__dirname, "..");
 const SITE = "https://proof.chrisandpartners.co";
 const PID = "x6yzy771", DS = "production";
-const QUERY = `*[_type=="plate" && proof==true]{title,"slug":slug.current,proofScope,year,image,gallery}`;
+const QUERY = `*[_type=="plate" && proof==true]{title,"slug":slug.current,proofScope,proofOrder,year,image,gallery}`;
 // Manually pin cases to the front of /work/ (by Sanity slug, in order). Everything else sorts newest-year-first.
 const PIN = [];
 
@@ -140,7 +140,7 @@ ${GTM_BODY}${NAV}
   <header class="idx-head">
     <p class="case-kicker">Selected Work</p>
     <h1>Rooms we've built.</h1>
-    <p class="idx-sub">Owned summits, conference production, side events and activations for global Web3 projects — produced end to end. ${cases.length} selected case studies.</p>
+    <p class="idx-sub">Owned summits, conference production, side events and activations for global Web3 projects — produced end to end.</p>
   </header>
 </div>
 <div class="wx-grid">
@@ -199,6 +199,7 @@ const yearNum = (y) => { const m = String(y == null ? "" : y).match(/\d{4}/g); r
       scopeItems: ov.scopeItems || [],
       quote: ov.quote || null,
       _year: yearNum(p.year),
+      _pOrder: typeof p.proofOrder === "number" ? p.proofOrder : Infinity,
       _ovOrder: ov.order == null ? 999 : ov.order,
       _hero: imgUrl(ref, 1800),
       _heroSmall: imgUrl(ref, 640),
@@ -206,9 +207,10 @@ const yearNum = (y) => { const m = String(y == null ? "" : y).match(/\d{4}/g); r
       _gallery: (p.gallery || []).map((g) => imgUrl(g.asset && g.asset._ref, 1200)).filter(Boolean),
     };
   });
-  // Order: pinned (PIN list) first, then newest year first, tie-break by curated order, then title.
+  // Order: Sanity `proofOrder` is authoritative (set in Sanity Studio, ascending). Items without it
+  // fall back to: PIN list, then newest year first, then curated order, then title.
   const pinIdx = (c) => { const k = PIN.indexOf(c.sanitySlug); return k === -1 ? 1e9 : k; };
-  cases.sort((a, b) => pinIdx(a) - pinIdx(b) || b._year - a._year || a._ovOrder - b._ovOrder || a.title.localeCompare(b.title));
+  cases.sort((a, b) => a._pOrder - b._pOrder || pinIdx(a) - pinIdx(b) || b._year - a._year || a._ovOrder - b._ovOrder || a.title.localeCompare(b.title));
 
   for (const c of cases) fs.writeFileSync(path.join(ROOT, "work", `${c.slug}.html`), casePage(c));
   fs.writeFileSync(path.join(ROOT, "work", "index.html"), indexPage(cases));
