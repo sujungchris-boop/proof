@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>DEV — Marquee Hero (PROOF skin)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#181818;
+    --w:#F4F1EC;
+    --overlay:24,24,24;       /* PROOF bg as overlay */
+    --accent:#D6FF3F;          /* electric lime */
+    --ink:#111107;
+    --g:#A3A3A3;
+    --fn:'Fraunces',Georgia,serif;
+    --fm:'IBM Plex Mono',ui-monospace,monospace;
+    --fb:'Manrope',sans-serif;
+    --col-gap:1.6rem;
+    --row-gap:1.6rem;
+    --speed:55s;
+    --nav-h:60px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{font-size:62.5%}
+  body{background:var(--bg);color:var(--w);font-family:var(--fb);-webkit-font-smoothing:antialiased;font-optical-sizing:auto}
+
+  /* ── minimal PROOF nav (for context) ── */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,52px);background:rgba(24,24,24,.55);backdrop-filter:blur(20px) saturate(1.2);-webkit-backdrop-filter:blur(20px) saturate(1.2);border-bottom:1px solid rgba(247,243,236,.12)}
+  .logo{font-family:var(--fn);font-weight:500;font-size:2.6rem;letter-spacing:.04em;color:var(--w);text-decoration:none;padding-left:13px;border-left:2px solid var(--accent)}
+  .nav-r{display:flex;align-items:center;gap:clamp(18px,2.4vw,34px)}
+  .nav-r a{font-family:var(--fm);font-size:1.2rem;letter-spacing:.04em;text-transform:uppercase;color:var(--g);text-decoration:none}
+  .nav-r a:hover{color:var(--w)}
+  .nav-cta{color:var(--w)!important;border:1px solid rgba(247,243,236,.2);padding:9px 18px}
+  @media(max-width:680px){.nav-r a:not(.nav-cta){display:none}}
+
+  /* ── hero shell ── */
+  .hero{position:relative;display:flex;align-items:center;justify-content:center;min-height:100vh;min-height:100svh;overflow:hidden;text-align:center}
+
+  /* ── scrolling image field (overflows viewport edges) ── */
+  .hero__field{position:absolute;top:0;bottom:0;left:-50%;right:-50%;display:flex;gap:var(--col-gap);justify-content:center;z-index:1}
+  @media(min-width:750px){.hero__field{left:-40%;right:-40%}}
+  @media(min-width:990px){.hero__field{left:-26%;right:-26%}}
+  @media(min-width:1200px){.hero__field{left:-8%;right:-8%}}
+  .hero__col{flex:1;display:flex;flex-direction:column;gap:var(--row-gap);min-width:0}
+  .hero__track{display:flex;flex-direction:column;gap:var(--row-gap);will-change:transform}
+  .hero__col--down .hero__track{animation:scroll-down var(--speed) linear infinite}
+  .hero__col--up   .hero__track{animation:scroll-up   var(--speed) linear infinite}
+  @keyframes scroll-down{from{transform:translateY(-50%)}to{transform:translateY(0)}}
+  @keyframes scroll-up{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+  .hero__slide{aspect-ratio:16/10;border-radius:3px;overflow:hidden;flex:none}
+  .hero__slide img{display:block;width:100%;height:100%;object-fit:cover;filter:brightness(.92) contrast(1.02)}
+
+  /* ── overlay ── */
+  .hero::after{content:"";position:absolute;inset:0;background:
+    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(var(--overlay),.55) 0%, rgba(var(--overlay),.9) 78%),
+    linear-gradient(180deg, rgba(var(--overlay),.9), rgba(var(--overlay),.62) 50%, rgba(var(--overlay),.95));
+    z-index:2}
+
+  /* ── content ── */
+  .hero__content{position:relative;z-index:3;max-width:96rem;padding:6.4rem 2rem;margin:0 auto}
+  .hero__eyebrow{display:inline-flex;align-items:center;gap:1.2rem;font-family:var(--fm);font-size:1.2rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:2.8rem;font-weight:400}
+  .hero__eyebrow::before,.hero__eyebrow::after{content:'';width:28px;height:1px;background:var(--accent);opacity:.6}
+  .hero__title{font-family:var(--fn);font-weight:360;font-size:clamp(4.4rem,8vw,9.6rem);line-height:.98;letter-spacing:-.022em;font-variation-settings:"opsz" 144}
+  .hero__title .dim{color:var(--accent)}
+  .hero__desc{margin:2.8rem auto 0;font-family:var(--fb);font-weight:300;font-size:clamp(1.6rem,2.1vw,2rem);line-height:1.55;color:rgba(244,241,236,.74);max-width:56rem}
+  .hero__cta{margin-top:4rem;display:inline-flex;align-items:center;gap:.8rem;padding:1.7rem 4rem;background:var(--accent);color:var(--ink);border-radius:1px;font-family:var(--fm);font-weight:500;font-size:1.25rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:letter-spacing .35s cubic-bezier(.16,1,.3,1),transform .25s,box-shadow .3s}
+  .hero__cta:hover{letter-spacing:.12em;transform:translateY(-2px);box-shadow:0 14px 34px -12px rgba(214,255,63,.55)}
+
+  /* dev badge */
+  .devtag{position:fixed;bottom:14px;left:14px;z-index:300;font-family:var(--fm);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--g);background:rgba(24,24,24,.7);border:1px solid rgba(247,243,236,.14);padding:7px 12px;border-radius:2px}
+
+  @media(prefers-reduced-motion:reduce){.hero__track{animation:none!important}}
+</style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="/" class="logo">PROOF</a>
+    <div class="nav-r">
+      <a href="#">Expertise</a><a href="#">Work</a><a href="#">Insights</a><a href="#" class="nav-cta">Start a Project</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero__field" id="field" aria-hidden="true"></div>
+    <div class="hero__content">
+      <span class="hero__eyebrow">Web3 Event Agency · by Chris &amp; Partners · Seoul</span>
+      <h1 class="hero__title">Global Stages.<br><span class="dim">Proven</span> Execution.</h1>
+      <p class="hero__desc">Booths, side events and owned summits — produced end to end for global Web3 projects, on stages worldwide.</p>
+      <a href="#" class="hero__cta">Start a Project →</a>
+    </div>
+  </section>
+
+  <span class="devtag">DEV · Marquee Hero (PROOF skin)</span>
+
+<script>
+  // Real PROOF event photos distributed across 3 columns, round-robin.
+  const images = [
+    '/images/work-01.jpg','/images/work-02.jpg','/images/work-03.jpeg','/images/work-04.jpg',
+    '/images/work-05.jpg','/images/work-06.jpg','/images/expertise-01.jpg','/images/expertise-02.jpg',
+    '/images/expertise-03.jpg','/images/expertise-04.jpg','/images/about.jpg','/images/cta.jpg','/images/hero.jpeg'
+  ];
+  const cols = 3;
+  const field = document.getElementById('field');
+  const colImgs = Array.from({length:cols},()=>[]);
+  images.forEach((src,i)=>colImgs[i%cols].push(src));
+  colImgs.forEach((list,c)=>{
+    const col=document.createElement('div');
+    col.className='hero__col '+(c%2===0?'hero__col--down':'hero__col--up');
+    const track=document.createElement('div');
+    track.className='hero__track';
+    [...list,...list].forEach(src=>{
+      const slide=document.createElement('div');slide.className='hero__slide';
+      const img=document.createElement('img');img.src=src;img.alt='';img.loading='lazy';
+      slide.appendChild(img);track.appendChild(slide);
+    });
+    col.appendChild(track);field.appendChild(col);
+  });
+</script>
+</body>
+</html>
