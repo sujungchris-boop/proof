@@ -49,6 +49,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://proof.chrisandpartners.co/work/gensyn-ai-rl-seoul.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://proof.chrisandpartners.co/work/ixo.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://proof.chrisandpartners.co/work/token2049-singapore.html</loc>
     <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
@@ -67,12 +79,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://proof.chrisandpartners.co/work/polygon-connect-korea.html</loc>
-    <lastmod>2026-06-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://proof.chrisandpartners.co/work/polygon-ignite.html</loc>
     <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
@@ -85,13 +91,25 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://proof.chrisandpartners.co/work/metacon-2021.html</loc>
+    <loc>https://proof.chrisandpartners.co/work/bitgo-vip-networking-reception.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://proof.chrisandpartners.co/work/polygon-connect-korea.html</loc>
     <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://proof.chrisandpartners.co/work/seoul-meta-week-2022.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://proof.chrisandpartners.co/work/metacon-2021.html</loc>
     <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

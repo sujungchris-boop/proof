@@ -13,10 +13,12 @@ const path = require("path");
 const ROOT = path.join(__dirname, "..");
 const SITE = "https://proof.chrisandpartners.co";
 const PID = "x6yzy771", DS = "production";
-const QUERY = `*[_type=="plate" && proof==true]{"slug":slug.current,image,gallery}`;
+const QUERY = `*[_type=="plate" && proof==true]{title,"slug":slug.current,proofScope,year,image,gallery}`;
+// Manually pin cases to the front of /work/ (by Sanity slug, in order). Everything else sorts newest-year-first.
+const PIN = [];
 
 const ACCENT = { c1: "#D6FF3F", c2: "#FF3D9A", c3: "#5B8CFF" };
-const SCOPE = { "side-event": "Side Event", "owned-summit": "Owned Summit", "korea-entry": "Korea Market Entry", "booth": "Booth & Exhibition", "investor-dinner": "Investor Dinner", "activation": "Activation", "conference-production": "Conference Production" };
+const SCOPE = { "side-event": "Side Event", "owned-summit": "Owned Summit", "korea-entry": "Korea Market Entry", "booth": "Booth & Exhibition", "investor-dinner": "Investor Dinner", "activation": "Activation", "conference-production": "Conference Production", "full-production": "Full Production" };
 const esc = (s) => String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const attr = (s) => String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/"/g, "&quot;");
 function imgUrl(ref, w) {
@@ -40,10 +42,10 @@ function casePage(c) {
   const url = `${SITE}/work/${c.slug}.html`;
   const acc = ACCENT[c.accent] || ACCENT.c1;
   const tag = tagFor(c);
-  const specMeta = [["Client", c.host], ["Where", c.location], ["Scope", tag]]
+  const specMeta = [["Client", c.host], ["When", c.year], ["Where", c.location], ["Scope", tag]]
     .filter(([, v]) => v).map(([k, v]) => `<div class="spec"><span class="spec-l">${esc(k)}</span><span class="spec-v sm">${esc(v)}</span></div>`).join("");
   const kpis = (c.kpis || []).map((m) => `<div class="spec"><span class="spec-v">${esc(m.value)}</span><span class="spec-l">${esc(m.label)}</span></div>`).join("");
-  const body = (c.sections || []).map((s) => `<h2>${esc(s.h)}</h2>\n      <p>${esc(s.p)}</p>`).join("\n      ");
+  const body = (c.sections || []).length ? c.sections.map((s) => `<h2>${esc(s.h)}</h2>\n      <p>${esc(s.p)}</p>`).join("\n      ") : `<p>${esc(c.summary)}</p>`;
   const scope = (c.scopeItems || []).length ? `<div class="case-scope"><span class="cs-label">What we handled</span><ul>${c.scopeItems.map((s) => `<li>${esc(s)}</li>`).join("")}</ul></div>` : "";
   const quote = c.quote ? `<blockquote class="case-quote">“${esc(c.quote.text)}”<cite>— ${esc(c.quote.attrib)}</cite></blockquote>` : "";
   const gallery = (c._gallery || []).length ? `<section class="case-gallery">${c._gallery.map((u) => `<figure><img src="${u}" alt="${attr(c.title)}" loading="lazy" decoding="async"></figure>`).join("")}</section>` : "";
@@ -165,32 +167,56 @@ function sitemap(cases) {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url>\n    <loc>${SITE}${u.loc}</loc>\n    <lastmod>${u.lm}</lastmod>\n    <changefreq>${u.cf}</changefreq>\n    <priority>${u.pr}</priority>\n  </url>`).join("\n")}\n</urlset>\n`;
 }
 
+const yearNum = (y) => { const m = String(y == null ? "" : y).match(/\d{4}/g); return m ? Math.max(...m.map(Number)) : 0; };
+
 (async () => {
   const res = await fetch(`https://${PID}.apicdn.sanity.io/v2021-10-21/data/query/${DS}?query=${encodeURIComponent(QUERY)}`);
   if (!res.ok) throw new Error(`Sanity fetch failed: HTTP ${res.status} — aborting build (last good deploy is kept).`);
-  const sanity = {};
-  for (const it of (await res.json()).result) sanity[it.slug] = it;
-  if (Object.keys(sanity).length === 0) throw new Error("Sanity returned 0 plates — aborting build to avoid publishing an empty portfolio.");
-  const cases = JSON.parse(fs.readFileSync(path.join(ROOT, "cases/proof-cases.json"), "utf8")).sort((a, b) => (a.order || 99) - (b.order || 99));
-  if (!cases.length) throw new Error("proof-cases.json is empty — aborting.");
-  const missing = [];
-  for (const c of cases) {
-    const s = sanity[c.sanitySlug];
-    if (!s) { missing.push(c.sanitySlug); c._hero = ""; c._heroThumb = SITE + "/images/og-image.jpg"; c._gallery = []; continue; }
-    c._hero = imgUrl(s.image && s.image.asset && s.image.asset._ref, 1800);
-    c._heroThumb = imgUrl(s.image && s.image.asset && s.image.asset._ref, 1000);
-    c._gallery = (s.gallery || []).map((g) => imgUrl(g.asset && g.asset._ref, 1200)).filter(Boolean);
-  }
+  const plates = (await res.json()).result;
+  if (!plates.length) throw new Error("Sanity returned 0 plates — aborting build to avoid publishing an empty portfolio.");
+  // PROOF English-copy overrides (optional, by sanitySlug). Sanity is the source for WHICH items exist + scope + photos.
+  const overrides = {};
+  for (const o of JSON.parse(fs.readFileSync(path.join(ROOT, "cases/proof-cases.json"), "utf8"))) overrides[o.sanitySlug] = o;
+
+  const noCopy = [];
+  const cases = plates.map((p, i) => {
+    const ov = overrides[p.slug] || {};
+    const ref = p.image && p.image.asset && p.image.asset._ref;
+    const scope = p.proofScope || ov.scope || null;        // Sanity is authoritative for scope
+    if (!ov.sections) noCopy.push((ov.title || p.title) + (p.proofScope ? "" : " [no scope]"));
+    return {
+      sanitySlug: p.slug,
+      slug: ov.slug || p.slug,
+      title: ov.title || p.title,
+      scope,
+      accent: ov.accent || ["c1", "c2", "c3"][i % 3],
+      host: ov.host || "",
+      location: ov.location || "",
+      year: p.year || "",
+      summary: ov.summary || `${ov.title || p.title} — ${SCOPE[scope] || "a Web3 event"} produced by PROOF, the Web3 division of Chris & Partners.`,
+      kpis: ov.kpis || [],
+      sections: ov.sections || [],
+      scopeItems: ov.scopeItems || [],
+      quote: ov.quote || null,
+      _year: yearNum(p.year),
+      _ovOrder: ov.order == null ? 999 : ov.order,
+      _hero: imgUrl(ref, 1800),
+      _heroSmall: imgUrl(ref, 640),
+      _heroThumb: imgUrl(ref, 1000) || SITE + "/images/og-image.jpg",
+      _gallery: (p.gallery || []).map((g) => imgUrl(g.asset && g.asset._ref, 1200)).filter(Boolean),
+    };
+  });
+  // Order: pinned (PIN list) first, then newest year first, tie-break by curated order, then title.
+  const pinIdx = (c) => { const k = PIN.indexOf(c.sanitySlug); return k === -1 ? 1e9 : k; };
+  cases.sort((a, b) => pinIdx(a) - pinIdx(b) || b._year - a._year || a._ovOrder - b._ovOrder || a.title.localeCompare(b.title));
+
   for (const c of cases) fs.writeFileSync(path.join(ROOT, "work", `${c.slug}.html`), casePage(c));
   fs.writeFileSync(path.join(ROOT, "work", "index.html"), indexPage(cases));
   fs.writeFileSync(path.join(ROOT, "sitemap.xml"), sitemap(cases));
-  // hero-images.js — marquee hero photos, auto-synced from Sanity (one hero per case + a few galleries), sized small for performance
-  const heroImgs = [];
-  for (const c of cases) { const s = sanity[c.sanitySlug]; const u = s && imgUrl(s.image && s.image.asset && s.image.asset._ref, 640); if (u) heroImgs.push(u); }
-  const richest = cases.map((c) => sanity[c.sanitySlug]).find((s) => s && (s.gallery || []).length >= 2);
-  if (richest) richest.gallery.slice(0, 2).forEach((g) => { const u = imgUrl(g.asset && g.asset._ref, 640); if (u) heroImgs.push(u); });
+  // hero-images.js — marquee hero photos, auto-synced from Sanity (one hero per case, cap 14)
+  const heroImgs = cases.map((c) => c._heroSmall).filter(Boolean).slice(0, 14);
   fs.writeFileSync(path.join(ROOT, "hero-images.js"), "window.PROOF_HERO_IMAGES=" + JSON.stringify(heroImgs) + ";\n");
-  fs.writeFileSync(path.join(ROOT, "build-info.json"), JSON.stringify({ builtAt: new Date().toISOString(), cases: cases.length, heroImages: heroImgs.length, sanityPlates: Object.keys(sanity).length, source: `sanity:${PID}/${DS}` }, null, 2) + "\n");
-  console.log(`Generated ${cases.length} case pages + index + sitemap + build-info (from ${Object.keys(sanity).length} Sanity plates).`);
-  if (missing.length) console.log("WARN no Sanity match for:", missing.join(", "));
+  fs.writeFileSync(path.join(ROOT, "build-info.json"), JSON.stringify({ builtAt: new Date().toISOString(), cases: cases.length, heroImages: heroImgs.length, sanityPlates: plates.length, source: `sanity:${PID}/${DS}` }, null, 2) + "\n");
+  console.log(`Generated ${cases.length} case pages + index + sitemap + build-info (from ${plates.length} Sanity plates).`);
+  if (noCopy.length) console.log(`NOTE ${noCopy.length} item(s) have no PROOF English copy yet (render from Sanity title/scope/photos):\n - ` + noCopy.join("\n - "));
 })();
