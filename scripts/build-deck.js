@@ -7,27 +7,15 @@ const pptxgen = require("pptxgenjs");
 const fs = require("fs");
 const path = require("path");
 
+const { SCOPE, C, ACC, loadDeck, metaLine } = require("./deck-data");
+
 const ROOT = path.join(__dirname, "..");
 const IMG = path.join(ROOT, "images") + "/";
-const PID = "x6yzy771", DS = "production";
-const SCOPE = { "side-event": "Side Event", "owned-summit": "Owned Summit", "korea-entry": "Korea Market Entry", "booth": "Booth & Exhibition", "investor-dinner": "Investor Dinner", "activation": "Activation", "conference-production": "Conference Production" };
-function imgUrl(ref, w) {
-  if (!ref) return null;
-  const m = ref.match(/^image-([a-f0-9]+)-(\d+x\d+)-(\w+)$/);
-  return m ? `https://cdn.sanity.io/images/${PID}/${DS}/${m[1]}-${m[2]}.${m[3]}` + (w ? `?w=${w}&auto=format&fit=max` : "") : null;
-}
-
-const C = { bg: "151515", bg2: "1F1F1F", ink: "111107", w: "F4F1EC", mut: "9A9A9A", line: "3A3A3A", lime: "D6FF3F", mag: "FF3D9A", blue: "5B8CFF" };
-const ACC = { c1: C.lime, c2: C.mag, c3: C.blue };
-const F = { serif: "Georgia", mono: "Consolas", body: "Calibri" };
+const F = { serif: "Georgia", mono: "Consolas", body: "Calibri" }; // PowerPoint-safe fonts
 const W = 13.333, H = 7.5;
 
 (async () => {
-  // hero images from Sanity, keyed by sanitySlug
-  const res = await fetch(`https://${PID}.apicdn.sanity.io/v2021-10-21/data/query/${DS}?query=${encodeURIComponent('*[_type=="plate" && proof==true]{"slug":slug.current,image}')}`);
-  const heroBy = {};
-  for (const it of (await res.json()).result) heroBy[it.slug] = imgUrl(it.image && it.image.asset && it.image.asset._ref, 1600);
-  const cases = JSON.parse(fs.readFileSync(path.join(ROOT, "cases/proof-cases.json"), "utf8")).sort((a, b) => (a.order || 99) - (b.order || 99));
+  const { allCases, heroBy, heroes, owned, moreFinal } = await loadDeck(ROOT);
 
   const p = new pptxgen();
   p.defineLayout({ name: "W", width: W, height: H }); p.layout = "W";
@@ -37,7 +25,6 @@ const W = 13.333, H = 7.5;
   const footer = (s) => s.addText("PROOF  ·  BY CHRIS & PARTNERS", { x: 0.7, y: H - 0.55, w: 6, h: 0.3, margin: 0, fontFace: F.mono, fontSize: 8.5, color: C.mut, charSpacing: 1 });
   const dark = (s, x, y, w, h, t) => s.addShape(p.shapes.RECTANGLE, { x, y, w, h, fill: { color: "0E0E0E", transparency: t } });
   const full = (s, file) => s.addImage({ path: file, x: 0, y: 0, w: W, h: H, sizing: { type: "cover", w: W, h: H } });
-  const metaLine = (c) => [c.host, c.location].filter(Boolean).join("  ·  ");
   let s;
 
   // COVER
@@ -51,8 +38,11 @@ const W = 13.333, H = 7.5;
   s = p.addSlide(); s.background = { color: C.bg };
   s.addImage({ path: IMG + "about.jpg", x: 8.2, y: 0, w: 5.133, h: H, sizing: { type: "cover", w: 5.133, h: H } }); dark(s, 8.2, 0, 5.133, H, 72);
   kicker(s, "01 — WHO WE ARE", 0.7, 0.7);
-  s.addText([{ text: "The Web3 division of", options: { breakLine: true, color: C.w } }, { text: "Chris & Partners.", options: { color: C.lime } }], { x: 0.66, y: 1.15, w: 7.2, h: 1.8, margin: 0, fontFace: F.serif, fontSize: 40, lineSpacingMultiple: 1.0 });
-  s.addText("PROOF is the Web3-native arm of Chris & Partners — a Seoul-based professional event organizer with 15 years of international operations. We produce Seoul Meta Week, ran Polygon's Aggregation Summit in Bangkok, and delivered Sahara AI's booth and side events at TOKEN2049 Singapore. We know the venues, the vendors and the variables — before you brief us.", { x: 0.7, y: 3.05, w: 6.9, h: 1.9, margin: 0, fontFace: F.body, fontSize: 15.5, color: C.w, lineSpacingMultiple: 1.3 });
+  s.addText([{ text: "A Web3 event agency,", options: { breakLine: true, color: C.w } }, { text: "built by Chris & Partners.", options: { color: C.lime } }], { x: 0.66, y: 1.05, w: 7.3, h: 1.5, margin: 0, fontFace: F.serif, fontSize: 38, lineSpacingMultiple: 1.0 });
+  // KBW official-partner badge
+  s.addShape(p.shapes.ROUNDED_RECTANGLE, { x: 0.7, y: 2.7, w: 6.2, h: 0.46, rectRadius: 0.06, fill: { color: C.bg2 }, line: { color: C.lime, width: 0.75 } });
+  s.addText("★  OFFICIAL PARTNER · KOREA BLOCKCHAIN WEEK · SINCE 2023", { x: 0.7, y: 2.7, w: 6.2, h: 0.46, margin: 0, align: "center", valign: "middle", fontFace: F.mono, fontSize: 9, color: C.lime, charSpacing: 1 });
+  s.addText("PROOF is the Web3 event agency of Chris & Partners — a Seoul-based professional organizer with 15 years of international operations. Global projects hand us the brief; we deliver the event — side party, VIP reception, sponsor activation or full conference — from Seoul to Bangkok to Singapore. We know the venues, the vendors and the variables before you brief us.", { x: 0.7, y: 3.45, w: 6.9, h: 1.8, margin: 0, fontFace: F.body, fontSize: 15, color: C.w, lineSpacingMultiple: 1.3 });
   [["150+", "Events organized"], ["15yr", "PCO track record"], ["Global", "Event operations"], ["Seoul", "Headquarters"]].forEach((st, i) => {
     const sx = 0.7 + i * 1.78;
     s.addText(st[0], { x: sx, y: 5.45, w: 1.7, h: 0.7, margin: 0, fontFace: F.serif, fontSize: 33, color: C.lime });
@@ -83,7 +73,7 @@ const W = 13.333, H = 7.5;
   s.addText([{ text: "Global teams land for the one week ", options: { color: C.w } }, { text: "that matters", options: { color: C.lime } }, { text: " — with no ground game.", options: { color: C.w } }], { x: 0.66, y: 1.12, w: 11.8, h: 1.7, margin: 0, fontFace: F.serif, fontSize: 38, lineSpacingMultiple: 1.0 });
   s.addText("Seoul, Singapore, Bangkok — the rooms book out, the vendors are spoken for, and the calendar doesn't move. PROOF is the operator that's already there: 150+ events across the region, the venues and suppliers on speed-dial, and the failure points mapped before you brief us.", { x: 0.7, y: 3.0, w: 11.4, h: 1.2, margin: 0, fontFace: F.body, fontSize: 15.5, color: "D9D5CE", lineSpacingMultiple: 1.32 });
   [["Local ground ops", "Venues, vendors and crew secured in markets you don't operate in.", C.lime],
-   ["Owned & client", "From our own Seoul Meta Week to full production for Polygon.", C.mag],
+   ["Client-first", "Your brief, your brand — from a VIP dinner to a full conference.", C.mag],
    ["End to end", "Brief to on-site — run-of-show, AV, staffing, the variables.", C.blue]].forEach((col, i) => {
     const cx = 0.7 + i * 4.0;
     s.addShape(p.shapes.RECTANGLE, { x: cx, y: 4.7, w: 0.42, h: 0.05, fill: { color: col[2] } });
@@ -92,43 +82,45 @@ const W = 13.333, H = 7.5;
   });
   footer(s); pageNum(s, 4);
 
-  // SELECTED WORK — contents / index of the 12 cases
+  // SELECTED WORK — contents: 4 in depth + breadth
   s = p.addSlide(); s.background = { color: C.bg };
   kicker(s, "SELECTED WORK", 0.7, 0.7);
-  s.addText([{ text: "Twelve proofs, ", options: { color: C.w } }, { text: "not promises.", options: { color: C.lime } }], { x: 0.66, y: 1.12, w: 11.5, h: 0.9, margin: 0, fontFace: F.serif, fontSize: 32 });
-  cases.forEach((c, i) => {
-    const col = Math.floor(i / 6), row = i % 6, x = 0.7 + col * 6.25, y = 2.55 + row * 0.73;
-    const acc = ACC[c.accent] || C.lime;
-    s.addText(String(i + 1).padStart(2, "0"), { x, y: y + 0.04, w: 0.6, h: 0.5, margin: 0, fontFace: F.mono, fontSize: 13, color: acc });
-    s.addText(c.title, { x: x + 0.6, y, w: 4.3, h: 0.45, margin: 0, fontFace: F.serif, fontSize: 16, color: C.w, fit: "shrink" });
-    s.addText((SCOPE[c.scope] || "Web3 Event").toUpperCase(), { x: x + 0.6, y: y + 0.38, w: 4.9, h: 0.28, margin: 0, fontFace: F.mono, fontSize: 8, color: C.mut, charSpacing: 1 });
-    s.addShape(p.shapes.LINE, { x, y: y + 0.68, w: 5.4, h: 0, line: { color: C.line, width: 0.5 } });
+  const shown = heroes.length + owned.length + moreFinal.length;
+  s.addText([{ text: shown + " events. ", options: { color: C.w } }, { text: "Four in depth.", options: { color: C.lime } }], { x: 0.66, y: 1.12, w: 11.5, h: 0.9, margin: 0, fontFace: F.serif, fontSize: 32 });
+  s.addText("IN DEPTH", { x: 0.7, y: 2.4, w: 5, h: 0.3, margin: 0, fontFace: F.mono, fontSize: 9, color: C.mut, charSpacing: 2 });
+  heroes.forEach((c, i) => {
+    const y = 2.85 + i * 0.92, acc = ACC[c.accent] || C.lime;
+    s.addText(String(i + 1).padStart(2, "0"), { x: 0.7, y: y + 0.05, w: 0.6, h: 0.5, margin: 0, fontFace: F.mono, fontSize: 14, color: acc });
+    s.addText(c.title, { x: 1.32, y, w: 4.6, h: 0.45, margin: 0, fontFace: F.serif, fontSize: 18, color: C.w, fit: "shrink" });
+    s.addText((SCOPE[c.scope] || "Web3 Event").toUpperCase(), { x: 1.32, y: y + 0.42, w: 4.6, h: 0.28, margin: 0, fontFace: F.mono, fontSize: 8, color: C.mut, charSpacing: 1 });
+    s.addShape(p.shapes.LINE, { x: 0.7, y: y + 0.78, w: 5.2, h: 0, line: { color: C.line, width: 0.5 } });
   });
+  s.addText("ALSO INSIDE", { x: 6.75, y: 2.4, w: 6, h: 0.3, margin: 0, fontFace: F.mono, fontSize: 9, color: C.mut, charSpacing: 2 });
+  s.addText("Owned flagship", { x: 6.75, y: 2.82, w: 6, h: 0.4, margin: 0, fontFace: F.serif, fontSize: 18, color: C.w });
+  s.addText("Seoul Meta Week — " + owned.length + " editions, 2021–2025", { x: 6.75, y: 3.28, w: 6, h: 0.3, margin: 0, fontFace: F.mono, fontSize: 9.5, color: C.mag, charSpacing: 0.5 });
+  s.addText("More client work", { x: 6.75, y: 4.05, w: 6, h: 0.4, margin: 0, fontFace: F.serif, fontSize: 18, color: C.w });
+  s.addText(moreFinal.map((c) => c.title).join("   ·   "), { x: 6.75, y: 4.5, w: 5.9, h: 1.6, margin: 0, fontFace: F.mono, fontSize: 9.5, color: C.mut, lineSpacingMultiple: 1.5 });
   footer(s); pageNum(s, 5);
 
-  // CASE SLIDES — from proof-cases.json + Sanity images
-  let pg = 6, caseNo = 0;
-  const total = cases.length;
-  for (const c of cases) {
-    caseNo++;
+  // HERO CASES — 4 full-page, agency-first client work
+  let pg = 6;
+  heroes.forEach((c, i) => {
     const sl = p.addSlide(); sl.background = { color: C.bg };
     const acc = ACC[c.accent] || C.lime;
     const hero = heroBy[c.sanitySlug];
     if (hero) { sl.addImage({ path: hero, x: 0, y: 0, w: 6.9, h: H, sizing: { type: "cover", w: 6.9, h: H } }); dark(sl, 0, 0, 6.9, H, 32); dark(sl, 0, H - 1.4, 6.9, 1.4, 12); }
     else { sl.addShape(p.shapes.RECTANGLE, { x: 0, y: 0, w: 6.9, h: H, fill: { color: C.bg2 } }); }
-    sl.addText([{ text: "CASE ", options: { color: C.w } }, { text: String(caseNo).padStart(2, "0"), options: { color: acc } }, { text: " / " + total, options: { color: C.mut } }], { x: 0.5, y: H - 0.72, w: 3, h: 0.32, margin: 0, fontFace: F.mono, fontSize: 11, charSpacing: 1 });
+    sl.addText([{ text: "CASE ", options: { color: C.w } }, { text: String(i + 1).padStart(2, "0"), options: { color: acc } }, { text: " / " + String(heroes.length).padStart(2, "0"), options: { color: C.mut } }], { x: 0.5, y: H - 0.72, w: 3, h: 0.32, margin: 0, fontFace: F.mono, fontSize: 11, charSpacing: 1 });
     const rx = 7.35, rw = 5.45;
     kicker(sl, (SCOPE[c.scope] || "Web3 Event").toUpperCase(), rx, 0.78, acc);
     sl.addText(c.title, { x: rx - 0.04, y: 1.16, w: rw, h: 1.35, margin: 0, fontFace: F.serif, fontSize: 29, color: C.w, lineSpacingMultiple: 0.97, fit: "shrink" });
     sl.addText(metaLine(c).toUpperCase(), { x: rx, y: 2.58, w: rw, h: 0.4, margin: 0, fontFace: F.mono, fontSize: 9.5, color: C.mut, charSpacing: 0.5 });
     sl.addText(c.summary, { x: rx, y: 3.08, w: rw - 0.05, h: 1.55, margin: 0, fontFace: F.body, fontSize: 13, color: C.w, lineSpacingMultiple: 1.28 });
-    // stat bar — up to 3 KPIs
-    (c.kpis || []).slice(0, 3).forEach((k, i) => {
-      const kx = rx + i * (rw / 3);
+    (c.kpis || []).slice(0, 3).forEach((k, j) => {
+      const kx = rx + j * (rw / 3);
       sl.addText(String(k.value), { x: kx, y: 4.82, w: rw / 3 - 0.12, h: 0.55, margin: 0, fontFace: F.serif, fontSize: 21, color: acc, fit: "shrink" });
       sl.addText(String(k.label).toUpperCase(), { x: kx, y: 5.42, w: rw / 3 - 0.12, h: 0.5, margin: 0, fontFace: F.mono, fontSize: 8, color: C.mut, charSpacing: 0.5, lineSpacingMultiple: 0.96 });
     });
-    // scope / what we ran
     if (c.scopeItems && c.scopeItems.length) {
       sl.addText("SCOPE", { x: rx, y: 6.08, w: rw, h: 0.28, margin: 0, fontFace: F.mono, fontSize: 8, color: acc, charSpacing: 2 });
       sl.addText(c.scopeItems.join("   ·   "), { x: rx, y: 6.34, w: rw, h: 0.5, margin: 0, fontFace: F.mono, fontSize: 9, color: C.mut, charSpacing: 0.2, fit: "shrink" });
@@ -137,19 +129,59 @@ const W = 13.333, H = 7.5;
       sl.addText("“" + c.quote.text + "”", { x: rx, y: 6.85, w: rw, h: 0.5, margin: 0, fontFace: F.serif, italic: true, fontSize: 11, color: "E6E2DB", lineSpacingMultiple: 1.1, fit: "shrink" });
     }
     pageNum(sl, pg++);
-  }
+  }); // end heroes
+
+  // OWNED FLAGSHIP — Seoul Meta Week lineage (capability proof, not the lead)
+  s = p.addSlide(); s.background = { color: C.bg };
+  kicker(s, "OUR OWN FLAGSHIP", 0.7, 0.7, C.mag);
+  s.addText([{ text: "We don't only run clients' events — ", options: { color: C.w } }, { text: "we built our own.", options: { color: C.mag } }], { x: 0.66, y: 1.12, w: 12, h: 0.9, margin: 0, fontFace: F.serif, fontSize: 30 });
+  s.addText("Seoul Meta Week — " + owned.length + " editions, 2021–2025. Proof we can produce and scale a 1,500-person summit end to end, not just a side event.", { x: 0.7, y: 2.05, w: 11.8, h: 0.8, margin: 0, fontFace: F.body, fontSize: 14, color: C.mut, lineSpacingMultiple: 1.3 });
+  owned.forEach((c, i) => {
+    const cardW = 2.15, x = 0.7 + i * (cardW + 0.235), cy = 3.1;
+    const hImg = heroBy[c.sanitySlug];
+    if (hImg) { s.addImage({ path: hImg, x, y: cy, w: cardW, h: 1.95, sizing: { type: "cover", w: cardW, h: 1.95 } }); dark(s, x, cy, cardW, 1.95, 18); }
+    else { s.addShape(p.shapes.RECTANGLE, { x, y: cy, w: cardW, h: 1.95, fill: { color: C.bg2 } }); }
+    const yr = (c.title.match(/(\d{4})/) || [])[1] || "";
+    s.addText(yr, { x, y: cy + 2.05, w: cardW, h: 0.5, margin: 0, fontFace: F.serif, fontSize: 22, color: C.mag });
+    const k = (c.kpis || [])[0];
+    if (k) {
+      s.addText(String(k.value), { x, y: cy + 2.62, w: cardW, h: 0.4, margin: 0, fontFace: F.serif, fontSize: 15, color: C.w, fit: "shrink" });
+      s.addText(String(k.label).toUpperCase(), { x, y: cy + 3.02, w: cardW, h: 0.35, margin: 0, fontFace: F.mono, fontSize: 7.5, color: C.mut, charSpacing: 0.5 });
+    }
+  });
+  footer(s); pageNum(s, pg++);
+
+  // MORE CLIENT WORK — breadth grid
+  s = p.addSlide(); s.background = { color: C.bg };
+  kicker(s, "MORE CLIENT WORK", 0.7, 0.7, C.blue);
+  s.addText([{ text: "A deeper ", options: { color: C.w } }, { text: "bench.", options: { color: C.lime } }], { x: 0.66, y: 1.12, w: 11.5, h: 0.9, margin: 0, fontFace: F.serif, fontSize: 30 });
+  s.addText("Selected from 150+ events — activations, mixers, hackathons and roadshows across the region.", { x: 0.7, y: 2.05, w: 11.8, h: 0.6, margin: 0, fontFace: F.body, fontSize: 14, color: C.mut, lineSpacingMultiple: 1.3 });
+  moreFinal.slice(0, 5).forEach((c, i) => {
+    const cardW = 2.15, x = 0.7 + i * (cardW + 0.235), cy = 3.05, acc = ACC[c.accent] || C.lime;
+    const hImg = heroBy[c.sanitySlug];
+    if (hImg) { s.addImage({ path: hImg, x, y: cy, w: cardW, h: 1.7, sizing: { type: "cover", w: cardW, h: 1.7 } }); dark(s, x, cy, cardW, 1.7, 22); }
+    else { s.addShape(p.shapes.RECTANGLE, { x, y: cy, w: cardW, h: 1.7, fill: { color: C.bg2 } }); }
+    s.addText(c.title, { x, y: cy + 1.82, w: cardW, h: 0.68, margin: 0, fontFace: F.serif, fontSize: 12.5, color: C.w, lineSpacingMultiple: 0.95, fit: "shrink" });
+    s.addText((SCOPE[c.scope] || "Web3 Event").toUpperCase(), { x, y: cy + 2.5, w: cardW, h: 0.28, margin: 0, fontFace: F.mono, fontSize: 7, color: acc, charSpacing: 1 });
+    const k = (c.kpis || [])[0];
+    if (k) s.addText(String(k.value) + "  ·  " + String(k.label), { x, y: cy + 2.82, w: cardW, h: 0.35, margin: 0, fontFace: F.mono, fontSize: 7.5, color: C.mut, fit: "shrink" });
+  });
+  footer(s); pageNum(s, pg++);
 
   // CLIENTS & OPERATING AT
   s = p.addSlide(); s.background = { color: C.bg };
   kicker(s, "CLIENTS & PARTNERS", 0.7, 0.7);
-  ["Polygon", "Sahara AI", "Hashed", "TV Chosun", "Hashkey", "AlchemyPay", "WEMIX", "AEON Protocol", "Solana", "Open Ledger", "Bitgo", "Glosfer"].forEach((cl, i) => {
-    const col = i % 4, row = Math.floor(i / 4), x = 0.7 + col * 3.1, y = 1.25 + row * 0.92;
-    s.addShape(p.shapes.RECTANGLE, { x, y, w: 2.98, h: 0.8, fill: { color: C.bg2 }, line: { color: C.line, width: 0.75 } });
-    s.addText(cl.toUpperCase(), { x, y, w: 2.98, h: 0.8, margin: 0, align: "center", valign: "middle", fontFace: F.mono, fontSize: 12.5, color: C.w, charSpacing: 1 });
+  ["Polygon", "Sahara AI", "BitGo", "Gensyn", "Hashed", "TV Chosun", "Hashkey", "TokenPost", "WEMIX", "AEON Protocol", "Solana", "Glosfer"].forEach((cl, i) => {
+    const col = i % 4, row = Math.floor(i / 4), x = 0.7 + col * 3.1, y = 1.2 + row * 0.86;
+    s.addShape(p.shapes.RECTANGLE, { x, y, w: 2.98, h: 0.74, fill: { color: C.bg2 }, line: { color: C.line, width: 0.75 } });
+    s.addText(cl.toUpperCase(), { x, y, w: 2.98, h: 0.74, margin: 0, align: "center", valign: "middle", fontFace: F.mono, fontSize: 12.5, color: C.w, charSpacing: 1 });
   });
-  kicker(s, "OPERATING AT", 0.7, 4.65, C.mag);
-  const ev = ["Korea Blockchain Week", "TOKEN2049", "Seoul Meta Week", "Aggregation Summit", "Polygon Connect", "Consensus Asia", "EthDenver", "DevCon"];
-  s.addText(ev.map((e, i) => ({ text: e + (i < ev.length - 1 ? "   ✳   " : ""), options: { color: i % 2 ? C.w : C.lime } })), { x: 0.66, y: 5.15, w: 12, h: 1.6, margin: 0, fontFace: F.serif, italic: true, fontSize: 26, lineSpacingMultiple: 1.15 });
+  // KBW official partnership — headline credential
+  kicker(s, "OFFICIAL PARTNER", 0.7, 4.35, C.lime);
+  s.addText([{ text: "Korea Blockchain Week ", options: { color: C.lime } }, { text: "— official partner since 2023.", options: { color: C.w } }], { x: 0.66, y: 4.68, w: 12, h: 0.7, margin: 0, fontFace: F.serif, italic: true, fontSize: 28 });
+  kicker(s, "ALSO OPERATING AT", 0.7, 5.65, C.mag);
+  const ev = ["TOKEN2049", "Seoul Meta Week", "Aggregation Summit", "Polygon Connect", "Consensus Asia", "EthDenver", "DevCon"];
+  s.addText(ev.map((e, i) => ({ text: e + (i < ev.length - 1 ? "   ✳   " : ""), options: { color: i % 2 ? C.w : C.mag } })), { x: 0.66, y: 5.98, w: 12, h: 1.0, margin: 0, fontFace: F.serif, italic: true, fontSize: 20, lineSpacingMultiple: 1.1 });
   footer(s); pageNum(s, pg++);
 
   // CONTACT
@@ -162,5 +194,5 @@ const W = 13.333, H = 7.5;
 
   fs.mkdirSync(path.join(ROOT, "deck"), { recursive: true });
   await p.writeFile({ fileName: path.join(ROOT, "deck", "PROOF-Portfolio-2026.pptx") });
-  console.log(`Deck written — ${cases.length} case slides from proof-cases.json + Sanity images.`);
+  console.log(`Deck written — ${heroes.length} hero cases + ${owned.length} owned + ${moreFinal.length} more (of ${allCases.length} total) from proof-cases.json + Sanity images.`);
 })();
