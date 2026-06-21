@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="robots" content="noindex, nofollow">
+<title>PROOF — Portfolio 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+<style>
+:root{--bg:#151515;--bg2:#1F1F1F;--w:#F4F1EC;--mut:#9A9A9A;--line:#3A3A3A;--lime:#D6FF3F;--mag:#FF3D9A;--blue:#5B8CFF;--fn:'Fraunces',Georgia,serif;--fm:'IBM Plex Mono',monospace;--fb:'Manrope',system-ui,sans-serif}
+html,body{background:var(--bg)}
+.reveal{font-family:var(--fb);color:var(--w);font-weight:400}
+.reveal .slides{text-align:left}
+.reveal .slides section{padding:54px 60px;box-sizing:border-box;height:100%;inset:0}
+.reveal h1,.reveal h2,.reveal h3{font-family:var(--fn);font-weight:600;color:var(--w);text-transform:none;margin:0;letter-spacing:-.01em;line-height:1.0}
+.reveal p{margin:0}
+.lime{color:var(--lime)}.mag{color:var(--mag)}.blue{color:var(--blue)}
+.kicker{font-family:var(--fm);font-size:15px;letter-spacing:.18em;text-transform:uppercase;margin:0 0 18px}
+.sv{font-family:var(--fn);font-weight:600}.sl{font-family:var(--fm);font-size:12px;color:var(--mut);letter-spacing:.08em;margin-top:4px}
+/* COVER */
+.cover{background-size:cover;background-position:center}
+.cover .cover-veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,.78),rgba(10,10,10,.45))}
+.cover-in{position:relative}
+.cover .brand{font-family:var(--fn);font-weight:600;font-size:30px;letter-spacing:.08em}
+.cover h1{font-family:var(--fn);font-style:italic;font-weight:600;font-size:78px;line-height:.98;margin-top:170px}
+.cover .cover-foot{font-family:var(--fm);font-size:15px;color:var(--mut);position:absolute;bottom:-150px}
+.cover .kicker{margin-top:150px;margin-bottom:10px}
+.contact h1{font-size:62px;font-style:normal;margin-top:18px}
+.contact .kicker{margin-top:0}
+.contactlines{font-family:var(--fm);font-size:21px;line-height:2;margin-top:40px}
+.contact .cover-foot{font-family:var(--fm);font-size:13px;color:#CFCBC4;bottom:46px}
+/* STD slides */
+.std .big{font-size:46px;margin-bottom:24px;max-width:1050px}
+.lede{font-size:21px;line-height:1.45;color:var(--w);max-width:760px}.lede.wide{max-width:1040px;color:var(--mut)}
+.who .side{position:absolute;right:0;top:0;width:34%;height:100%;background-image:var(--side);background-size:cover;background-position:center}
+.who .side:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg),rgba(21,21,21,.25))}
+.who .big{font-size:40px;max-width:62%}
+.badge{display:inline-block;font-family:var(--fm);font-size:13px;letter-spacing:.12em;color:var(--lime);border:1px solid var(--lime);border-radius:7px;padding:9px 16px;margin:6px 0 22px}
+.who .lede{max-width:60%;font-size:18px}
+.whostats{display:flex;gap:48px;margin-top:34px}
+.whostats .sv{font-size:42px}
+/* WHAT grid */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:30px;height:62%}
+.card{position:relative;border-radius:4px;overflow:hidden;background-size:cover;background-position:center;display:flex;align-items:flex-end}
+.card-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,14,14,.25),rgba(14,14,14,.86))}
+.card .cn{position:absolute;top:16px;left:18px;font-family:var(--fm);color:var(--lime);font-size:15px;z-index:2}
+.card-tx{position:relative;padding:20px;z-index:2}.card-tx h3{font-size:23px;margin-bottom:8px}.card-tx p{font-size:14px;color:#D9D5CE;line-height:1.35}
+/* WHY pillars */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:54px;max-width:1080px}
+.pillar .tick{display:block;width:34px;height:4px;border-radius:2px;margin-bottom:18px}
+.pillar h3{font-size:27px;margin-bottom:12px}.pillar p{font-size:16px;color:var(--mut);line-height:1.45}
+/* CONTENTS */
+.contents{display:grid;grid-template-columns:1fr 1fr;gap:50px;margin-top:30px}
+.colhead{font-family:var(--fm);font-size:13px;letter-spacing:.16em;color:var(--mut);margin-bottom:22px}
+.crow{display:flex;gap:18px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
+.cn2{font-family:var(--fm);font-size:19px}.ct{font-family:var(--fn);font-size:24px}.cs{font-family:var(--fm);font-size:12px;color:var(--mut);letter-spacing:.08em;margin-top:4px}
+.alsoh{font-size:24px;margin-top:6px}.alsop{font-family:var(--fm);font-size:15px;color:var(--mut);line-height:1.7;margin:8px 0 26px}.alsop.mag{color:var(--mag)}
+/* CASE */
+.reveal .slides section.case{padding:0}
+.case-img{position:absolute;left:0;top:0;width:52%;height:100%;background-size:cover;background-position:center}
+.case-img:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,14,14,.35),rgba(21,21,21,.65) 88%,var(--bg))}
+.case-img.noimg{background:var(--bg2)}
+.case-tag{position:absolute;left:34px;bottom:30px;font-family:var(--fm);font-size:15px;color:var(--mut);z-index:3}.case-tag b{color:var(--w);font-weight:400}
+.case-body{position:absolute;left:55%;right:4.5%;top:13%}
+.case-body h2{font-size:40px;margin:0 0 14px}
+.meta{font-family:var(--fm);font-size:13px;color:var(--mut);letter-spacing:.06em;margin-bottom:18px}
+.summary{font-size:18px;line-height:1.45;color:var(--w);max-width:560px}
+.stats{display:flex;gap:34px;margin:30px 0 4px}
+.stats .sv{font-size:30px}
+.scopelabel{font-family:var(--fm);font-size:12px;letter-spacing:.18em;margin:20px 0 6px}
+.scopeitems{font-family:var(--fm);font-size:13px;color:var(--mut)}
+.quote{font-family:var(--fn);font-style:italic;font-size:17px;color:#E6E2DB;margin-top:20px;max-width:560px;line-height:1.35}
+/* STRIP (owned + more) */
+.strip{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:34px}
+.simg{height:150px;border-radius:4px;background-size:cover;background-position:center;background-color:var(--bg2)}.simg.noimg{background:var(--bg2)}
+.syr{font-family:var(--fn);font-size:30px;margin-top:14px}.scard .sv{font-size:20px;margin-top:4px}
+.mt{font-family:var(--fn);font-size:18px;margin-top:14px;line-height:1.1}.ms{font-family:var(--fm);font-size:11px;letter-spacing:.08em;margin-top:8px}.mk{font-family:var(--fm);font-size:12px;color:var(--mut);margin-top:5px}
+/* CLIENTS */
+.logos{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:10px 0 40px}
+.logo{border:1px solid var(--line);background:var(--bg2);border-radius:4px;text-align:center;padding:20px 0;font-family:var(--fm);font-size:15px;letter-spacing:.08em}
+.kbw{font-family:var(--fn);font-style:italic;font-size:33px;margin:6px 0 30px}
+.opat{font-family:var(--fn);font-style:italic;font-size:25px;line-height:1.4}.opat i{color:var(--mag);font-style:normal;margin:0 14px;font-size:18px}.opat .w{color:var(--w)}.opat .mag{color:var(--mag)}
+/* footer brand */
+.reveal .slides section.std:after,.reveal .slides section.case:after{content:"PROOF · BY CHRIS & PARTNERS";position:absolute;left:60px;bottom:24px;font-family:var(--fm);font-size:12px;letter-spacing:.1em;color:var(--mut)}
+.reveal .slides section.case:after{left:34px;display:none}
+.reveal .progress{color:var(--lime)}
+.reveal .controls{color:var(--lime)}
+@media(max-width:700px){.reveal .slides section{padding:30px 26px}.who .side{display:none}.who .big,.who .lede{max-width:100%}.case-img{position:relative;width:100%;height:200px}.case-body{position:relative;left:0;right:0;top:0;padding:24px 26px}.grid4,.strip,.contents,.pillars,.logos{grid-template-columns:1fr;height:auto}.stats{flex-wrap:wrap;gap:20px}}
+</style>
+</head>
+<body>
+<div class="reveal"><div class="slides">
+<section class="cover" style="background-image:url('/images/hero.jpeg')">
+  <div class="cover-veil"></div>
+  <div class="cover-in">
+    <p class="brand">PROOF</p>
+    <p class="kicker" style="color:var(--lime)">WEB3 EVENT AGENCY  ·  BY CHRIS &amp; PARTNERS  ·  SEOUL</p>
+    <h1>Global Stages.<br><em class="lime">Proven</em> Execution.</h1>
+    <p class="cover-foot">Portfolio  ·  2026</p>
+  </div>
+</section>
+<section class="std who" style="--side:url('/images/about.jpg')">
+  <div class="side"></div>
+  <p class="kicker" style="color:var(--lime)">01 — WHO WE ARE</p>
+  <h2 class="big">A Web3 event agency,<br><span class="lime">built by Chris &amp; Partners.</span></h2>
+  <p class="badge">★ OFFICIAL PARTNER · KOREA BLOCKCHAIN WEEK · SINCE 2023</p>
+  <p class="lede">PROOF is the Web3 event agency of Chris &amp; Partners — a Seoul-based professional organizer with 15 years of international operations. Global projects hand us the brief; we deliver the event — side party, VIP reception, sponsor activation or full conference — from Seoul to Bangkok to Singapore. We know the venues, the vendors and the variables before you brief us.</p>
+  <div class="whostats">
+    <div><div class="sv lime">150+</div><div class="sl">EVENTS ORGANIZED</div></div><div><div class="sv lime">15yr</div><div class="sl">PCO TRACK RECORD</div></div><div><div class="sv lime">Global</div><div class="sl">EVENT OPERATIONS</div></div><div><div class="sv lime">Seoul</div><div class="sl">HEADQUARTERS</div></div>
+  </div>
+</section>
+<section class="std">
+  <p class="kicker" style="color:var(--lime)">02 — WHAT WE DO</p>
+  <h2 class="big">What we do.</h2>
+  <div class="grid4">
+    <div class="card" style="background-image:url('/images/expertise-01.jpg')"><div class="card-veil"></div><span class="cn">01</span><div class="card-tx"><h3>Conferences &amp; Summits</h3><p>Owned summits and full conference production for clients.</p></div></div><div class="card" style="background-image:url('/images/expertise-02.jpg')"><div class="card-veil"></div><span class="cn">02</span><div class="card-tx"><h3>Side Events &amp; Activations</h3><p>TOKEN2049, KBW, Polygon. Venue, branding, AV, on-site staffing.</p></div></div><div class="card" style="background-image:url('/images/expertise-03.jpg')"><div class="card-veil"></div><span class="cn">03</span><div class="card-tx"><h3>Private Dinners &amp; VIP</h3><p>Curated events for investor relations and partnerships.</p></div></div><div class="card" style="background-image:url('/images/expertise-04.jpg')"><div class="card-veil"></div><span class="cn">04</span><div class="card-tx"><h3>Korea Market Entry</h3><p>Full PCO for global Web3 projects entering Korea.</p></div></div>
+  </div>
+</section>
+<section class="std">
+  <p class="kicker" style="color:var(--lime)">03 — WHY PROOF</p>
+  <h2 class="big">Global teams land for the one week <span class="lime">that matters</span> — with no ground game.</h2>
+  <p class="lede wide">Seoul, Singapore, Bangkok — the rooms book out, the vendors are spoken for, and the calendar doesn't move. PROOF is the operator that's already there: 150+ events across the region, the venues and suppliers on speed-dial, and the failure points mapped before you brief us.</p>
+  <div class="pillars">
+    <div class="pillar"><span class="tick" style="background:var(--lime)"></span><h3>Local ground ops</h3><p>Venues, vendors and crew secured in markets you don't operate in.</p></div><div class="pillar"><span class="tick" style="background:var(--mag)"></span><h3>Client-first</h3><p>Your brief, your brand — from a VIP dinner to a full conference.</p></div><div class="pillar"><span class="tick" style="background:var(--blue)"></span><h3>End to end</h3><p>Brief to on-site — run-of-show, AV, staffing, the variables.</p></div>
+  </div>
+</section>
+<section class="std">
+  <p class="kicker" style="color:var(--lime)">SELECTED WORK</p>
+  <h2 class="big">14 events. <span class="lime">Four in depth.</span></h2>
+  <div class="contents">
+    <div class="col">
+      <p class="colhead">IN DEPTH</p>
+      <div class="crow"><span class="cn2" style="color:var(--lime)">01</span><div><div class="ct">Sahara AI Connect Party 2025</div><div class="cs">SIDE EVENT</div></div></div><div class="crow"><span class="cn2" style="color:var(--lime)">02</span><div><div class="ct">Aggregation Summit 2024</div><div class="cs">CONFERENCE PRODUCTION</div></div></div><div class="crow"><span class="cn2" style="color:var(--blue)">03</span><div><div class="ct">Polygon Connect Korea</div><div class="cs">KOREA MARKET ENTRY</div></div></div><div class="crow"><span class="cn2" style="color:var(--lime)">04</span><div><div class="ct">BitGo VIP Networking Reception</div><div class="cs">INVESTOR DINNER</div></div></div>
+    </div>
+    <div class="col">
+      <p class="colhead">ALSO INSIDE</p>
+      <h3 class="alsoh">Owned flagship</h3>
+      <p class="alsop mag">Seoul Meta Week — 5 editions, 2021–2025</p>
+      <h3 class="alsoh">More client work</h3>
+      <p class="alsop">IXO — Web3 Roadshow Series   ·   Gensyn — ai(RL) Seoul   ·   Polygon IGNITE   ·   HYCONHACKS   ·   Blockchain Partners Summit 2018</p>
+    </div>
+  </div>
+</section>
+<section class="case">
+  <div class="case-img" style="background-image:url('https://cdn.sanity.io/images/x6yzy771/production/eea2ad0dc8ad45ead9e1aa1b7caca86c1361e969-2560x1703.jpg?w=1600&auto=format&fit=max')"></div>
+  <div class="case-tag"><b>CASE</b> <span style="color:var(--lime)">01</span> / 04</div>
+  <div class="case-body">
+    <p class="kicker" style="color:var(--lime)">SIDE EVENT</p>
+    <h2>Sahara AI Connect Party 2025</h2>
+    <p class="meta">SAHARA AI  ·  SEBIT ISLAND CONVENTION HALL, SEOUL</p>
+    <p class="summary">The opening-night party of Korea Blockchain Week 2025 for Sahara AI — a 1,000-guest global networking event on Seoul's Sebit Island, produced end to end by PROOF.</p>
+    <div class="stats"><div class="stat"><div class="sv" style="color:var(--lime)">1,000</div><div class="sl">GUESTS</div></div><div class="stat"><div class="sv" style="color:var(--lime)">KBW 2025</div><div class="sl">OPENING NIGHT</div></div><div class="stat"><div class="sv" style="color:var(--lime)">Sep 2025</div><div class="sl">SEBIT ISLAND</div></div></div>
+    <p class="scopelabel" style="color:var(--lime)">SCOPE</p><p class="scopeitems">Venue &amp; production   ·   Run-of-show &amp; pacing   ·   AV, staging &amp; lighting   ·   On-site staffing</p>
+    <p class="quote">“Three global partners told us it was the best event of the week. That doesn't happen by luck.”</p>
+  </div>
+</section>
+<section class="case">
+  <div class="case-img" style="background-image:url('https://cdn.sanity.io/images/x6yzy771/production/9431b988cf3bc588f9ee91a23d3e8bbd51d86d5b-2379x1295.jpg?w=1600&auto=format&fit=max')"></div>
+  <div class="case-tag"><b>CASE</b> <span style="color:var(--lime)">02</span> / 04</div>
+  <div class="case-body">
+    <p class="kicker" style="color:var(--lime)">CONFERENCE PRODUCTION</p>
+    <h2>Aggregation Summit 2024</h2>
+    <p class="meta">TRUE DIGITAL PARK WEST, BANGKOK</p>
+    <p class="summary">A 1,000+ attendee flagship Web3 summit in Bangkok — PROOF ran it end to end as the APAC event agency, from planning to on-site, across 50+ concurrent programs.</p>
+    <div class="stats"><div class="stat"><div class="sv" style="color:var(--lime)">1,000+</div><div class="sl">ATTENDEES</div></div><div class="stat"><div class="sv" style="color:var(--lime)">50+</div><div class="sl">PROGRAMS</div></div><div class="stat"><div class="sv" style="color:var(--lime)">2 days</div><div class="sl">BANGKOK</div></div></div>
+    <p class="scopelabel" style="color:var(--lime)">SCOPE</p><p class="scopeitems">Full event production   ·   Multi-track program ops   ·   Sponsor &amp; partner booths   ·   Experience programming</p>
+    
+  </div>
+</section>
+<section class="case">
+  <div class="case-img" style="background-image:url('https://cdn.sanity.io/images/x6yzy771/production/39de005bcab2e27057ad08cc98c5419f5922fb77-2560x1920.jpg?w=1600&auto=format&fit=max')"></div>
+  <div class="case-tag"><b>CASE</b> <span style="color:var(--blue)">03</span> / 04</div>
+  <div class="case-body">
+    <p class="kicker" style="color:var(--blue)">KOREA MARKET ENTRY</p>
+    <h2>Polygon Connect Korea</h2>
+    <p class="meta">POLYGON / HASHED  ·  TEXTILE CENTER EVENT HALL, SEOUL</p>
+    <p class="summary">Polygon's Korea market-entry event, co-hosted with Hashed — sessions, business networking and a hip after-party for ~500 on-site guests.</p>
+    <div class="stats"><div class="stat"><div class="sv" style="color:var(--blue)">~500</div><div class="sl">ON-SITE GUESTS</div></div><div class="stat"><div class="sv" style="color:var(--blue)">Polygon × Hashed</div><div class="sl">CO-HOSTED</div></div><div class="stat"><div class="sv" style="color:var(--blue)">Aug 2022</div><div class="sl">SEOUL</div></div></div>
+    <p class="scopelabel" style="color:var(--blue)">SCOPE</p><p class="scopeitems">Corporate event planning   ·   Hybrid event operation   ·   Venue build &amp; atmosphere   ·   Networking after-party</p>
+    
+  </div>
+</section>
+<section class="case">
+  <div class="case-img" style="background-image:url('https://cdn.sanity.io/images/x6yzy771/production/08d9982ea037f71b6ac3adfeaf19a2c548a4d447-1920x1080.jpg?w=1600&auto=format&fit=max')"></div>
+  <div class="case-tag"><b>CASE</b> <span style="color:var(--lime)">04</span> / 04</div>
+  <div class="case-body">
+    <p class="kicker" style="color:var(--lime)">INVESTOR DINNER</p>
+    <h2>BitGo VIP Networking Reception</h2>
+    <p class="meta">BITGO / FACTBLOCK  ·  RAUM, SEOUL</p>
+    <p class="summary">A private VIP reception hosted by digital-asset custody leader BitGo during Korea Blockchain Week 2023 — premium networking in Raum's chandelier ballroom, produced by PROOF.</p>
+    <div class="stats"><div class="stat"><div class="sv" style="color:var(--lime)">KBW 2023</div><div class="sl">DURING</div></div><div class="stat"><div class="sv" style="color:var(--lime)">VIP</div><div class="sl">INVITE-ONLY</div></div><div class="stat"><div class="sv" style="color:var(--lime)">BitGo × FACTBLOCK</div><div class="sl">CO-HOSTED</div></div></div>
+    <p class="scopelabel" style="color:var(--lime)">SCOPE</p><p class="scopeitems">Venue build &amp; styling   ·   Production &amp; direction   ·   Catering &amp; hospitality   ·   On-site operations</p>
+    
+  </div>
+</section>
+<section class="std">
+  <p class="kicker" style="color:var(--mag)">OUR OWN FLAGSHIP</p>
+  <h2 class="big">We don't only run clients' events — <span class="mag">we built our own.</span></h2>
+  <p class="lede wide">Seoul Meta Week — 5 editions, 2021–2025. Proof we can produce and scale a 1,500-person summit end to end, not just a side event.</p>
+  <div class="strip">
+    <div class="scard"><div class="simg" style="background-image:url('https://cdn.sanity.io/images/x6yzy771/production/b220293ee711f3637f2c8a4f6572175687e2501e-2560x1707.jpg?w=1600&auto=format&fit=max')"></div><div class="syr mag">2025</div><div class="sv">1,500+</div><div class="sl">ATTENDEES</div></div><div class="scard"><div class="simg" style="background-image:url('https://cdn.sanity.io/images/x6yzy771/production/f7660befb521a85ec19ba13747df78143eb2c561-2560x1706.jpg?w=1600&auto=format&fit=max')"></div><div class="syr mag">2024</div><div class="sv">1,500+</div><div class="sl">ATTENDEES</div></div><div class="scard"><div class="simg" style="background-image:url('https://cdn.sanity.io/images/x6yzy771/production/963627ea0f05013b112f813db3cdb46d16a3ecc5-2560x1707.jpg?w=1600&auto=format&fit=max')"></div><div class="syr mag">2023</div><div class="sv">1,500+</div><div class="sl">ATTENDEES</div></div><div class="scard"><div class="simg" style="background-image:url('https://cdn.sanity.io/images/x6yzy771/production/a37dd6aba960110ca8b6eb26d771bb485775de3b-2560x1703.jpg?w=1600&auto=format&fit=max')"></div><div class="syr mag">2022</div><div class="sv">~1,000</div><div class="sl">ATTENDEES</div></div><div class="scard"><div class="simg" style="background-image:url('https://cdn.sanity.io/images/x6yzy771/production/76fff8dc8d6a07bbc5c2ce156921283ed6f5615a-2560x1707.jpg?w=1600&auto=format&fit=max')"></div><div class="syr mag">2021</div><div class="sv">12,000</div><div class="sl">VIEWS</div></div>
+  </div>
+</section>
+<section class="std">
+  <p class="kicker" style="color:var(--blue)">MORE CLIENT WORK</p>
+  <h2 class="big">A deeper <span class="lime">bench.</span></h2>
+  <p class="lede wide">Selected from 150+ events — activations, mixers, hackathons and roadshows across the region.</p>
+  <div class="strip">
+    <div class="scard"><div class="simg" style="background-image:url('https://cdn.sanity.io/images/x6yzy771/production/fc83ab92b3ea22c33903d579a749c4c5e4db9743-1280x720.jpg?w=1600&auto=format&fit=max')"></div><div class="mt">IXO — Web3 Roadshow Series</div><div class="ms" style="color:var(--blue)">FULL PRODUCTION</div><div class="mk">5,000+ · Cumulative attendees</div></div><div class="scard"><div class="simg" style="background-image:url('https://cdn.sanity.io/images/x6yzy771/production/77015d505c5dedefa9a3c40b3c81d9d97aa2b50c-2048x1366.jpg?w=1600&auto=format&fit=max')"></div><div class="mt">Gensyn — ai(RL) Seoul</div><div class="ms" style="color:var(--mag)">SIDE EVENT</div><div class="mk">KBW 2025 · During</div></div><div class="scard"><div class="simg" style="background-image:url('https://cdn.sanity.io/images/x6yzy771/production/c16fda47f3b1b7fc60de77fc19b4f20e934aaa01-2560x1707.jpg?w=1600&auto=format&fit=max')"></div><div class="mt">Polygon IGNITE</div><div class="ms" style="color:var(--lime)">ACTIVATION</div><div class="mk">800+ · Guests</div></div><div class="scard"><div class="simg" style="background-image:url('https://cdn.sanity.io/images/x6yzy771/production/28c7f16fb393076036a65e80fdebd8a2541c4c6e-2560x1707.jpg?w=1600&auto=format&fit=max')"></div><div class="mt">HYCONHACKS</div><div class="ms" style="color:var(--mag)">ACTIVATION</div><div class="mk">200+ · Hackers</div></div><div class="scard"><div class="simg" style="background-image:url('https://cdn.sanity.io/images/x6yzy771/production/19ebe98841b04b63d333ad0424bdb64554da960c-2560x1707.jpg?w=1600&auto=format&fit=max')"></div><div class="mt">Blockchain Partners Summit 2018</div><div class="ms" style="color:var(--blue)">CONFERENCE PRODUCTION</div><div class="mk">2018 · Early-era summit</div></div>
+  </div>
+</section>
+<section class="std">
+  <p class="kicker" style="color:var(--lime)">CLIENTS &amp; PARTNERS</p>
+  <div class="logos"><div class="logo">POLYGON</div><div class="logo">SAHARA AI</div><div class="logo">BITGO</div><div class="logo">GENSYN</div><div class="logo">HASHED</div><div class="logo">TV CHOSUN</div><div class="logo">HASHKEY</div><div class="logo">TOKENPOST</div><div class="logo">WEMIX</div><div class="logo">AEON PROTOCOL</div><div class="logo">SOLANA</div><div class="logo">GLOSFER</div></div>
+  <p class="kicker" style="color:var(--lime)">OFFICIAL PARTNER</p>
+  <p class="kbw"><span class="lime">Korea Blockchain Week</span> — official partner since 2023.</p>
+  <p class="kicker" style="color:var(--mag)">ALSO OPERATING AT</p>
+  <p class="opat"><span class="mag">TOKEN2049</span><i>✳</i><span class="w">Seoul Meta Week</span><i>✳</i><span class="mag">Aggregation Summit</span><i>✳</i><span class="w">Polygon Connect</span><i>✳</i><span class="mag">Consensus Asia</span><i>✳</i><span class="w">EthDenver</span><i>✳</i><span class="mag">DevCon</span></p>
+</section>
+<section class="cover contact" style="background-image:url('/images/cta.jpg')">
+  <div class="cover-veil"></div>
+  <div class="cover-in">
+    <p class="kicker" style="color:var(--lime)">LET'S TALK</p>
+    <h1>Take your project to the <span class="lime">world stage.</span></h1>
+    <p class="contactlines"><b>hello@chrisandpartners.co</b><br>+82-2-375-4620<br><span class="lime">proof.chrisandpartners.co</span></p>
+    <p class="cover-foot">PROOF — by Chris &amp; Partners  ·  5F DSM Square, 45 Dokmak-ro 3-gil, Mapo-gu, Seoul</p>
+  </div>
+</section>
+</div></div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+<script>
+Reveal.initialize({width:1280,height:720,margin:0.04,minScale:.2,maxScale:1.6,controls:true,progress:true,hash:true,slideNumber:'c/t',transition:'fade',transitionSpeed:'fast',touch:true});
+</script>
+</body>
+</html>

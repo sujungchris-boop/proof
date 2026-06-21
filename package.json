@@ -7,7 +7,8 @@
   "scripts": {
     "build:cases": "node scripts/build-cases.js",
     "build:deck": "node scripts/build-deck.js",
-    "build": "node scripts/build-cases.js && node scripts/build-deck.js"
+    "build:deck-html": "node scripts/build-deck-html.js",
+    "build": "node scripts/build-cases.js && node scripts/build-deck.js && node scripts/build-deck-html.js"
   },
   "devDependencies": {
     "pptxgenjs": "^3.12.0"
