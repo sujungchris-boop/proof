@@ -163,16 +163,17 @@ function caseSlide(c, i, total) {
   // CLIENTS & PARTNERS
   const logos = ["Polygon", "Sahara AI", "BitGo", "Gensyn", "Hashed", "TV Chosun", "Hashkey", "TokenPost", "WEMIX", "AEON Protocol", "Solana", "Glosfer"];
   const ev = ["TOKEN2049", "Seoul Meta Week", "Aggregation Summit", "Polygon Connect", "Consensus Asia", "EthDenver", "DevCon"];
-  slides.push(`<section class="std">
+  const lacc = { 2: "l", 5: "m", 8: "b" }; // colored cells for energy (site-style)
+  slides.push(`<section class="std clients">
   <div class="hold">
     ${kicker("CLIENTS & PARTNERS")}
-    <div class="logos">${logos.map((l) => `<div class="logo">${esc(l.toUpperCase())}</div>`).join("")}</div>
-    <div class="kbwrow">
-      ${kicker("OFFICIAL PARTNER")}
-      <p class="kbw"><span class="lime">Korea Blockchain Week</span> — official partner since 2023.</p>
-    </div>
-    ${kicker("ALSO OPERATING AT", "var(--mag)")}
-    <p class="opat">${ev.map((e, i) => `<span class="${i % 2 ? "w" : "mag"}">${esc(e)}</span>`).join(`<i>✳</i>`)}</p>
+    <div class="logos">${logos.map((l, i) => `<div class="logo ${lacc[i] || ""}">${esc(l.toUpperCase())}</div>`).join("")}</div>
+    ${kicker("OFFICIAL PARTNER")}
+    <p class="kbw"><span class="lime">Korea Blockchain Week</span> — official partner since 2023.</p>
+  </div>
+  <div class="opatband">
+    <span class="opatlabel">ALSO OPERATING AT</span>
+    <span class="opatrun">${ev.map((e) => esc(e)).join(`<i>✳</i>`)}</span>
   </div>
 </section>`);
 
@@ -207,7 +208,7 @@ function page(slidesHtml) {
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@${REV}/dist/reveal.css">
 <style>
-:root{--bg:#151515;--bg2:#1F1F1F;--w:#F7F4EE;--mut:#9A9A9A;--line:#3A3A3A;--lime:#D6FF3F;--mag:#FF3D9A;--blue:#5B8CFF;--fn:'Fraunces',Georgia,serif;--fm:'IBM Plex Mono',monospace;--fb:'Manrope',system-ui,sans-serif}
+:root{--bg:#121212;--bg2:#1F1F1F;--ink:#0E0E0A;--w:#F7F4EE;--w2:#CBC7BE;--mut:#8F8F8A;--line:#3A3A3A;--lime:#D6FF3F;--mag:#FF3D9A;--blue:#5B8CFF;--fn:'Fraunces',Georgia,serif;--fm:'IBM Plex Mono',monospace;--fb:'Manrope',system-ui,sans-serif}
 html,body{background:var(--bg)}
 .reveal{font-family:var(--fb);color:var(--w);font-weight:400}
 .reveal .slides{text-align:left}
@@ -234,9 +235,9 @@ html,body{background:var(--bg)}
 .contact .contactlines{font-family:var(--fm);font-size:20px;line-height:2;margin-top:34px}
 .contact .cover-foot{color:#CFCBC4;font-size:13px}
 /* STD slides */
-.big{font-size:48px;margin-bottom:22px;max-width:1040px}
-.lede{font-size:20px;line-height:1.5;color:var(--w);max-width:760px}
-.lede.wide{max-width:1020px;color:#C9C5BD}
+.big{font-size:55px;margin-bottom:24px;max-width:1080px;letter-spacing:-.02em}
+.lede{font-size:21px;line-height:1.5;color:var(--w);max-width:780px}
+.lede.wide{max-width:1040px;color:var(--w2)}
 .who .side{position:absolute;right:0;top:0;width:31%;height:100%;background-image:var(--side);background-size:cover;background-position:center}
 .who .side:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg),rgba(21,21,21,.15) 55%,transparent)}
 .who .hold{max-width:64%}
@@ -277,8 +278,8 @@ html,body{background:var(--bg)}
 .case-body h2{font-size:38px;margin:0 0 14px;line-height:1.02}
 .meta{font-family:var(--fm);font-size:12.5px;color:var(--mut);letter-spacing:.06em;margin-bottom:20px}
 .summary{font-size:17.5px;line-height:1.5;color:var(--w);max-width:560px}
-.stats{display:flex;gap:36px;margin:32px 0 0}
-.stats .sv{font-size:29px}
+.stats{display:flex;gap:34px;margin:32px 0 0;padding-top:22px;border-top:1px solid var(--line)}
+.stats .sv{font-size:33px}
 .scopelabel{font-family:var(--fm);font-size:11.5px;letter-spacing:.2em;margin:26px 0 7px}
 .scopeitems{font-family:var(--fm);font-size:13px;color:var(--mut);line-height:1.5}
 .quote{font-family:var(--fn);font-style:italic;font-weight:500;font-size:17px;color:#E6E2DB;margin-top:24px;max-width:560px;line-height:1.4}
@@ -288,13 +289,20 @@ html,body{background:var(--bg)}
 .syr{font-family:var(--fn);font-weight:600;font-size:29px;margin-top:15px}.scard .sv{font-size:19px;margin-top:4px}
 .mt{font-family:var(--fn);font-weight:600;font-size:17px;margin-top:15px;line-height:1.12}.ms{font-family:var(--fm);font-size:10.5px;letter-spacing:.08em;margin-top:9px}.mk{font-family:var(--fm);font-size:11.5px;color:var(--mut);margin-top:6px}
 /* CLIENTS */
-.logos{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:8px 0 0}
-.logo{border:1px solid var(--line);background:var(--bg2);border-radius:5px;text-align:center;padding:21px 0;font-family:var(--fm);font-size:14.5px;letter-spacing:.08em}
-.kbwrow{margin:42px 0 30px}.kbwrow .kicker{margin-bottom:12px}
-.kbw{font-family:var(--fn);font-style:italic;font-weight:600;font-size:32px}
-.opat{font-family:var(--fn);font-style:italic;font-weight:500;font-size:24px;line-height:1.45}.opat i{color:var(--mag);font-style:normal;margin:0 13px;font-size:16px;vertical-align:middle}.opat .w{color:var(--w)}.opat .mag{color:var(--mag)}
+.clients .hold{top:58px;transform:none}
+.logos{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin:6px 0 0}
+.logo{border:1px solid var(--line);background:var(--bg2);border-radius:5px;text-align:center;padding:22px 0;font-family:var(--fm);font-size:14.5px;letter-spacing:.08em;color:var(--w)}
+.logo.l{background:var(--lime);border-color:var(--lime);color:var(--ink)}
+.logo.m{background:var(--mag);border-color:var(--mag);color:#fff}
+.logo.b{background:var(--blue);border-color:var(--blue);color:#fff}
+.clients .kicker{margin:40px 0 12px}
+.kbw{font-family:var(--fn);font-style:italic;font-weight:600;font-size:34px}
+.opatband{position:absolute;left:0;right:0;bottom:0;background:var(--lime);color:var(--ink);padding:17px 64px;display:flex;align-items:baseline;gap:26px;overflow:hidden}
+.opatlabel{font-family:var(--fm);font-weight:500;font-size:12px;letter-spacing:.18em;flex:none}
+.opatrun{font-family:var(--fn);font-style:italic;font-weight:600;font-size:24px;white-space:nowrap}.opatrun i{margin:0 14px;font-style:normal;font-size:15px;opacity:.65}
 /* chrome */
 .reveal .slides section.std:after{content:"PROOF · BY CHRIS & PARTNERS";position:absolute;left:64px;bottom:26px;font-family:var(--fm);font-size:11.5px;letter-spacing:.1em;color:var(--mut)}
+.reveal .slides section.clients:after{display:none}
 .reveal .progress{color:var(--lime);height:3px}
 .reveal .controls{color:var(--lime)}
 .reveal .slide-number{background:transparent;font-family:var(--fm);font-size:12px;color:var(--mut)}
