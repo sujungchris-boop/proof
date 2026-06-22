@@ -61,4 +61,25 @@ async function loadDeck(root) {
 const metaLine = (c) => [c.host, c.location].filter(Boolean).join("  ·  ");
 const year = (c) => (String(c.title).match(/(\d{4})/) || [])[1] || "";
 
-module.exports = { PID, DS, SCOPE, C, ACC, HERO, EXCLUDE, OWNED, MORE_ORDER, OVERRIDE, imgUrl, loadDeck, metaLine, year };
+// PROPOSAL tiers — format-led, budget embedded (deck-only; NOT in proof-cases.json).
+// `acc` is an ACC key (c1=lime, c2=magenta, c3=blue); `proofSlug` resolves a hero image.
+const PACKAGES = [
+  { acc: "c3", name: "Private Dinner & VIP Reception", budget: "$10–25k", scale: "30–120 guests", time: "3–5 weeks",
+    what: "An intimate, invite-only evening that turns key relationships into deals.",
+    inc: ["Curated venue & styling", "F&B & hospitality", "Production & run-of-show", "On-site team"],
+    proof: "BitGo VIP Reception · KBW 2023", proofSlug: "bitgo-vip-networking-reception" },
+  { acc: "c2", name: "Networking Night / Side Party", budget: "$25–50k", scale: "150–350 guests", time: "5–7 weeks",
+    what: "A branded night everyone's talking about — the must-attend mixer of the week.",
+    inc: ["Venue & build-out", "AV, staging & lighting", "Entertainment / DJ", "Branding & staffing"],
+    proof: "Gensyn ai(RL) Seoul · Polygon IGNITE", proofSlug: "gensyn-ai-rl-seoul" },
+  { acc: "c1", name: "Flagship Activation", budget: "$50–100k", scale: "300–800 guests", time: "8–12 weeks",
+    what: "Your headline moment of the conference week — full production, programming, overseas-capable.",
+    inc: ["Marquee venue & full production", "Content & programming", "Sponsor booth (optional)", "Overseas execution & vendors"],
+    proof: "Sahara Connect Party · TOKEN2049", proofSlug: "sahara-ai-connect-party-2025" },
+  { acc: "c1", invert: true, name: "Conference / Summit Production", budget: "$100k+", scale: "1,000+ attendees", time: "3–6 months",
+    what: "A multi-day, multi-track flagship — speakers, exhibition, the full machine.",
+    inc: ["Multi-track program & speakers", "Exhibition & sponsors", "Stage, AV & broadcast", "End-to-end operations"],
+    proof: "Aggregation Summit · Seoul Meta Week", proofSlug: "aggregation-summit-2024" },
+];
+
+module.exports = { PID, DS, SCOPE, C, ACC, HERO, EXCLUDE, OWNED, MORE_ORDER, OVERRIDE, PACKAGES, imgUrl, loadDeck, metaLine, year };

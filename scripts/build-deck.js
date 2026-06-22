@@ -7,7 +7,7 @@ const pptxgen = require("pptxgenjs");
 const fs = require("fs");
 const path = require("path");
 
-const { SCOPE, C, ACC, loadDeck, metaLine } = require("./deck-data");
+const { SCOPE, C, ACC, PACKAGES, loadDeck, metaLine } = require("./deck-data");
 
 const ROOT = path.join(__dirname, "..");
 const IMG = path.join(ROOT, "images") + "/";
@@ -16,6 +16,7 @@ const W = 13.333, H = 7.5;
 
 (async () => {
   const { allCases, heroBy, heroes, owned, moreFinal } = await loadDeck(ROOT);
+  const heroForSlug = (slug) => { const c = allCases.find((x) => x.slug === slug); return c ? heroBy[c.sanitySlug] : null; };
 
   const p = new pptxgen();
   p.defineLayout({ name: "W", width: W, height: H }); p.layout = "W";
@@ -183,6 +184,52 @@ const W = 13.333, H = 7.5;
   const ev = ["TOKEN2049", "Seoul Meta Week", "Aggregation Summit", "Polygon Connect", "Consensus Asia", "EthDenver", "DevCon"];
   s.addText(ev.map((e, i) => ({ text: e + (i < ev.length - 1 ? "   ✳   " : ""), options: { color: i % 2 ? C.w : C.mag } })), { x: 0.66, y: 5.98, w: 12, h: 1.0, margin: 0, fontFace: F.serif, italic: true, fontSize: 20, lineSpacingMultiple: 1.1 });
   footer(s); pageNum(s, pg++);
+
+  // PROPOSAL — format-led tiers (menu + 4 detail), shared PACKAGES
+  const accHex = (k) => ACC[k] || C.lime;
+  s = p.addSlide(); s.background = { color: C.bg };
+  kicker(s, "WORK WITH US", 0.7, 0.7, C.mag);
+  s.addText([{ text: "Four ways to start. ", options: { color: C.w } }, { text: "Pick your moment.", options: { color: C.lime } }], { x: 0.66, y: 1.05, w: 12, h: 0.9, margin: 0, fontFace: F.serif, fontSize: 34 });
+  PACKAGES.forEach((pk, i) => {
+    const cardW = 2.795, x = 0.7 + i * (cardW + 0.25), cy = 2.5, cardH = 3.7, acc = accHex(pk.acc), ink = pk.invert;
+    if (ink) s.addShape(p.shapes.RECTANGLE, { x, y: cy, w: cardW, h: cardH, fill: { color: C.lime } });
+    else { s.addShape(p.shapes.RECTANGLE, { x, y: cy, w: cardW, h: cardH, fill: { color: C.bg2 }, line: { color: C.line, width: 0.75 } }); s.addShape(p.shapes.RECTANGLE, { x, y: cy, w: cardW, h: 0.08, fill: { color: acc } }); }
+    s.addText(pk.name, { x: x + 0.18, y: cy + 0.24, w: cardW - 0.36, h: 0.7, margin: 0, fontFace: F.serif, fontSize: 15, color: ink ? C.ink : C.w, bold: ink });
+    s.addText(pk.budget, { x: x + 0.18, y: cy + 1.0, w: cardW - 0.36, h: 0.6, margin: 0, fontFace: F.serif, fontSize: 24, color: ink ? C.ink : acc, bold: ink });
+    s.addText(pk.scale.toUpperCase(), { x: x + 0.18, y: cy + 1.62, w: cardW - 0.36, h: 0.3, margin: 0, fontFace: F.mono, fontSize: 8.5, color: ink ? C.ink : C.mut });
+    s.addText(pk.what, { x: x + 0.18, y: cy + 2.05, w: cardW - 0.36, h: 1.4, margin: 0, fontFace: F.body, fontSize: 10.5, color: ink ? C.ink : "D9D5CE", lineSpacingMultiple: 1.18 });
+  });
+  s.addText("Indicative ranges (USD) · scoped to your brief · à-la-carte add-ons (after-party · hybrid livestream · content & recap · VIP transport). Overseas markets quoted on request.", { x: 0.7, y: 6.5, w: 12, h: 0.5, margin: 0, fontFace: F.mono, fontSize: 9, color: C.mut });
+  footer(s); pageNum(s, pg++);
+
+  PACKAGES.forEach((pk, i) => {
+    const acc = accHex(pk.acc), img = heroForSlug(pk.proofSlug);
+    const sl = p.addSlide(); sl.background = { color: pk.invert ? C.lime : C.bg };
+    if (pk.invert) {
+      if (img) sl.addImage({ path: img, x: 7.85, y: 0, w: 5.483, h: H, sizing: { type: "cover", w: 5.483, h: H } });
+      kicker(sl, "PROPOSAL · 04 / 04", 0.7, 0.9, C.ink);
+      sl.addText(pk.name, { x: 0.66, y: 1.3, w: 6.7, h: 1.0, margin: 0, fontFace: F.serif, fontSize: 30, color: C.ink, bold: true, lineSpacingMultiple: 0.98 });
+      sl.addText(pk.budget, { x: 0.7, y: 2.45, w: 6.6, h: 0.8, margin: 0, fontFace: F.serif, fontSize: 44, color: C.ink, bold: true });
+      sl.addText(pk.what, { x: 0.7, y: 3.4, w: 6.5, h: 0.8, margin: 0, fontFace: F.body, fontSize: 14, color: C.ink, lineSpacingMultiple: 1.25 });
+      pk.inc.forEach((it, j) => { const iy = 4.35 + j * 0.42; sl.addShape(p.shapes.RECTANGLE, { x: 0.7, y: iy + 0.06, w: 0.12, h: 0.12, fill: { color: C.ink } }); sl.addText(it, { x: 0.98, y: iy, w: 6, h: 0.35, margin: 0, fontFace: F.body, fontSize: 12.5, color: C.ink }); });
+      sl.addText(pk.scale + "  ·  " + pk.time, { x: 0.7, y: 6.25, w: 6.6, h: 0.3, margin: 0, fontFace: F.mono, fontSize: 10, color: C.ink });
+      sl.addText("PROOF — " + pk.proof, { x: 0.7, y: 6.6, w: 6.6, h: 0.3, margin: 0, fontFace: F.mono, fontSize: 10, color: C.ink });
+    } else {
+      if (img) { sl.addImage({ path: img, x: 0, y: 0, w: 6.9, h: H, sizing: { type: "cover", w: 6.9, h: H } }); dark(sl, 0, 0, 6.9, H, 30); dark(sl, 0, H - 1.4, 6.9, 1.4, 12); }
+      else sl.addShape(p.shapes.RECTANGLE, { x: 0, y: 0, w: 6.9, h: H, fill: { color: C.bg2 } });
+      sl.addText([{ text: "PROPOSAL ", options: { color: C.w } }, { text: String(i + 1).padStart(2, "0"), options: { color: acc } }, { text: " / 04", options: { color: C.mut } }], { x: 0.5, y: H - 0.72, w: 3, h: 0.32, margin: 0, fontFace: F.mono, fontSize: 11, charSpacing: 1 });
+      const rx = 7.35, rw = 5.45;
+      kicker(sl, "PROPOSAL · STARTING POINT", rx, 0.85, acc);
+      sl.addText(pk.name, { x: rx - 0.04, y: 1.25, w: rw, h: 1.0, margin: 0, fontFace: F.serif, fontSize: 26, color: C.w, lineSpacingMultiple: 0.98 });
+      sl.addShape(p.shapes.ROUNDED_RECTANGLE, { x: rx, y: 2.5, w: 2.0, h: 0.6, rectRadius: 0.06, fill: { color: acc } });
+      sl.addText(pk.budget, { x: rx, y: 2.5, w: 2.0, h: 0.6, margin: 0, align: "center", valign: "middle", fontFace: F.serif, fontSize: 21, color: pk.acc === "c1" ? C.ink : "FFFFFF", bold: true });
+      sl.addText(pk.what, { x: rx, y: 3.35, w: rw - 0.1, h: 0.9, margin: 0, fontFace: F.body, fontSize: 13, color: C.w, lineSpacingMultiple: 1.25 });
+      pk.inc.forEach((it, j) => { const iy = 4.4 + j * 0.42; sl.addShape(p.shapes.RECTANGLE, { x: rx, y: iy + 0.06, w: 0.12, h: 0.12, fill: { color: acc } }); sl.addText(it, { x: rx + 0.28, y: iy, w: rw - 0.3, h: 0.35, margin: 0, fontFace: F.body, fontSize: 12.5, color: C.w }); });
+      sl.addText(pk.scale + "  ·  " + pk.time, { x: rx, y: 6.2, w: rw, h: 0.3, margin: 0, fontFace: F.mono, fontSize: 10, color: C.mut });
+      sl.addText("PROOF — " + pk.proof, { x: rx, y: 6.55, w: rw, h: 0.3, margin: 0, fontFace: F.mono, fontSize: 10, color: acc });
+    }
+    pageNum(sl, pg++);
+  });
 
   // CONTACT
   s = p.addSlide(); s.background = { color: C.bg };
