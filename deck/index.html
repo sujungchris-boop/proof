@@ -101,6 +101,38 @@ html,body{background:var(--bg)}
 .opatband{position:absolute;left:0;right:0;bottom:0;background:var(--lime);color:var(--ink);padding:17px 64px;display:flex;align-items:baseline;gap:26px;overflow:hidden}
 .opatlabel{font-family:var(--fm);font-weight:500;font-size:12px;letter-spacing:.18em;flex:none}
 .opatrun{font-family:var(--fn);font-style:italic;font-weight:600;font-size:24px;white-space:nowrap}.opatrun i{margin:0 14px;font-style:normal;font-size:15px;opacity:.65}
+/* PACKAGES — menu */
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}
+.pcard{background:var(--bg2);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.pcard .ptop{height:7px}
+.pcard .pin{padding:22px 20px}
+.pname{font-family:var(--fn);font-weight:600;font-size:19px;line-height:1.1;min-height:44px}
+.pbudget{font-family:var(--fn);font-weight:700;font-size:29px;margin:12px 0 5px}
+.pscale{font-family:var(--fm);font-size:11px;letter-spacing:.1em;color:var(--mut)}
+.pone{font-size:13.5px;color:var(--w2);line-height:1.5;margin-top:16px}
+.pcard.pfill{background:var(--lime)}
+.pcard.pfill .pname,.pcard.pfill .pbudget{color:var(--ink)}
+.pcard.pfill .pscale{color:var(--ink);opacity:.65}
+.pcard.pfill .pone{color:var(--ink);opacity:.82}
+.pnote{font-family:var(--fm);font-size:11.5px;color:var(--mut);letter-spacing:.02em;margin-top:24px;line-height:1.6}
+/* PACKAGES — detail (image-left, accent budget block) */
+.case.pkg .budgetblock{display:inline-block;color:#fff;font-family:var(--fn);font-weight:700;font-size:28px;padding:7px 17px;border-radius:6px;margin:2px 0 18px}
+.budgetblock.l{color:var(--ink)}
+.pkgbody .summary{margin-bottom:4px}
+.pkgincl{list-style:none;padding:0;margin:14px 0 0}
+.pkgincl li{font-size:15px;color:var(--w);padding:7px 0 7px 22px;position:relative}
+.pkgincl li:before{content:"";position:absolute;left:0;top:12px;width:9px;height:9px;border-radius:2px;background:var(--a,var(--lime))}
+.pkgmeta{font-family:var(--fm);font-size:12px;color:var(--mut);letter-spacing:.06em;margin-top:20px}
+.pkgproof{font-family:var(--fm);font-size:12px;margin-top:8px;letter-spacing:.04em}
+/* PACKAGES — inverted finale ($100k+) */
+.reveal .slides section.pkg-invert{padding:0;background:var(--lime)}
+.pkg-invert .pi-left{position:absolute;left:64px;right:44%;top:50%;transform:translateY(-50%)}
+.pkg-invert .pi-right{position:absolute;right:0;top:0;width:41%;height:100%;background-size:cover;background-position:center;background-color:#0c0c0c}
+.pkg-invert .pkgh{color:var(--ink);font-size:40px;margin:4px 0 0;line-height:1.02}
+.pkg-invert .ibudget{font-family:var(--fn);font-weight:700;font-size:56px;color:var(--ink);margin:8px 0 14px;letter-spacing:-.02em}
+.pkg-invert .iwhat{font-size:18px;line-height:1.45;color:var(--ink);max-width:500px}
+.pkg-invert .pkgincl.inv li{color:var(--ink)}.pkg-invert .pkgincl.inv li:before{background:var(--ink)}
+.pkg-invert .pkgmeta.inv,.pkg-invert .pkgproof.inv{color:var(--ink);opacity:.78}
 /* chrome */
 .reveal .slides section.std:after{content:"PROOF · BY CHRIS & PARTNERS";position:absolute;left:64px;bottom:26px;font-family:var(--fm);font-size:11.5px;letter-spacing:.1em;color:var(--mut)}
 .reveal .slides section.clients:after{display:none}
@@ -254,6 +286,67 @@ html,body{background:var(--bg)}
     <span class="opatlabel">ALSO OPERATING AT</span>
     <span class="opatrun">TOKEN2049<i>✳</i>Seoul Meta Week<i>✳</i>Aggregation Summit<i>✳</i>Polygon Connect<i>✳</i>Consensus Asia<i>✳</i>EthDenver<i>✳</i>DevCon</span>
   </div>
+</section>
+<section class="std">
+  <div class="hold">
+    <p class="kicker" style="color:var(--mag)">WORK WITH US</p>
+    <h2 class="big">Four ways to start. <span class="lime">Pick your moment.</span></h2>
+    <div class="pgrid">
+      <div class="pcard"><div class="ptop" style="background:var(--blue)"></div><div class="pin"><div class="pname">Private Dinner &amp; VIP Reception</div><div class="pbudget" style="color:var(--blue)">$10–25k</div><div class="pscale">30–120 GUESTS</div><div class="pone">An intimate, invite-only evening that turns key relationships into deals.</div></div></div><div class="pcard"><div class="ptop" style="background:var(--mag)"></div><div class="pin"><div class="pname">Networking Night / Side Party</div><div class="pbudget" style="color:var(--mag)">$25–50k</div><div class="pscale">150–350 GUESTS</div><div class="pone">A branded night everyone's talking about — the must-attend mixer of the week.</div></div></div><div class="pcard"><div class="ptop" style="background:var(--lime)"></div><div class="pin"><div class="pname">Flagship Activation</div><div class="pbudget" style="color:var(--lime)">$50–100k</div><div class="pscale">300–800 GUESTS</div><div class="pone">Your headline moment of the conference week — full production, programming, overseas-capable.</div></div></div><div class="pcard pfill"><div class="pin"><div class="pname">Conference / Summit Production</div><div class="pbudget">$100k+</div><div class="pscale">1,000+ ATTENDEES</div><div class="pone">A multi-day, multi-track flagship — speakers, exhibition, the full machine.</div></div></div>
+    </div>
+    <p class="pnote">Indicative ranges (USD) · scoped to your brief · à-la-carte add-ons (after-party · hybrid livestream · content & recap · VIP transport). Overseas markets quoted on request.</p>
+  </div>
+</section>
+<section class="case pkg" style="--a:var(--blue)">
+  <div class="case-left"><div class="case-mosaic m1"><div class="cg" style="background-image:url('https://cdn.sanity.io/images/x6yzy771/production/08d9982ea037f71b6ac3adfeaf19a2c548a4d447-1920x1080.jpg?w=1600&auto=format&fit=max')"></div></div><div class="case-fade"></div></div>
+  <div class="case-tag"><b>PROPOSAL</b> <span style="color:var(--blue)">01</span> / 04</div>
+  <div class="case-body pkgbody">
+    <p class="kicker" style="color:var(--blue)">PROPOSAL · STARTING POINT</p>
+    <h2>Private Dinner &amp; VIP Reception</h2>
+    <div class="budgetblock b" style="background:var(--blue)">$10–25k</div>
+    <p class="summary">An intimate, invite-only evening that turns key relationships into deals.</p>
+    <ul class="pkgincl"><li>Curated venue &amp; styling</li><li>F&amp;B &amp; hospitality</li><li>Production &amp; run-of-show</li><li>On-site team</li></ul>
+    <p class="pkgmeta">30–120 guests · 3–5 weeks</p>
+    <p class="pkgproof" style="color:var(--blue)">PROOF — BitGo VIP Reception · KBW 2023</p>
+  </div>
+</section>
+<section class="case pkg" style="--a:var(--mag)">
+  <div class="case-left"><div class="case-mosaic m1"><div class="cg" style="background-image:url('https://cdn.sanity.io/images/x6yzy771/production/77015d505c5dedefa9a3c40b3c81d9d97aa2b50c-2048x1366.jpg?w=1600&auto=format&fit=max')"></div></div><div class="case-fade"></div></div>
+  <div class="case-tag"><b>PROPOSAL</b> <span style="color:var(--mag)">02</span> / 04</div>
+  <div class="case-body pkgbody">
+    <p class="kicker" style="color:var(--mag)">PROPOSAL · STARTING POINT</p>
+    <h2>Networking Night / Side Party</h2>
+    <div class="budgetblock m" style="background:var(--mag)">$25–50k</div>
+    <p class="summary">A branded night everyone's talking about — the must-attend mixer of the week.</p>
+    <ul class="pkgincl"><li>Venue &amp; build-out</li><li>AV, staging &amp; lighting</li><li>Entertainment / DJ</li><li>Branding &amp; staffing</li></ul>
+    <p class="pkgmeta">150–350 guests · 5–7 weeks</p>
+    <p class="pkgproof" style="color:var(--mag)">PROOF — Gensyn ai(RL) Seoul · Polygon IGNITE</p>
+  </div>
+</section>
+<section class="case pkg" style="--a:var(--lime)">
+  <div class="case-left"><div class="case-mosaic m1"><div class="cg" style="background-image:url('https://cdn.sanity.io/images/x6yzy771/production/eea2ad0dc8ad45ead9e1aa1b7caca86c1361e969-2560x1703.jpg?w=1600&auto=format&fit=max')"></div></div><div class="case-fade"></div></div>
+  <div class="case-tag"><b>PROPOSAL</b> <span style="color:var(--lime)">03</span> / 04</div>
+  <div class="case-body pkgbody">
+    <p class="kicker" style="color:var(--lime)">PROPOSAL · STARTING POINT</p>
+    <h2>Flagship Activation</h2>
+    <div class="budgetblock l" style="background:var(--lime)">$50–100k</div>
+    <p class="summary">Your headline moment of the conference week — full production, programming, overseas-capable.</p>
+    <ul class="pkgincl"><li>Marquee venue &amp; full production</li><li>Content &amp; programming</li><li>Sponsor booth (optional)</li><li>Overseas execution &amp; vendors</li></ul>
+    <p class="pkgmeta">300–800 guests · 8–12 weeks</p>
+    <p class="pkgproof" style="color:var(--lime)">PROOF — Sahara Connect Party · TOKEN2049</p>
+  </div>
+</section>
+<section class="pkg-invert">
+  <div class="pi-left">
+    <p class="kicker" style="color:rgba(14,14,10,.65)">PROPOSAL · 04 / 04</p>
+    <h2 class="pkgh">Conference / Summit Production</h2>
+    <div class="ibudget">$100k+</div>
+    <p class="iwhat">A multi-day, multi-track flagship — speakers, exhibition, the full machine.</p>
+    <ul class="pkgincl inv"><li>Multi-track program &amp; speakers</li><li>Exhibition &amp; sponsors</li><li>Stage, AV &amp; broadcast</li><li>End-to-end operations</li></ul>
+    <p class="pkgmeta inv">1,000+ attendees · 3–6 months</p>
+    <p class="pkgproof inv">PROOF — Aggregation Summit · Seoul Meta Week</p>
+  </div>
+  <div class="pi-right" style="background-image:url('https://cdn.sanity.io/images/x6yzy771/production/9431b988cf3bc588f9ee91a23d3e8bbd51d86d5b-2379x1295.jpg?w=1600&auto=format&fit=max')"></div>
 </section>
 <section class="cover contact" style="background-image:url('/images/cta.jpg')">
   <div class="cover-veil"></div>

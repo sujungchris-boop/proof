@@ -46,7 +46,8 @@ function caseSlide(c, i, total) {
 }
 
 (async () => {
-  const { heroBy, galleryBy, heroes, owned, moreFinal } = await loadDeck(ROOT);
+  const { allCases, heroBy, galleryBy, heroes, owned, moreFinal } = await loadDeck(ROOT);
+  const heroForSlug = (slug) => { const c = allCases.find((x) => x.slug === slug); return c ? heroBy[c.sanitySlug] : null; };
   const withImg = (c) => ({ ...c, _hero: heroBy[c.sanitySlug] || null, _gallery: galleryBy[c.sanitySlug] || [] });
   const H = heroes.map(withImg), OWN = owned.map(withImg), MORE = moreFinal.map(withImg);
   const shown = H.length + OWN.length + MORE.length;
@@ -177,6 +178,70 @@ function caseSlide(c, i, total) {
   </div>
 </section>`);
 
+  // PROPOSAL — format-led, budget embedded (deck-only copy, NOT in proof-cases.json)
+  const PACKAGES = [
+    { acc: "var(--blue)", cls: "b", name: "Private Dinner & VIP Reception", budget: "$10–25k", scale: "30–120 guests", time: "3–5 weeks",
+      what: "An intimate, invite-only evening that turns key relationships into deals.",
+      inc: ["Curated venue & styling", "F&B & hospitality", "Production & run-of-show", "On-site team"],
+      proof: "BitGo VIP Reception · KBW 2023", img: heroForSlug("bitgo-vip-networking-reception") },
+    { acc: "var(--mag)", cls: "m", name: "Networking Night / Side Party", budget: "$25–50k", scale: "150–350 guests", time: "5–7 weeks",
+      what: "A branded night everyone's talking about — the must-attend mixer of the week.",
+      inc: ["Venue & build-out", "AV, staging & lighting", "Entertainment / DJ", "Branding & staffing"],
+      proof: "Gensyn ai(RL) Seoul · Polygon IGNITE", img: heroForSlug("gensyn-ai-rl-seoul") },
+    { acc: "var(--lime)", cls: "l", name: "Flagship Activation", budget: "$50–100k", scale: "300–800 guests", time: "8–12 weeks",
+      what: "Your headline moment of the conference week — full production, programming, overseas-capable.",
+      inc: ["Marquee venue & full production", "Content & programming", "Sponsor booth (optional)", "Overseas execution & vendors"],
+      proof: "Sahara Connect Party · TOKEN2049", img: heroForSlug("sahara-ai-connect-party-2025") },
+    { acc: "var(--lime)", cls: "invert", name: "Conference / Summit Production", budget: "$100k+", scale: "1,000+ attendees", time: "3–6 months",
+      what: "A multi-day, multi-track flagship — speakers, exhibition, the full machine.",
+      inc: ["Multi-track program & speakers", "Exhibition & sponsors", "Stage, AV & broadcast", "End-to-end operations"],
+      proof: "Aggregation Summit · Seoul Meta Week", img: heroForSlug("aggregation-summit-2024") },
+  ];
+  // menu / overview
+  slides.push(`<section class="std">
+  <div class="hold">
+    ${kicker("WORK WITH US", "var(--mag)")}
+    <h2 class="big">Four ways to start. <span class="lime">Pick your moment.</span></h2>
+    <div class="pgrid">
+      ${PACKAGES.map((pk) => pk.cls === "invert"
+    ? `<div class="pcard pfill"><div class="pin"><div class="pname">${esc(pk.name)}</div><div class="pbudget">${esc(pk.budget)}</div><div class="pscale">${esc(pk.scale.toUpperCase())}</div><div class="pone">${esc(pk.what)}</div></div></div>`
+    : `<div class="pcard"><div class="ptop" style="background:${pk.acc}"></div><div class="pin"><div class="pname">${esc(pk.name)}</div><div class="pbudget" style="color:${pk.acc}">${esc(pk.budget)}</div><div class="pscale">${esc(pk.scale.toUpperCase())}</div><div class="pone">${esc(pk.what)}</div></div></div>`).join("")}
+    </div>
+    <p class="pnote">Indicative ranges (USD) · scoped to your brief · à-la-carte add-ons (after-party · hybrid livestream · content & recap · VIP transport). Overseas markets quoted on request.</p>
+  </div>
+</section>`);
+  // detail slides
+  PACKAGES.forEach((pk, i) => {
+    if (pk.cls === "invert") {
+      slides.push(`<section class="pkg-invert">
+  <div class="pi-left">
+    ${kicker("PROPOSAL · 04 / 04", "rgba(14,14,10,.65)")}
+    <h2 class="pkgh">${esc(pk.name)}</h2>
+    <div class="ibudget">${esc(pk.budget)}</div>
+    <p class="iwhat">${esc(pk.what)}</p>
+    <ul class="pkgincl inv">${pk.inc.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
+    <p class="pkgmeta inv">${esc(pk.scale)} · ${esc(pk.time)}</p>
+    <p class="pkgproof inv">PROOF — ${esc(pk.proof)}</p>
+  </div>
+  <div class="pi-right" ${pk.img ? `style="background-image:url('${pk.img}')"` : ""}></div>
+</section>`);
+    } else {
+      slides.push(`<section class="case pkg" style="--a:${pk.acc}">
+  <div class="case-left"><div class="case-mosaic m1"><div class="cg" ${pk.img ? `style="background-image:url('${pk.img}')"` : `class="noimg"`}></div></div><div class="case-fade"></div></div>
+  <div class="case-tag"><b>PROPOSAL</b> <span style="color:${pk.acc}">${String(i + 1).padStart(2, "0")}</span> / 04</div>
+  <div class="case-body pkgbody">
+    ${kicker("PROPOSAL · STARTING POINT", pk.acc)}
+    <h2>${esc(pk.name)}</h2>
+    <div class="budgetblock ${pk.cls}" style="background:${pk.acc}">${esc(pk.budget)}</div>
+    <p class="summary">${esc(pk.what)}</p>
+    <ul class="pkgincl">${pk.inc.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
+    <p class="pkgmeta">${esc(pk.scale)} · ${esc(pk.time)}</p>
+    <p class="pkgproof" style="color:${pk.acc}">PROOF — ${esc(pk.proof)}</p>
+  </div>
+</section>`);
+    }
+  });
+
   // CONTACT
   slides.push(`<section class="cover contact" style="background-image:url('/images/cta.jpg')">
   <div class="cover-veil"></div>
@@ -300,6 +365,38 @@ html,body{background:var(--bg)}
 .opatband{position:absolute;left:0;right:0;bottom:0;background:var(--lime);color:var(--ink);padding:17px 64px;display:flex;align-items:baseline;gap:26px;overflow:hidden}
 .opatlabel{font-family:var(--fm);font-weight:500;font-size:12px;letter-spacing:.18em;flex:none}
 .opatrun{font-family:var(--fn);font-style:italic;font-weight:600;font-size:24px;white-space:nowrap}.opatrun i{margin:0 14px;font-style:normal;font-size:15px;opacity:.65}
+/* PACKAGES — menu */
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}
+.pcard{background:var(--bg2);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.pcard .ptop{height:7px}
+.pcard .pin{padding:22px 20px}
+.pname{font-family:var(--fn);font-weight:600;font-size:19px;line-height:1.1;min-height:44px}
+.pbudget{font-family:var(--fn);font-weight:700;font-size:29px;margin:12px 0 5px}
+.pscale{font-family:var(--fm);font-size:11px;letter-spacing:.1em;color:var(--mut)}
+.pone{font-size:13.5px;color:var(--w2);line-height:1.5;margin-top:16px}
+.pcard.pfill{background:var(--lime)}
+.pcard.pfill .pname,.pcard.pfill .pbudget{color:var(--ink)}
+.pcard.pfill .pscale{color:var(--ink);opacity:.65}
+.pcard.pfill .pone{color:var(--ink);opacity:.82}
+.pnote{font-family:var(--fm);font-size:11.5px;color:var(--mut);letter-spacing:.02em;margin-top:24px;line-height:1.6}
+/* PACKAGES — detail (image-left, accent budget block) */
+.case.pkg .budgetblock{display:inline-block;color:#fff;font-family:var(--fn);font-weight:700;font-size:28px;padding:7px 17px;border-radius:6px;margin:2px 0 18px}
+.budgetblock.l{color:var(--ink)}
+.pkgbody .summary{margin-bottom:4px}
+.pkgincl{list-style:none;padding:0;margin:14px 0 0}
+.pkgincl li{font-size:15px;color:var(--w);padding:7px 0 7px 22px;position:relative}
+.pkgincl li:before{content:"";position:absolute;left:0;top:12px;width:9px;height:9px;border-radius:2px;background:var(--a,var(--lime))}
+.pkgmeta{font-family:var(--fm);font-size:12px;color:var(--mut);letter-spacing:.06em;margin-top:20px}
+.pkgproof{font-family:var(--fm);font-size:12px;margin-top:8px;letter-spacing:.04em}
+/* PACKAGES — inverted finale ($100k+) */
+.reveal .slides section.pkg-invert{padding:0;background:var(--lime)}
+.pkg-invert .pi-left{position:absolute;left:64px;right:44%;top:50%;transform:translateY(-50%)}
+.pkg-invert .pi-right{position:absolute;right:0;top:0;width:41%;height:100%;background-size:cover;background-position:center;background-color:#0c0c0c}
+.pkg-invert .pkgh{color:var(--ink);font-size:40px;margin:4px 0 0;line-height:1.02}
+.pkg-invert .ibudget{font-family:var(--fn);font-weight:700;font-size:56px;color:var(--ink);margin:8px 0 14px;letter-spacing:-.02em}
+.pkg-invert .iwhat{font-size:18px;line-height:1.45;color:var(--ink);max-width:500px}
+.pkg-invert .pkgincl.inv li{color:var(--ink)}.pkg-invert .pkgincl.inv li:before{background:var(--ink)}
+.pkg-invert .pkgmeta.inv,.pkg-invert .pkgproof.inv{color:var(--ink);opacity:.78}
 /* chrome */
 .reveal .slides section.std:after{content:"PROOF · BY CHRIS & PARTNERS";position:absolute;left:64px;bottom:26px;font-family:var(--fm);font-size:11.5px;letter-spacing:.1em;color:var(--mut)}
 .reveal .slides section.clients:after{display:none}
