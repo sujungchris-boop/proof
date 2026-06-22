@@ -37,11 +37,15 @@ function imgUrl(ref, w) {
   return m ? `https://cdn.sanity.io/images/${PID}/${DS}/${m[1]}-${m[2]}.${m[3]}` + (w ? `?w=${w}&auto=format&fit=max` : "") : null;
 }
 
-// Fetch hero images from Sanity + read + curate proof-cases.json.
+// Fetch hero + gallery images from Sanity + read + curate proof-cases.json.
 async function loadDeck(root) {
-  const res = await fetch(`https://${PID}.apicdn.sanity.io/v2021-10-21/data/query/${DS}?query=${encodeURIComponent('*[_type=="plate" && proof==true]{"slug":slug.current,image}')}`);
-  const heroBy = {};
-  for (const it of (await res.json()).result) heroBy[it.slug] = imgUrl(it.image && it.image.asset && it.image.asset._ref, 1600);
+  const q = '*[_type=="plate" && proof==true]{"slug":slug.current,"img":image.asset._ref,"gallery":gallery[].asset._ref}';
+  const res = await fetch(`https://${PID}.apicdn.sanity.io/v2021-10-21/data/query/${DS}?query=${encodeURIComponent(q)}`);
+  const heroBy = {}, galleryBy = {};
+  for (const it of (await res.json()).result) {
+    heroBy[it.slug] = imgUrl(it.img, 1600);
+    galleryBy[it.slug] = (it.gallery || []).map((r) => imgUrl(r, 1200)).filter(Boolean);
+  }
 
   const allCases = JSON.parse(fs.readFileSync(path.join(root, "cases/proof-cases.json"), "utf8")).sort((a, b) => (a.order || 99) - (b.order || 99));
   const bySlug = (slug) => { const c = allCases.find((x) => x.slug === slug); return c ? { ...c, ...(OVERRIDE[slug] || {}) } : null; };
@@ -51,7 +55,7 @@ async function loadDeck(root) {
   const more = allCases.filter((c) => !HERO.includes(c.slug) && !EXCLUDE.includes(c.slug) && !OWNED.includes(c.slug));
   const moreFinal = [...MORE_ORDER.map(bySlug).filter(Boolean), ...more.filter((c) => !MORE_ORDER.includes(c.slug))];
 
-  return { allCases, heroBy, heroes, owned, moreFinal, bySlug };
+  return { allCases, heroBy, galleryBy, heroes, owned, moreFinal, bySlug };
 }
 
 const metaLine = (c) => [c.host, c.location].filter(Boolean).join("  ·  ");
