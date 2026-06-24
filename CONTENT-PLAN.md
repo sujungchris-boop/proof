@@ -24,7 +24,7 @@ Each post: English-first, design-consistent (`blog/blog.css`), unique title/meta
 - [x] **#1 Korea market-entry playbook** → `blog/korea-web3-market-entry.html` (cornerstone, FAQ schema).
 - [x] **#2 How to run a KBW / Korea Blockchain Week side event** → `blog/kbw-side-event-guide.html` (FAQ schema; internal-links #1).
 - [x] **#3 TOKEN2049 side events: the operator's checklist** → `blog/token2049-side-event-checklist.html` (FAQ schema; internal-links #1/#2).
-- [ ] **#4 Booth vs side event vs dinner: choosing the right Web3 activation** — decision framework; internal-links #2/#3.
+- [x] **#4 Booth vs side event vs dinner: choosing the right Web3 activation** → `blog/choosing-a-web3-activation.html` (decision framework + FAQ schema; internal-links #1/#2/#3).
 - [ ] **#5 Why Seoul is a Web3 hub** — broader awareness piece, links the cluster together; earns links.
 
 ## Measurement
