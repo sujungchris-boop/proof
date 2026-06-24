@@ -26,6 +26,15 @@ Each post: English-first, design-consistent (`blog/blog.css`), unique title/meta
 - [x] **#3 TOKEN2049 side events: the operator's checklist** → `blog/token2049-side-event-checklist.html` (FAQ schema; internal-links #1/#2).
 - [x] **#4 Booth vs side event vs dinner: choosing the right Web3 activation** → `blog/choosing-a-web3-activation.html` (decision framework + FAQ schema; internal-links #1/#2/#3).
 - [ ] **#5 Why Seoul is a Web3 hub** — broader awareness piece, links the cluster together; earns links.
+- [ ] **#6 How to run a Web3 investor dinner that actually converts** — the high-signal format; guest curation, pacing, follow-up. Internal-links #4.
+- [ ] **#7 The Web3 conference booth playbook** — build, staffing, and standing out on a noisy floor. Internal-links #3/#4.
+- [ ] **#8 KBW vs TOKEN2049: where should your Web3 project show up?** — comparison/decision piece. Internal-links #2/#3.
+- [ ] **#9 What a Web3 event really costs** — budget breakdown by format (booth / side event / dinner / activation). Internal-links #4.
+- [ ] **#10 A foreign project's first event in Korea: the venue & vendor guide** — the access problem, solved. Internal-links #1.
+- [ ] **#11 Web3 brand activations that work (and the ones that don't)** — experiential moments with substance. Internal-links #4.
+- [ ] **#12 The post-event playbook: turning a Web3 event into pipeline** — capture and follow-up. Internal-links #2/#6.
+
+> Auto-published biweekly by the `blog-autopublish` scheduled routine (see below). The routine picks the next unchecked item, writes + publishes it, and ticks it here. Keep this list stocked so the routine never runs dry.
 
 ## Measurement
 - Run ads at low budget as a **demand probe** first (cheap — no competition). The Search Terms report tells us which clusters actually get searched → reprioritize this list against real data.
