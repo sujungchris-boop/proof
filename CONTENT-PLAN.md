@@ -25,7 +25,7 @@ Each post: English-first, design-consistent (`blog/blog.css`), unique title/meta
 - [x] **#2 How to run a KBW / Korea Blockchain Week side event** → `blog/kbw-side-event-guide.html` (FAQ schema; internal-links #1).
 - [x] **#3 TOKEN2049 side events: the operator's checklist** → `blog/token2049-side-event-checklist.html` (FAQ schema; internal-links #1/#2).
 - [x] **#4 Booth vs side event vs dinner: choosing the right Web3 activation** → `blog/choosing-a-web3-activation.html` (decision framework + FAQ schema; internal-links #1/#2/#3).
-- [ ] **#5 Why Seoul is a Web3 hub** — broader awareness piece, links the cluster together; earns links.
+- [x] **#5 Why Seoul is a Web3 hub** — broader awareness piece, links the cluster together; earns links. -> blog/why-seoul-is-a-web3-hub.html
 - [ ] **#6 How to run a Web3 investor dinner that actually converts** — the high-signal format; guest curation, pacing, follow-up. Internal-links #4.
 - [ ] **#7 The Web3 conference booth playbook** — build, staffing, and standing out on a noisy floor. Internal-links #3/#4.
 - [ ] **#8 KBW vs TOKEN2049: where should your Web3 project show up?** — comparison/decision piece. Internal-links #2/#3.

@@ -163,6 +163,7 @@ function sitemap(cases) {
     { loc: "/blog/kbw-side-event-guide.html", lm: "2026-06-15", cf: "monthly", pr: "0.8" },
     { loc: "/blog/token2049-side-event-checklist.html", lm: "2026-06-15", cf: "monthly", pr: "0.8" },
     { loc: "/blog/choosing-a-web3-activation.html", lm: "2026-06-24", cf: "monthly", pr: "0.8" },
+    { loc: "/blog/why-seoul-is-a-web3-hub.html", lm: "2026-06-25", cf: "monthly", pr: "0.8" },
     ...cases.map((c) => ({ loc: `/work/${c.slug}.html`, lm: today, cf: "monthly", pr: "0.7" })),
   ];
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url>\n    <loc>${SITE}${u.loc}</loc>\n    <lastmod>${u.lm}</lastmod>\n    <changefreq>${u.cf}</changefreq>\n    <priority>${u.pr}</priority>\n  </url>`).join("\n")}\n</urlset>\n`;
