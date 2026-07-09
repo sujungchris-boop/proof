@@ -168,6 +168,9 @@ function sitemap(cases) {
     { loc: "/blog/seoul-web3-event-venues.html", lm: "2026-06-25", cf: "monthly", pr: "0.9" },
     { loc: "/blog/seoul-web3-venues-by-vibe.html", lm: "2026-06-25", cf: "monthly", pr: "0.8" },
     { loc: "/blog/booking-a-seoul-venue-for-kbw.html", lm: "2026-06-25", cf: "monthly", pr: "0.8" },
+    { loc: "/blog/seoul-neighborhoods-web3-events.html", lm: "2026-06-25", cf: "monthly", pr: "0.8" },
+    { loc: "/blog/unique-seoul-venues-web3-activations.html", lm: "2026-06-25", cf: "monthly", pr: "0.8" },
+    { loc: "/blog/seoul-conference-venues-web3.html", lm: "2026-06-25", cf: "monthly", pr: "0.8" },
     ...cases.map((c) => ({ loc: `/work/${c.slug}.html`, lm: today, cf: "monthly", pr: "0.7" })),
   ];
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url>\n    <loc>${SITE}${u.loc}</loc>\n    <lastmod>${u.lm}</lastmod>\n    <changefreq>${u.cf}</changefreq>\n    <priority>${u.pr}</priority>\n  </url>`).join("\n")}\n</urlset>\n`;

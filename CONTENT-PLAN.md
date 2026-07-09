@@ -34,9 +34,9 @@ Rationale: on the owner's other platforms, **venue content has the highest impre
 - [x] **V1 Seoul venues for a Web3 event (pillar)** — types, neighborhoods, capacity-by-format, real rooms. Cluster hub. -> blog/seoul-web3-event-venues.html
 - [x] **V2 Where to host a KBW side event: Seoul venues by vibe** — party/rooftop/loft/landmark/intimate. Internal-links V1/#2/#6. -> blog/seoul-web3-venues-by-vibe.html
 - [x] **V3 Booking a Seoul venue for KBW: timing, costs & pitfalls** — booking window, cost drivers, mistakes. Internal-links V1/#4/#1. -> blog/booking-a-seoul-venue-for-kbw.html
-- [ ] **V4 Seoul by neighborhood: where to host your Web3 event** — Gangnam / Yeouido / Seongsu / Hannam area guide. Internal-links V1.
-- [ ] **V5 Unique & experiential venues in Seoul for Web3 activations** — landmark/unconventional spaces (Sebit Island etc.). Internal-links V1/#4.
-- [ ] **V6 Conference & summit venues in Seoul (COEX and beyond)** — big-format venue guide. Internal-links V1/#7.
+- [x] **V4 Seoul by neighborhood: where to host your Web3 event** — Gangnam / Yeouido / Seongsu / Hannam / Jamsil area guide. -> blog/seoul-neighborhoods-web3-events.html
+- [x] **V5 Unique & experiential venues in Seoul for Web3 activations** — landmark/unconventional spaces (Sebit Island etc.). -> blog/unique-seoul-venues-web3-activations.html
+- [x] **V6 Conference & summit venues in Seoul (COEX and beyond)** — big-format venue guide. -> blog/seoul-conference-venues-web3.html
 
 - [ ] **#7 The Web3 conference booth playbook** — build, staffing, and standing out on a noisy floor. Internal-links #3/#4.
 - [ ] **#8 KBW vs TOKEN2049: where should your Web3 project show up?** — comparison/decision piece. Internal-links #2/#3.
