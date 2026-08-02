@@ -38,7 +38,7 @@ Rationale: on the owner's other platforms, **venue content has the highest impre
 - [x] **V5 Unique & experiential venues in Seoul for Web3 activations** — landmark/unconventional spaces (Sebit Island etc.). -> blog/unique-seoul-venues-web3-activations.html
 - [x] **V6 Conference & summit venues in Seoul (COEX and beyond)** — big-format venue guide. -> blog/seoul-conference-venues-web3.html
 
-- [ ] **#7 The Web3 conference booth playbook** — build, staffing, and standing out on a noisy floor. Internal-links #3/#4.
+- [x] **#7 The Web3 conference booth playbook** — build, staffing, and standing out on a noisy floor. Internal-links #3/#4. -> blog/web3-conference-booth-playbook.html
 - [ ] **#8 KBW vs TOKEN2049: where should your Web3 project show up?** — comparison/decision piece. Internal-links #2/#3.
 - [ ] **#9 What a Web3 event really costs** — budget breakdown by format (booth / side event / dinner / activation). Internal-links #4.
 - [ ] **#10 A foreign project's first event in Korea: the venue & vendor guide** — the access problem, solved. Internal-links #1.
