@@ -44,6 +44,6 @@ The site already emits everything needed. The remaining work is **inside the GTM
 - [x] Country count claim removed (now qualitative "Global / Event operations").
 
 ## 5. Open items needing the owner's input (do not guess)
-- [ ] **Sahara AI attendee number is inconsistent**: Work card #01 says "1,000명" while the testimonial copy says "2,500 people." Same event. Pick the true figure and make both match (and align with the "1,000+" about-stat).
+- [x] (resolved: card, case page and testimonial all say 1,000) **Sahara AI attendee number was inconsistent**: Work card #01 says "1,000명" while the testimonial copy says "2,500 people." Same event. Pick the true figure and make both match (and align with the "1,000+" about-stat).
 - [ ] **Case KPIs**: add real, verifiable metrics to portfolio cards (attendees / countries / press / partners) — boosts conversion, but only with numbers the team can stand behind.
 - [ ] **EN Web3 SEO blog** (mid-term, compounding): the site is a single static `index.html`. Decide a hosting approach before building — e.g. `/blog/*.html` static pages, or a static-site generator. Not launch-critical; sequence it after ads are live and converting.
