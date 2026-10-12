@@ -9,3 +9,5 @@ dist/
 build-info.json
 ~$*
 .~lock.*
+dev/blog/
+dev/work/
