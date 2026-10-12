@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "installCommand": "echo no-deps-needed",
-  "buildCommand": "node scripts/build-cases.js",
+  "buildCommand": "node scripts/build-cases.js && node scripts/build-dev.js",
   "outputDirectory": "."
 }
