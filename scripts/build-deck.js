@@ -186,7 +186,7 @@ const W = 13.333, H = 7.5;
 
   // CONTACT
   s = p.addSlide(); s.background = { color: C.bg };
-  const closing = heroBy["서울메타위크2025-reimagine-what-is-possible-copy"]; if (closing) { full(s, closing); dark(s, 0, 0, W, H, 28); }
+  const closing = heroBy["seoul-meta-week-2025"]; if (closing) { full(s, closing); dark(s, 0, 0, W, H, 28); }
   kicker(s, "LET'S TALK", 0.72, 1.45);
   s.addText([{ text: "Take your project to the ", options: { color: C.w } }, { text: "world stage.", options: { color: C.lime } }], { x: 0.66, y: 1.85, w: 11.5, h: 2.2, margin: 0, fontFace: F.serif, fontSize: 48, lineSpacingMultiple: 1.0 });
   s.addText([{ text: "hello@chrisandpartners.co", options: { breakLine: true, color: C.w, bold: true } }, { text: "+82-2-375-4620", options: { breakLine: true, color: C.w } }, { text: "proof.chrisandpartners.co", options: { color: C.lime } }], { x: 0.7, y: 4.5, w: 7, h: 1.6, margin: 0, fontFace: F.mono, fontSize: 15, lineSpacingMultiple: 1.5 });
